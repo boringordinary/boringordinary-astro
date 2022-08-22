@@ -1,0 +1,36 @@
+---
+export interface Props {
+	title: string;
+}
+
+const { title } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+
+		<link rel="shortcut icon" href="/branding/favicon.png" />
+		<link rel="icon" href="/branding/favicon.png" />
+
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=PT+Serif&family=Nanum+Pen+Script&display=swap"
+			rel="stylesheet"
+		/>
+
+		<title>{title} ~ Boring+Ordinary</title>
+
+		<script>
+			import { globalStyles, getCssText } from "@styles/index";
+
+			console.log(getCssText());
+			globalStyles();
+		</script>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
