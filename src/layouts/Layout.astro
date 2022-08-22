@@ -1,9 +1,12 @@
 ---
+import { getCssText } from "@styles/index";
+
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
+const css = getCssText();
 ---
 
 <!DOCTYPE html>
@@ -20,16 +23,17 @@ const { title } = Astro.props as Props;
 			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=PT+Serif&family=Nanum+Pen+Script&display=swap"
 			rel="stylesheet"
 		/>
-
-		<title>{title} ~ Boring+Ordinary</title>
-
-		<script defer id="stitches">
-			import { globalStyles } from "@styles/index";
+		<script>
+			import { globalStyles } from "@styles/global";
 
 			globalStyles();
 		</script>
+		<style set:html={css} id="stitches">
+
+		</style>
+
+		<title>{title} ~ Boring+Ordinary</title>
 	</head>
-	<body>
-		<slot />
-	</body>
+
+	<slot />
 </html>

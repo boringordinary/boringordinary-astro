@@ -2,9 +2,9 @@ import { ComponentProps, useEffect, useRef, forwardRef } from "react";
 import { styled } from "@styles/index";
 import type { VariantProps } from "@stitches/react";
 
-const BaseButton = styled("button", {
+const Base = styled("button", {
   fontFamily: "$sansSerif",
-  fontSize: "xl",
+  fontSize: "$xl",
   fontWeight: "500",
   color: "#fff",
   borderRadius: "$2",
@@ -79,7 +79,7 @@ const BaseButton = styled("button", {
   },
 });
 
-type Variants = VariantProps<typeof BaseButton>;
+type Variants = VariantProps<typeof Base>;
 type Props = Variants & ComponentProps<"button">;
 
 const Button = forwardRef(({ children, ...rest }: Props, forwardRef: any) => {
@@ -97,9 +97,9 @@ const Button = forwardRef(({ children, ...rest }: Props, forwardRef: any) => {
   }, []);
 
   return (
-    <BaseButton {...rest} ref={ref}>
+    <Base {...rest} ref={ref}>
       {children}
-    </BaseButton>
+    </Base>
   );
 });
 

@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Button, Text } from "@components/index";
+import { Button, Text, Heading } from "@components/index";
 ---
 
 <Layout title="Where Ambitious Brands Grow">
-	<Text size="lg">
+	<Heading size="xl">High-Impact Design to Grow Your Business</Heading>
+	<Text>
 		👋 Hello, we bring distinctive solutions for ambitious companies to cut
 		through the noise.
 	</Text>
-	<Button client:load size="lg">Work with Us</Button>
+	<Button client:visible size="lg">Work with Us</Button>
 </Layout>

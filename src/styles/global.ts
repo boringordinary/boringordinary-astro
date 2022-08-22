@@ -7,8 +7,6 @@ const globalStyles = globalCss({
     WebkitFontSmoothing: "antialiased",
     MozOsxFontSmoothing: "grayscale",
     fontDisplay: "optional",
-    background: "#fafafc",
-    fontFamily: "$sansSerif",
   },
   body: {
     background: "#fafafc",
