@@ -2,6 +2,7 @@ import { css } from "@linaria/core";
 import { useEffect, useRef, forwardRef, Ref } from "react";
 
 const styles = css`
+  background-image: radial-gradient(var(--tw-gradient-stops));
   background-size: 200% 200%;
   background-position: calc((100 - var(--mouse-x, 0)) * 1%)
     calc((100 - var(--mouse-y, 0)) * 1%);
@@ -27,7 +28,7 @@ const Button = forwardRef(({ children, ...rest }: any, forwardRef: any) => {
 
   return (
     <button
-      className={`${styles} cursor-pointer rounded-full bg-gradient-to-r from-orange-500 to-pink-500 p-4 text-lg text-white duration-200 hover:shadow-md`}
+      tw={`${styles} cursor-pointer rounded-full from-orange-500 to-pink-500 py-3 px-4 text-lg text-white duration-200 hover:shadow-md`}
       {...rest}
       ref={ref}
     >

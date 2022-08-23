@@ -12,6 +12,6 @@ export default defineConfig({
   integrations: [react(), sitemap(), tailwind(), compress()],
   trailingSlash: "never",
   vite: {
-    plugins: ["babel-plugin-macros", linaria()],
+    plugins: [linaria()],
   },
 });
