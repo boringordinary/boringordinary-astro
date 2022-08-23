@@ -3,6 +3,7 @@ import type { VariantProps } from "@stitches/react";
 import { styled } from "@styles/index";
 
 const baseConfig = {
+  lineHeight: 1.3,
   fontWeight: 600,
   margin: "0",
   defaultVariants: {
