@@ -1,12 +1,9 @@
 ---
-import { getCssText } from "@styles/index";
-
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
-const css = getCssText();
 ---
 
 <!DOCTYPE html>
@@ -23,14 +20,6 @@ const css = getCssText();
 			href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=PT+Serif&family=Nanum+Pen+Script&display=swap"
 			rel="stylesheet"
 		/>
-		<script>
-			import { globalStyles } from "@styles/global";
-
-			globalStyles();
-		</script>
-		<style set:html={css} id="stitches">
-
-		</style>
 
 		<style>
 			/* Fluid responsiveness */

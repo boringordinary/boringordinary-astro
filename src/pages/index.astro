@@ -1,15 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Button, Text, Heading, Box } from "@components/index";
+import { Button } from "@components/index";
 ---
 
 <Layout title="Where Ambitious Brands Grow">
 	<div class="container mx-auto">
-		<Heading size="xl">High-Impact Design to Grow Your Business</Heading>
-		<Text size="xl3" css={{ my: "$4" }}>
-			👋 Hello, we bring distinctive solutions for ambitious companies to cut
-			through the noise.
-		</Text>
+		<h1 class="text-7xl font-extrabold">
+			High-Impact Design to Grow Your Business
+		</h1>
+
 		<Button size="xl" round client:load>Work with Us</Button>
 	</div>
 </Layout>
+
+<style>
+	.button {
+		@apply text-white;
+		@apply bg-gradient-to-r;
+		@apply from-orange-500;
+		@apply to-pink-500;
+	}
+</style>
