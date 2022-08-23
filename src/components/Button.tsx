@@ -7,7 +7,7 @@ const styles = css`
   background-position: calc((100 - var(--mouse-x, 0)) * 1%)
     calc((100 - var(--mouse-y, 0)) * 1%);
 
-  &:hover: {
+  &:hover {
     transform: translateY(-2px);
   }
 `;
