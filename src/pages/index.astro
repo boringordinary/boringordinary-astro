@@ -5,14 +5,28 @@ import { Button } from "@components/index";
 
 <Layout title="Where Ambitious Brands Grow">
 	<div class="container mx-auto">
-		<h1 class="text-7xl font-extrabold mb-4">
-			High-Impact Design to Grow Your Business
-		</h1>
-		<h2 class="text-3xl">
-			👋 Eddie, we craft online stores for ambitious brands looking to cut
-			through the noise.
-		</h2>
+		<div class="grid grid-cols-2">
+			<div>
+				<h1 class="text-7xl font-extrabold mb-2 leading-[1.15]">
+					High-Impact Design to Grow Your Business
+				</h1>
+				<h2 class="text-3xl mb-6 leading-normal">
+					👋 Eddie, we craft online stores for ambitious brands looking to cut
+					through the noise.
+				</h2>
 
-		<Button size="xl" client:load>Work with Us</Button>
+				<Button size="xl" round client:load>Work with Us</Button>
+			</div>
+
+			<div>
+				<!-- <Cards>
+					{
+						data.featuredWork.map((item, i) => (
+							
+						))
+					}
+				</Cards> -->
+			</div>
+		</div>
 	</div>
 </Layout>
