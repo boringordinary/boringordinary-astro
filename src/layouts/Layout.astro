@@ -1,9 +1,13 @@
 ---
+import { getCssText } from "@/styles";
+
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
+
+const css = getCssText;
 ---
 
 <!DOCTYPE html>
@@ -44,6 +48,15 @@ const { title } = Astro.props as Props;
 		</style>
 
 		<title>{title} ~ Boring+Ordinary</title>
+
+		<style set:html={css}>
+
+		</style>
+		<script>
+			import { globalStyles } from "@/styles/index";
+
+			globalStyles();
+		</script>
 	</head>
 
 	<slot />

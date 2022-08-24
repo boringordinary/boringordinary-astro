@@ -9,6 +9,7 @@ import linaria from "@linaria/rollup";
 // https://astro.build/config
 export default defineConfig({
   // adapter: vercel(),
+
   integrations: [react(), sitemap(), tailwind(), compress()],
   trailingSlash: "never",
   vite: {
