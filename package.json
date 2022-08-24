@@ -13,21 +13,16 @@
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^1.0.0",
     "@astrojs/vercel": "^1.0.0",
-    "@linaria/rollup": "^4.1.2",
     "@types/react": "^18.0.17",
-    "@vitejs/plugin-react": "^2.0.1",
     "astro": "^1.0.7",
     "astro-compress": "^1.0.4",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.0",
-    "prettier-plugin-tailwindcss": "^0.1.13",
-    "vite": "^3.0.9"
+    "prettier-plugin-tailwindcss": "^0.1.13"
   },
   "dependencies": {
     "@astrojs/image": "^0.3.6",
     "@astrojs/react": "^1.0.0",
-    "@linaria/core": "^4.1.1",
-    "@linaria/react": "^4.1.2",
     "@nanostores/react": "^0.3.0",
     "@radix-ui/colors": "^0.1.8",
     "@stitches/react": "^1.2.8",
