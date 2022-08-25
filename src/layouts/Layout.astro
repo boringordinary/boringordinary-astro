@@ -1,5 +1,6 @@
 ---
 import { getCssText } from "@/styles";
+import { TopBar } from "@/components/TopBar";
 
 export interface Props {
 	title: string;
@@ -54,11 +55,14 @@ const css = getCssText;
 		</style>
 		<script>
 			import { globalStyles } from "@/styles/index";
+			// @ts-ignore
+			import { listen } from "quicklink";
 
-			console.log(globalStyles);
 			globalStyles();
+			listen();
 		</script>
 	</head>
 
+	<TopBar client:load />
 	<slot />
 </html>
