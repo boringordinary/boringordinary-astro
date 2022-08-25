@@ -187,17 +187,13 @@ const StyledViewport = styled(NavigationMenuPrimitive.Viewport, {
 });
 
 const CustomLink = ({ children, href, ...props }: ComponentProps<"a">) => {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
   const isActive =
     window.location.pathname === href && window.location.pathname !== "/";
 
   return (
-    <a href={href} {...props}>
-      <StyledLink active={isActive}>{children}</StyledLink>
-    </a>
+    <StyledLink active={isActive} href={href} {...props}>
+      {children}
+    </StyledLink>
   );
 };
 

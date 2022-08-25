@@ -5,7 +5,7 @@ specifiers:
   '@astrojs/react': ^1.0.0
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/tailwind': ^1.0.0
-  '@astrojs/vercel': ^1.0.0
+  '@astrojs/vercel': ^1.0.1
   '@nanostores/react': ^0.3.0
   '@radix-ui/colors': ^0.1.8
   '@radix-ui/react-icons': ^1.1.1

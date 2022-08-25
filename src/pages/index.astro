@@ -2,23 +2,28 @@
 import Layout from "../layouts/Layout.astro";
 import { Button } from "@components/index";
 
-const sectionStyles = "container mx-auto max-w-screen-xl";
+const sectionStyles = "container mx-auto max-w-screen-xl px-4";
+const data = { companies: [] };
 ---
 
 <Layout title="Where Ambitious Brands Grow">
 	<div class={sectionStyles}>
 		<div class="grid auto-cols-fr py-16">
 			<div>
-				<h1 class="text-7xl font-extrabold mb-2 leading-[1.15]">
+				<h1
+					class="md:text-7xl text-5xl font-extrabold mb-2 md:mb-6 leading-[1.15]"
+				>
 					High-Impact Design for Hire
 				</h1>
-				<h2 class="text-3xl mb-6 leading-normal text-neutral-600">
+				<h2 class="text-2xl md:text-3xl mb-6 leading-normal text-neutral-600">
 					👋 Eddie, we craft websites for ambitious brands looking to cut
 					through the noise.
 				</h2>
 
 				<Button size="xl" round client:load>Work with Us</Button>
 			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6"></div>
 
 			<div>
 				<!-- <Cards>
