@@ -7,7 +7,7 @@ import {
   TbBrowser,
   TbPhoto,
   TbPaint,
-} from "react-icons/tb";
+} from "react-icons/tb/index";
 import type { IconType } from "react-icons/lib";
 import {
   NavigationMenu,
