@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
 import { Button } from "@components/index";
+import Layout from "../layouts/Layout.astro";
 
 const sectionStyles = "container mx-auto max-w-screen-xl px-4";
 const data = { companies: [] };
@@ -8,14 +8,16 @@ const data = { companies: [] };
 
 <Layout title="Where Ambitious Brands Grow">
 	<div class={sectionStyles}>
-		<div class="grid auto-cols-fr py-16">
+		<div class="grid grid-cols-2 py-16">
 			<div>
 				<h1
-					class="md:text-7xl text-5xl font-extrabold mb-2 md:mb-6 leading-[1.15]"
+					class="md:text-7xl text-5xl font-extrabold mb-2 md:mb-6 md:leading-[1.1]"
 				>
 					High-Impact Design for Hire
 				</h1>
-				<h2 class="text-2xl md:text-3xl mb-6 leading-normal text-neutral-600">
+				<h2
+					class="text-2xl md:text-3xl mb-8 text-neutral-600 leading-normal md:leading-normal"
+				>
 					👋 Eddie, we craft websites for ambitious brands looking to cut
 					through the noise.
 				</h2>
@@ -23,17 +25,34 @@ const data = { companies: [] };
 				<Button size="xl" round client:load>Work with Us</Button>
 			</div>
 
-			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6"></div>
+			<div></div>
 
-			<div>
-				<!-- <Cards>
+			<!-- <Cards>
 					{
 						data.featuredWork.map((item, i) => (
 							
 						))
 					}
 				</Cards> -->
-			</div>
+		</div>
+
+		<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6"></div>
+	</div>
+
+	<div
+		class="container max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2"
+	>
+		<div>
+			<img src="/images/homepage/local-owner.jpeg" alt="" />
+		</div>
+		<div class="max-w-md mx-auto">
+			<h2 class="text-4xl font-bold mb-4">Is Peak Power Obviously Awesome?</h2>
+			<p class="text text-neutral-500 text-xl leading-normal">
+				Choices are everywhere, so your business gets lost in the crowd. We make
+				it resonate. How do we do that? By getting to the core of what makes you
+				magical, then figuring out the most intimate, authentic way to show it –
+				so your customers know you're the undisputed best option.
+			</p>
 		</div>
 	</div>
 </Layout>
