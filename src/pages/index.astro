@@ -2,7 +2,7 @@
 import { Button } from "@components/index";
 import Layout from "../layouts/Layout.astro";
 
-const sectionStyles = "container mx-auto max-w-screen-xl px-4";
+const sectionStyles = "container mx-auto max-w-screen-xl px-4 py-16";
 const data = { companies: [] };
 ---
 
@@ -54,5 +54,9 @@ const data = { companies: [] };
 				so your customers know you're the undisputed best option.
 			</p>
 		</div>
+	</div>
+
+	<div class={sectionStyles}>
+		<h2 class="text-center text-5xl font-bold mb-4">We value 3 things</h2>
 	</div>
 </Layout>

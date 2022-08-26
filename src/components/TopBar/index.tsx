@@ -125,6 +125,10 @@ const StylisticBorder = styled("div", {
 const TopBar = () => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
+  if (typeof window === "undefined") {
+    return null;
+  }
+
   return (
     <>
       <StylisticBorder />
