@@ -1,58 +1,58 @@
-import { useMemo, Ref, memo, ReactNode, forwardRef } from "react";
-import type { CSS } from "@/styles/index";
+import { styled } from "@/styles/index";
 
-type As = keyof JSX.IntrinsicElements | React.ComponentType<any>;
+const Text = styled("p", {
+  lineHeight: "1.5",
+  margin: 0,
 
-export interface Props {
-  tag: keyof JSX.IntrinsicElements;
-  children?: ReactNode;
-  color?: string;
-  size?: string | number;
-  margin?: string | number;
-  transform?: string;
-  css?: CSS;
-  as?: As;
-}
-
-export const Text = forwardRef((props: Props, ref: Ref<HTMLElement>) => {
-  const {
-    children,
-    tag,
-    color,
-    transform,
-    margin: marginProp,
-    size,
-    css,
-    ...otherProps
-  } = props;
-
-  const fontSize = useMemo<string>(() => {
-    if (!size) return "inherit";
-    if (typeof size === "number") return `${size}px`;
-    return size;
-  }, [size]);
-
-  const margin = useMemo<string>(() => {
-    if (!marginProp) return "inherit";
-    if (typeof marginProp === "number") return `${size}px`;
-    return marginProp;
-  }, [marginProp]);
-
-  return (
-    <StyledText
-      as={tag}
-      css={{
-        color,
-        fontSize: size ? fontSize : "",
-        margin,
-        tt: transform,
-        ...(css as any),
-      }}
-      {...otherProps}
-    >
-      {children}
-    </StyledText>
-  );
+  defaultVariants: {
+    size: "md",
+  },
+  variants: {
+    size: {
+      md: {
+        fontWeight: "400",
+        fontSize: "$md",
+      },
+      lg: {
+        fontWeight: "400",
+        fontSize: "$lg",
+      },
+      xl: {
+        fontWeight: "400",
+        fontSize: "$xl",
+      },
+      xl2: {
+        lineHeight: "1.15",
+        fontWeight: "600",
+        fontSize: "$xl2",
+      },
+      xl3: {
+        lineHeight: "1.15",
+        fontWeight: "600",
+        fontSize: "$xl3",
+      },
+      xl4: {
+        lineHeight: "1.15",
+        fontWeight: "700",
+        fontSize: "$xl4",
+      },
+      xl5: {
+        lineHeight: "1.15",
+        fontWeight: "700",
+        fontSize: "$xl5",
+      },
+      xl6: {
+        lineHeight: "1.15",
+        fontWeight: "800",
+        fontSize: "$xl6",
+      },
+      xl7: {
+        lineHeight: "1.15",
+        fontWeight: "800",
+        fontSize: "$xl7",
+      },
+    },
+  },
 });
 
-const MemoTextChild = memo(Text);
+export { Text };

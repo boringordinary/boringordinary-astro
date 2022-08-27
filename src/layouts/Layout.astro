@@ -1,15 +1,39 @@
 ---
 import { TopBar } from "@/components/TopBar";
+import { getCssText, css } from "@/styles/index";
 
 export interface Props {
 	title: string;
 }
 
 const { title } = Astro.props as Props;
+const themeStyles = getCssText();
+
+const globalCss = css({
+	fontFeatureSettings: `"rlig" 1,"calt" 0`,
+	textRendering: "optimizeLegibility",
+	WebkitFontSmoothing: "antialiased",
+	MozOsxFontSmoothing: "grayscale",
+	background: "#fafafc",
+	fontFamily: "$sansSerif",
+
+	body: {
+		background: "#fafafc",
+		fontFamily: "$sansSerif",
+		margin: 0,
+	},
+
+	"*": {
+		letterSpacing: "0.01rem",
+		borderColor: "$divider",
+		transitionDuration: "200ms",
+	},
+});
+const globalStyles = globalCss().toString();
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class={globalStyles}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -17,6 +41,10 @@ const { title } = Astro.props as Props;
 
 		<link rel="shortcut icon" href="/branding/favicon.png" />
 		<link rel="icon" href="/branding/favicon.png" />
+
+		<style set:html={themeStyles} is:inline id="stitches">
+
+		</style>
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

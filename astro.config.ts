@@ -1,6 +1,5 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
 import compress from "astro-compress";
 import { defineConfig } from "astro/config";
 
@@ -12,6 +11,7 @@ import { astroImageTools } from "astro-imagetools";
 export default defineConfig({
   // output: "server",
   // adapter: vercel(),
-  integrations: [react(), sitemap(), compress(), tailwind(), astroImageTools],
+  integrations: [react(), sitemap(), compress(), astroImageTools],
   trailingSlash: "never",
+  vite: {},
 });

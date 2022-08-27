@@ -132,9 +132,9 @@ const config = {
   },
 };
 
-const { theme, styled, keyframes, getCssText } = createStitches(config);
+const { theme, styled, keyframes, getCssText, css } = createStitches(config);
 
-export { config, theme, styled, keyframes, getCssText, globalCss };
+export { config, theme, styled, keyframes, getCssText, css, globalCss };
 export * from "./global";
 export type VariantProps<T> = Stitches.VariantProps<T>;
 export type CSS = Stitches.CSS<typeof config>;

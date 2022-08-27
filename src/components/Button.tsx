@@ -3,7 +3,6 @@ import { styled } from "@/styles/index";
 
 const BaseButton = styled("button", {
   fontFamily: "$sansSerif",
-  fontSize: "xl",
   fontWeight: "500",
   color: "#fff",
   borderRadius: "$2",

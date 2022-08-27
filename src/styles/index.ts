@@ -53,7 +53,7 @@ const pxToRem = (px: number) => {
 };
 
 function generateSpacing(baseValue: number, numTokens: number) {
-  let spacingObject: any = {};
+  let spacingObject: Record<number, string> = {};
   new Array(numTokens).fill(null).forEach((_, index) => {
     if (index === 0) {
       return;
@@ -67,7 +67,7 @@ function generateSpacing(baseValue: number, numTokens: number) {
   return spacingObject;
 }
 
-const { theme, styled, keyframes } = createStitches({
+const { theme, styled, keyframes, getCssText, css } = createStitches({
   theme: {
     colors: {
       ...generateColorScales("primary"),
@@ -94,11 +94,9 @@ const { theme, styled, keyframes } = createStitches({
       xl5: "3rem" /* 48px */,
       xl6: "3.75rem" /* 60px */,
       xl7: "4.5rem" /* 72px */,
-      xl8: "6rem" /* 96px */,
-      xl9: "8rem" /* 128px */,
     },
     fonts: {
-      sansSerif: `"Fira Sans", --apple-system, BlinkMacSystemFont, sans-serif`,
+      sansSerif: "Fira Sans, --apple-system, BlinkMacSystemFont, sans-serif",
       serif: "PT Serif, Fira Sans, Georgia, serif",
       script:
         "Nanum Pen Script, --apple-system, BlinkMacSystemFont, sans-serif",
@@ -131,5 +129,6 @@ const { theme, styled, keyframes } = createStitches({
   },
 });
 
-export { theme, styled, keyframes, globalCss };
+export { theme, styled, keyframes, globalCss, getCssText, css };
 export { globalStyles } from "./global";
+// export type { CSS } from "@stitches/react";

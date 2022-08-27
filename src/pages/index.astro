@@ -1,5 +1,5 @@
 ---
-import { Button } from "@components/index";
+import { Button, Text } from "@components/index";
 import Layout from "../layouts/Layout.astro";
 
 const sectionStyles = "container mx-auto max-w-screen-xl px-4 py-16";
@@ -10,17 +10,11 @@ const data = { companies: [] };
 	<div class={sectionStyles}>
 		<div class="grid grid-cols-2 py-16">
 			<div>
-				<h1
-					class="md:text-7xl text-5xl font-extrabold mb-2 md:mb-6 md:leading-[1.1]"
-				>
-					High-Impact Design for Hire
-				</h1>
-				<h2
-					class="text-2xl md:text-3xl mb-8 text-neutral-600 leading-normal md:leading-normal"
-				>
+				<Text as="h1" size="xl7">High-Impact Design for Hire</Text>
+				<Text as="h2" size="xl2" css={{ fontWeight: 400 }}>
 					👋 Eddie, we craft websites for ambitious brands looking to cut
 					through the noise.
-				</h2>
+				</Text>
 
 				<Button size="xl" round client:load>Work with Us</Button>
 			</div>
