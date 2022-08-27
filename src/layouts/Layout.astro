@@ -1,5 +1,4 @@
 ---
-import { getCssText } from "@/styles";
 import { TopBar } from "@/components/TopBar";
 
 export interface Props {
@@ -7,8 +6,6 @@ export interface Props {
 }
 
 const { title } = Astro.props as Props;
-
-const css = getCssText;
 ---
 
 <!DOCTYPE html>
@@ -54,20 +51,15 @@ const css = getCssText;
 
 		<title>{title} ~ Boring+Ordinary</title>
 
-		<style set:html={css}>
-
-		</style>
 		<script>
-			import { globalStyles } from "@/styles/index";
 			// @ts-ignore
 			import { listen } from "quicklink";
 
-			globalStyles();
 			listen();
 		</script>
 	</head>
-
-	<TopBar client:only="react" />
-
-	<slot />
+	<body>
+		<TopBar client:load currentPath={Astro.url.pathname} />
+		<slot />
+	</body>
 </html>

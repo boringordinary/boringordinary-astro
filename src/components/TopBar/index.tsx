@@ -122,12 +122,12 @@ const StylisticBorder = styled("div", {
   background: "linear-gradient(to right, $orange9 0%, $accent9 100%)",
 });
 
-const TopBar = () => {
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+interface Props {
+  currentPath: string;
+}
 
-  if (typeof window === "undefined") {
-    return null;
-  }
+const TopBar = ({ currentPath }: Props) => {
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
     <>
@@ -135,7 +135,7 @@ const TopBar = () => {
       <NavigationMenu>
         <a href="/">
           <LogoWrapper>
-            <img src="/branding/logo-symbol.svg" alt="Logo" />
+            <img src="/branding/logo-symbol.svg" alt="Logo" height="100%" />
           </LogoWrapper>
         </a>
 
@@ -170,7 +170,9 @@ const TopBar = () => {
 
               return (
                 <NavigationMenuItem key={label}>
-                  <NavigationMenuLink href={href}>{label}</NavigationMenuLink>
+                  <NavigationMenuLink href={href} currentPath={currentPath}>
+                    {label}
+                  </NavigationMenuLink>
                 </NavigationMenuItem>
               );
             })}
