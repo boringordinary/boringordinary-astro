@@ -7,7 +7,7 @@ const BaseButton = styled("button", {
   color: "#fff",
   borderRadius: "$2",
   backgroundImage: "radial-gradient(circle, $orange9 0%, $accent9 100%)",
-  border: "$accent7 2px solid",
+  border: "$accent9 2px solid",
   backgroundSize: "200% 200%",
   cursor: "pointer",
   backgroundPosition:
@@ -55,6 +55,7 @@ const BaseButton = styled("button", {
         py: "$2",
         px: "$4",
         br: "$lg",
+        fontSize: "$lg",
       },
       lg: {
         fontSize: "$lg",

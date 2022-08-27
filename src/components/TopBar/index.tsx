@@ -194,9 +194,7 @@ const TopBar = ({ currentPath }: Props) => {
           </Button>
 
           <a href="/sessions/strategy-call">
-            <Button size="sm" css={{ marginRight: "$4" }}>
-              Work with Us
-            </Button>
+            <Button css={{ marginRight: "$4" }}>Work with Us</Button>
           </a>
         </div>
 
