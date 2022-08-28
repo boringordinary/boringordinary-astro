@@ -13,11 +13,11 @@ const Hero = () => {
     >
       <Container size="md">
         <Text as="h1" size="xl4" gradient="primary">
-          We're an independant studio building impactful brands and products.
+          We craft websites that take your online business to the next level.
         </Text>
 
         <Button size="xl" round>
-          Work with Us
+          Chat with Us
         </Button>
       </Container>
     </Box>
