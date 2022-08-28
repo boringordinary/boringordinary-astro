@@ -191,7 +191,7 @@ const CustomLink = ({
   href,
   currentPath,
   ...props
-}: ComponentProps<"a">) => {
+}: ComponentProps<"a"> & { currentPath: string }) => {
   const isActive = currentPath === href && currentPath !== "/";
 
   return (
@@ -254,7 +254,6 @@ const ListItem = styled("li", {});
 const LinkTitle = styled("div", {
   fontWeight: 500,
   lineHeight: 1.2,
-  marginBottom: 5,
   color: violet.violet12,
 });
 
@@ -272,6 +271,8 @@ const ContentListItem = forwardRef(
         {...props}
         ref={forwardedRef}
         css={{
+          display: "flex",
+          alignItems: "center",
           padding: 12,
           borderRadius: 6,
           "&:hover": { backgroundColor: mauve.mauve3 },

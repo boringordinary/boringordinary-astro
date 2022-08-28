@@ -1,5 +1,6 @@
 ---
-import { Button, Text, Section } from "@components/index";
+import { Section } from "@components/index";
+import { Hero } from "./index/Hero";
 import Layout from "../layouts/Layout.astro";
 
 const sectionStyles = "container mx-auto max-w-screen-xl px-4 py-16";
@@ -7,16 +8,8 @@ const data = { companies: [] };
 ---
 
 <Layout title="Where Ambitious Brands Grow">
-	<Section client:load>
-		<div>
-			<Text as="h1" size="xl7">High-Impact Design for Hire</Text>
-			<Text as="h2" size="xl3" css={{ fontWeight: 400, mb: "$8" }}>
-				👋 Eddie, we craft websites for ambitious brands looking to cut through
-				the noise.
-			</Text>
-
-			<Button size="xl" round client:load>Work with Us</Button>
-		</div>
+	<Section>
+		<Hero client:load />
 
 		<!-- <Cards>
 					{

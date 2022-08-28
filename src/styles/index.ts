@@ -115,6 +115,12 @@ const { theme, styled, keyframes, getCssText, css } = createStitches({
       lg: `0px 15px 20px ${blackA.blackA5}`,
       xl: `0px 8px 15px ${blackA.blackA5}`,
     },
+    sizes: {
+      sm: "480px",
+      md: "900px",
+      lg: "1200px",
+      xl: "1800px",
+    },
   },
   utils,
   media: {

@@ -6,7 +6,7 @@ const BaseButton = styled("button", {
   fontWeight: "500",
   color: "#fff",
   borderRadius: "$2",
-  backgroundImage: "radial-gradient(circle, $orange9 0%, $accent9 100%)",
+  backgroundImage: "radial-gradient(circle, $accent9 0%, $orange9 100%)",
   border: "$accent9 2px solid",
   backgroundSize: "200% 200%",
   cursor: "pointer",

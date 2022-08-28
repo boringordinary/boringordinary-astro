@@ -11,6 +11,14 @@ const Text = styled("p", {
     color: "neutral",
   },
   variants: {
+    gradient: {
+      primary: {
+        WebkitBackgroundClip: "text",
+        WebkitTextFillColor: "transparent",
+        MozBackgroundClip: "text",
+        backgroundImage: "linear-gradient(90deg, $primary9, $accent9)",
+      },
+    },
     color: {
       neutral: {
         color: "$gray9",

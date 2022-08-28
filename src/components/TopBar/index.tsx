@@ -24,7 +24,7 @@ import {
   ContentListItemCallout,
 } from "./NavigationMenu";
 import { styled } from "@/styles/index";
-import { Button } from "@/components/Button";
+import { Button, Box } from "@/components";
 
 interface Item {
   label: string;
@@ -139,12 +139,12 @@ const TopBar = ({ currentPath }: Props) => {
           </LogoWrapper>
         </a>
 
-        <div
-        // css={{
-        //   width: "100%",
-        //   display: "none",
-        //   "@sm": { display: "flex", justifyContent: "center" },
-        // }}
+        <Box
+          css={{
+            width: "100%",
+            display: "none",
+            "@sm": { display: "flex", justifyContent: "center" },
+          }}
         >
           <NavigationMenuList>
             {items.map(({ label, href, items, callout }) => {
@@ -178,25 +178,23 @@ const TopBar = ({ currentPath }: Props) => {
             })}
             <NavigationMenuIndicator />
           </NavigationMenuList>
-        </div>
+        </Box>
 
-        <div className="flex justify-self-end">
-          <Button
-            css={{
-              display: "flex",
-              "@sm": { display: "none" },
-            }}
-            aria-label="Open menu"
-            variant="ghost"
-            onClick={() => setMobileNavOpen(true)}
-          >
-            MENU
-          </Button>
+        <Button
+          css={{
+            display: "flex",
+            "@sm": { display: "none" },
+          }}
+          aria-label="Open menu"
+          variant="ghost"
+          onClick={() => setMobileNavOpen(true)}
+        >
+          MENU
+        </Button>
 
-          <a href="/sessions/strategy-call">
-            <Button css={{ marginRight: "$4" }}>Work with Us</Button>
-          </a>
-        </div>
+        <a href="/sessions/strategy-call">
+          <Button css={{ marginRight: "$4" }}>Work with Us</Button>
+        </a>
 
         <ViewportPosition>
           <NavigationMenuViewport />
