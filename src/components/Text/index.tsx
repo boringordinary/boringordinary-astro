@@ -11,6 +11,14 @@ const Text = styled("p", {
     color: "neutral",
   },
   variants: {
+    align: {
+      right: {
+        textAlign: "right",
+      },
+      center: {
+        textAlign: "center",
+      },
+    },
     gradient: {
       primary: {
         WebkitBackgroundClip: "text",
@@ -20,11 +28,32 @@ const Text = styled("p", {
       },
     },
     color: {
+      lighter: {
+        color: "$gray5",
+      },
+      light: {
+        color: "$gray8",
+      },
       neutral: {
         color: "$gray9",
       },
+
+      dark: {
+        color: "$gray11",
+      },
+    },
+    display: {
+      true: {
+        color: "$gray11",
+      },
     },
     size: {
+      xs: {
+        fontSize: "$xs",
+      },
+      sm: {
+        fontSize: "$sm",
+      },
       md: {
         fontWeight: "400",
         fontSize: "$md",
@@ -38,7 +67,7 @@ const Text = styled("p", {
         fontSize: "$xl",
       },
       xl2: {
-        lineHeight: "1.15",
+        lineHeight: "1.4",
         fontWeight: "600",
         fontSize: "$xl",
 
@@ -85,6 +114,67 @@ const Text = styled("p", {
       },
     },
   },
+  compoundVariants: [
+    {
+      display: true,
+      size: "xs",
+      css: {
+        lineHeight: "1.4",
+        fontWeight: "600",
+        fontSize: "$xl1",
+
+        "@md": {
+          fontSize: "$xl2",
+        },
+      },
+    },
+    {
+      display: true,
+      size: "sm",
+      css: {
+        lineHeight: "1.4",
+        fontWeight: "600",
+        fontSize: "$xl2",
+
+        "@md": {
+          fontSize: "$xl3",
+        },
+      },
+    },
+
+    {
+      display: true,
+      size: "md",
+      css: {
+        color: "$gray10",
+        lineHeight: "1.15",
+        fontWeight: "700",
+        fontSize: "$xl4",
+      },
+    },
+
+    {
+      display: true,
+      size: "lg",
+      css: {
+        color: "$gray10",
+        lineHeight: "1.15",
+        fontWeight: "700",
+        fontSize: "$xl5",
+      },
+    },
+
+    {
+      display: true,
+      size: "xl",
+      css: {
+        color: "$gray10",
+        lineHeight: "1.15",
+        fontWeight: "800",
+        fontSize: "$xl6",
+      },
+    },
+  ],
 });
 
 export { Text };

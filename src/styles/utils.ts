@@ -6,6 +6,14 @@ export const utils = {
     height: value,
   }),
 
+  mw: (value: Stitches.PropertyValue<"maxWidth">) => ({
+    maxWidth: value,
+  }),
+
+  mh: (value: Stitches.PropertyValue<"maxHeight">) => ({
+    maxHeight: value,
+  }),
+
   // paddings
   p: (value: Stitches.PropertyValue<"padding">) => ({
     padding: value,
@@ -56,8 +64,8 @@ export const utils = {
     marginBottom: value,
   }),
 
-  bgColor: (value: Stitches.PropertyValue<"backgroundColor">) => ({
-    backgroundColor: value,
+  bg: (value: Stitches.PropertyValue<"background">) => ({
+    background: value,
   }),
 
   br: (value: Stitches.PropertyValue<"borderRadius">) => ({

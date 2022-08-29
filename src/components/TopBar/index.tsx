@@ -130,7 +130,7 @@ const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <>
+    <Box>
       <StylisticBorder />
       <NavigationMenu>
         <a href="/">
@@ -200,7 +200,7 @@ const TopBar = ({ currentPath }: Props) => {
           <NavigationMenuViewport />
         </ViewportPosition>
       </NavigationMenu>
-    </>
+    </Box>
   );
 };
 

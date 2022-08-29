@@ -1,10 +1,19 @@
-import { styled } from "@stitches/react";
+import { styled } from "@styles/index";
 
 const Container = styled("div", {
   variants: {
     size: {
-      md: {
+      sm: {
         maxWidth: "$sm",
+      },
+      md: {
+        maxWidth: "$md",
+      },
+      lg: {
+        maxWidth: "$lg",
+      },
+      xl: {
+        maxWidth: "$xl",
       },
     },
   },
