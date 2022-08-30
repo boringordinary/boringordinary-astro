@@ -130,12 +130,12 @@ const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <Box>
+    <div>
       <StylisticBorder />
       <NavigationMenu>
         <a href="/">
           <LogoWrapper>
-            <img src="/branding/logo-symbol.svg" alt="Logo" height="100%" />
+            <img src="/branding/logo-symbol.svg" alt="Logo" />
           </LogoWrapper>
         </a>
 
@@ -180,27 +180,29 @@ const TopBar = ({ currentPath }: Props) => {
           </NavigationMenuList>
         </Box>
 
-        <Button
-          css={{
-            display: "flex",
-            "@sm": { display: "none" },
-          }}
-          aria-label="Open menu"
-          variant="ghost"
-          onClick={() => setMobileNavOpen(true)}
-        >
-          MENU
-        </Button>
+        <div className="flex justify-self-end">
+          <Button
+            css={{
+              display: "flex",
+              "@sm": { display: "none" },
+            }}
+            aria-label="Open menu"
+            variant="ghost"
+            onClick={() => setMobileNavOpen(true)}
+          >
+            MENU
+          </Button>
 
-        <a href="/sessions/strategy-call">
-          <Button css={{ marginRight: "$4" }}>Chat with Us</Button>
-        </a>
+          <a href="/sessions/strategy-call">
+            <Button css={{ mr: "$4" }}>Work with Us</Button>
+          </a>
+        </div>
 
         <ViewportPosition>
           <NavigationMenuViewport />
         </ViewportPosition>
       </NavigationMenu>
-    </Box>
+    </div>
   );
 };
 

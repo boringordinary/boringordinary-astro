@@ -12,19 +12,30 @@ const BaseButton = styled("button", {
   cursor: "pointer",
   backgroundPosition:
     "calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%)",
-  "&:hover": {
-    transform: "translateY(-2px)",
-    boxShadow: "$sm",
-  },
+
   "&:active": {
     filter: "brightness(0.9)",
-    transform: "scale(0.95)",
+    transform: "scale(0.95) translateY(0)",
     borderColor: "$accent8",
   },
   defaultVariants: {
     size: "md",
   },
   variants: {
+    shadow: {
+      md: {
+        "&:hover": {
+          transform: "translateY(-2px)",
+          boxShadow: "$xs",
+        },
+      },
+      lg: {
+        "&:hover": {
+          transform: "translateY(-2px)",
+          boxShadow: "$sm",
+        },
+      },
+    },
     color: {
       primary: {
         background: "$primary9",

@@ -21,7 +21,7 @@ const Hero = () => {
           We craft websites that take your online business to the next level.
         </Text>
 
-        <Button size="xl" round>
+        <Button size="xl" round shadow="lg">
           Get Started
         </Button>
 

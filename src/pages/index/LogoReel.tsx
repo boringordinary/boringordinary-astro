@@ -1,4 +1,4 @@
-import { Box } from "@/components";
+import { Box } from "@/components/index";
 
 type Logo = {
   alt: string;

@@ -19,6 +19,9 @@ const globalStyles = globalCss({
     borderColor: "$divider",
     transitionDuration: "200ms",
   },
+  li: {
+    fontSize: "inherit",
+  },
 });
 
 export { globalStyles };

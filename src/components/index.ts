@@ -7,3 +7,4 @@ export * from "./ImageClip";
 export * from "./Divider";
 export * from "./TopBar";
 export * from "./Footer";
+export * from "./Avatar";

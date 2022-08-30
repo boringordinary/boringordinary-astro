@@ -114,6 +114,9 @@ const { theme, styled, keyframes, getCssText, css } = createStitches({
       md: `0px 10px 20px ${blackA.blackA5}`,
       lg: `0px 15px 20px ${blackA.blackA5}`,
       xl: `0px 8px 15px ${blackA.blackA5}`,
+
+      backlight:
+        "0 0 0 0px $colors$orange1, -15px 0 30px -15px $colors$accent9, 0 0 30px -15px $colors$orange9, 15px 0 30px -15px $colors$orange9",
     },
     sizes: {
       sm: "480px",

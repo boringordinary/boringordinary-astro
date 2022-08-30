@@ -80,6 +80,10 @@ export const utils = {
     overflow: "hidden",
   }),
 
+  shadow: (value: Stitches.PropertyValue<"boxShadow">) => ({
+    boxShadow: value,
+  }),
+
   // Truncate a line of text with an ellipsis
   truncate: (value: boolean) =>
     value
