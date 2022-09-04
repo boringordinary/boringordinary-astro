@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "doppler run -- astro dev",
+    "dev-sanity": "cd ./sanity && npm run start",
+    "dev": "doppler run -- concurrently 'astro dev' 'npm run dev-sanity'",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -16,6 +17,7 @@
     "@types/react": "^18.0.17",
     "astro": "^1.0.7",
     "astro-compress": "^1.0.4",
+    "concurrently": "^7.3.0",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.3",
     "prettier-plugin-tailwindcss": "^0.1.13"
@@ -50,6 +52,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
-    "react-player": "^2.10.1"
+    "react-ideal-image": "^0.0.5",
+    "react-player": "^2.10.1",
+    "react-waypoint": "^10.3.0"
   }
 }

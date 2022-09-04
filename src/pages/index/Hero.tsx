@@ -6,29 +6,34 @@ const Hero = () => {
     <Box
       css={{
         maxWidth: "$md",
-        mx: "auto",
-        display: "grid",
+        display: "flex",
+        justifyContent: "center",
         py: "$20",
         gridAutoFlow: "dense",
-
-        "@sm": {
-          gridTemplateColumns: "1fr 1fr",
-        },
       }}
     >
       <Container size="md">
-        <Text as="h1" display size="lg" gradient="primary">
-          We craft websites that take your online business to the next level.
+        <Text as="h1" display size="xl" gradient="primary" align="center">
+          World-class Design & Dev
+        </Text>
+        <Text as="h1" display size="md" gradient="primary" align="center">
+          Fixed price for all projects.
         </Text>
 
         <Button size="xl" round shadow="lg">
-          Get Started
+          Start a project
         </Button>
 
-        <LogoReel logos={[]} />
+        <Box
+          css={{
+            filter: "grayscale(1)",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <LogoReel logos={[]} />
+        </Box>
       </Container>
-
-      <ImageClip src="/images/homepage/local-owner.jpeg" width="100%" />
     </Box>
   );
 };

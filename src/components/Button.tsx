@@ -15,7 +15,7 @@ const BaseButton = styled("button", {
 
   "&:active": {
     filter: "brightness(0.9)",
-    transform: "scale(0.95) translateY(0)",
+    transform: "scale(0.95) translateY(0) !important",
     borderColor: "$accent8",
   },
   defaultVariants: {
@@ -89,7 +89,7 @@ const BaseButton = styled("button", {
   },
 });
 
-const Button = forwardRef(({ children, ...rest }: any, forwardRef: any) => {
+const Button = forwardRef(({ children, ...rest }: any) => {
   const ref = useRef<HTMLButtonElement>();
 
   useEffect(() => {

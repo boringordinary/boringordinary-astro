@@ -1,0 +1,70 @@
+---
+import { Text, Container, PricingCard, Section } from "@/components";
+import type { Tiers } from "@/components/PricingCard";
+import Layout from "@/layouts/Layout.astro";
+
+const tiers: Tiers = [
+  {
+    title: "Starter",
+    description: "Industry-standard design quality",
+    priceMonthly: 3995,
+    features: [
+      {
+        title: "Time capacity",
+        features: [
+          {
+            title: "60 hours",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Pro",
+    prominent: true,
+    description: "Industry-standard design quality",
+    priceMonthly: 7995,
+    features: [
+      {
+        title: "Time capacity",
+        features: [
+          {
+            title: "120 hours",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Plus",
+    description: "Industry-standard design quality",
+    priceMonthly: 3000,
+    features: [
+      {
+        title: "Time capacity",
+        features: [
+          {
+            title: "120 hours",
+          },
+        ],
+      },
+    ],
+  },
+];
+---
+
+<Layout title="Pricing">
+  <Container size="lg" center>
+    <Section>
+      <Text display size="lg" align="center"
+        >Scalable plans to cover your needs.</Text
+      >
+      <Text size="xl" align="center"
+        >Every plan includes a dedicated team, unlimited requests and revisions,
+        and a project manager to keep you posted every step of the way.
+      </Text>
+    </Section>
+
+    <PricingCard tiers={tiers} client:load />
+  </Container>
+</Layout>

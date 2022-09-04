@@ -28,7 +28,9 @@ const StyledImage = styled("img", {
   objectFit: "cover",
 });
 
-type Props = { src: string };
+interface Props {
+  src: string;
+}
 
 const Avatar = ({ src }: Props) => {
   return (

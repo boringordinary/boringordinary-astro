@@ -39,6 +39,7 @@ const items: Item[] = [
     label: "Our Story",
     href: "/about",
   },
+
   {
     label: "Industries",
     href: "#",
@@ -96,6 +97,10 @@ const items: Item[] = [
         icon: TbPhoto,
       },
     ],
+  },
+  {
+    label: "Pricing",
+    href: "/pricing",
   },
 ];
 

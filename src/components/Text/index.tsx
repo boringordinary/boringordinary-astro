@@ -3,7 +3,6 @@ import { styled } from "@/styles/index";
 const Text = styled("p", {
   lineHeight: "1.5",
   margin: 0,
-  marginBottom: "$4",
   color: "$gray10",
 
   defaultVariants: {
@@ -11,6 +10,23 @@ const Text = styled("p", {
     color: "neutral",
   },
   variants: {
+    weight: {
+      400: {
+        fontWeight: 400,
+      },
+      500: {
+        fontWeight: 500,
+      },
+      600: {
+        fontWeight: 600,
+      },
+      700: {
+        fontWeight: 700,
+      },
+      800: {
+        fontWeight: 800,
+      },
+    },
     align: {
       right: {
         textAlign: "right",
@@ -53,23 +69,28 @@ const Text = styled("p", {
       },
       sm: {
         fontSize: "$sm",
+        marginBottom: "$4",
       },
       md: {
         fontWeight: "400",
         fontSize: "$md",
+        marginBottom: "$4",
       },
       lg: {
         fontWeight: "400",
         fontSize: "$lg",
+        marginBottom: "$4",
       },
       xl: {
         fontWeight: "400",
         fontSize: "$xl",
+        marginBottom: "$3",
       },
       xl2: {
         lineHeight: "1.4",
         fontWeight: "600",
         fontSize: "$xl",
+        marginBottom: "$3",
 
         "@md": {
           fontSize: "$xl2",
@@ -79,6 +100,7 @@ const Text = styled("p", {
         lineHeight: "1.4",
         fontWeight: "600",
         fontSize: "$xl2",
+        marginBottom: "$4",
 
         "@md": {
           fontSize: "$xl3",
@@ -89,24 +111,28 @@ const Text = styled("p", {
         lineHeight: "1.15",
         fontWeight: "700",
         fontSize: "$xl4",
+        marginBottom: "$4",
       },
       xl5: {
         color: "$gray10",
         lineHeight: "1.15",
         fontWeight: "700",
         fontSize: "$xl5",
+        marginBottom: "$4",
       },
       xl6: {
         color: "$gray10",
         lineHeight: "1.15",
         fontWeight: "800",
         fontSize: "$xl6",
+        marginBottom: "$4",
       },
       xl7: {
         color: "$gray10",
         lineHeight: "1.15",
         fontWeight: "800",
         fontSize: "$xl5",
+        marginBottom: "$4",
 
         "@md": {
           fontSize: "$xl7",
@@ -121,10 +147,10 @@ const Text = styled("p", {
       css: {
         lineHeight: "1.4",
         fontWeight: "600",
-        fontSize: "$xl1",
+        fontSize: "$lg",
 
         "@md": {
-          fontSize: "$xl2",
+          fontSize: "$xl",
         },
       },
     },

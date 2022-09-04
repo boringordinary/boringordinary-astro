@@ -1,6 +1,8 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import compress from "astro-compress";
+// @ts-ignore
+import { astroImageTools } from "astro-imagetools";
 import { defineConfig } from "astro/config";
 
 // import vercel from "@astrojs/vercel/serverless";
@@ -11,7 +13,7 @@ import { astroImageTools } from "astro-imagetools";
 export default defineConfig({
   // output: "server",
   // adapter: vercel(),
-  integrations: [react(), sitemap(), compress(), astroImageTools],
+  integrations: [astroImageTools, react(), sitemap(), compress()],
   trailingSlash: "never",
   vite: {},
 });

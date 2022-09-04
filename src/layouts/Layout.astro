@@ -4,101 +4,101 @@ import { TopBar } from "@/components/TopBar/index";
 import { getCssText, css } from "@/styles/index";
 
 export interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props as Props;
 const themeStyles = getCssText();
 
 const globalCss = css({
-	fontFeatureSettings: `"rlig" 1,"calt" 0`,
-	textRendering: "optimizeLegibility",
-	WebkitFontSmoothing: "antialiased",
-	MozOsxFontSmoothing: "grayscale",
-	background: "#fafafc",
-	fontFamily: "$sansSerif",
+  fontFeatureSettings: `"rlig" 1,"calt" 0`,
+  textRendering: "optimizeLegibility",
+  WebkitFontSmoothing: "antialiased",
+  MozOsxFontSmoothing: "grayscale",
+  background: "#fafafc",
+  fontFamily: "$sansSerif",
 
-	body: {
-		background: "#fafafc",
-		fontFamily: "$sansSerif",
-		margin: 0,
-	},
+  body: {
+    background: "#fafafc",
+    fontFamily: "$sansSerif",
+    margin: 0,
+  },
 
-	"*": {
-		letterSpacing: "0.01rem",
-		borderColor: "$divider",
-		transitionDuration: "200ms",
-	},
+  "*": {
+    letterSpacing: "0.01rem",
+    borderColor: "$divider",
+    transitionDuration: "200ms",
+  },
 });
 const globalStyles = globalCss().toString();
 ---
 
 <!DOCTYPE html>
 <html lang="en" class={globalStyles}>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
 
-		<link rel="shortcut icon" href="/branding/favicon.png" />
-		<link rel="icon" href="/branding/favicon.png" />
+    <link rel="shortcut icon" href="/branding/favicon.png" />
+    <link rel="icon" href="/branding/favicon.png" />
 
-		<style set:html={themeStyles} is:inline id="stitches">
+    <style set:html={themeStyles} is:inline id="stitches">
 
-		</style>
+    </style>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			media="print"
-			onload="this.onload=null;this.removeAttribute('media');"
-			href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800&family=Nanum+Pen+Script&display=swap"
-			rel="stylesheet"
-		/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800&family=Nanum+Pen+Script&display=swap"
+      rel="stylesheet"
+    />
 
-		<style>
-			/* Fluid responsiveness */
-			html {
-				font-size: calc(0.625rem + 0.41666666666666663vw);
-			}
-			@media screen and (max-width: 1920px) {
-				html {
-					font-size: calc(0.625rem + 0.41666666666666674vw);
-				}
-			}
-			@media screen and (max-width: 1440px) {
-				html {
-					font-size: calc(0.8126951092611863rem + 0.20811654526534862vw);
-				}
-			}
-			@media screen and (max-width: 479px) {
-				html {
-					font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
-				}
-			}
-		</style>
+    <style>
+      /* Fluid responsiveness */
+      html {
+        font-size: calc(0.625rem + 0.41666666666666663vw);
+      }
+      @media screen and (max-width: 1920px) {
+        html {
+          font-size: calc(0.625rem + 0.41666666666666674vw);
+        }
+      }
+      @media screen and (max-width: 1440px) {
+        html {
+          font-size: calc(0.8126951092611863rem + 0.20811654526534862vw);
+        }
+      }
+      @media screen and (max-width: 479px) {
+        html {
+          font-size: calc(0.7494769874476988rem + 0.8368200836820083vw);
+        }
+      }
+    </style>
 
-		<title>{title} ~ Boring+Ordinary</title>
+    <title>{title} ~ Boring+Ordinary</title>
 
-		<script>
-			// @ts-ignore
-			import { listen } from "quicklink";
+    <script>
+      // @ts-ignore
+      import { listen } from "quicklink";
 
-			listen();
-		</script>
-	</head>
-	<body>
-		<Box
-			css={{
-				display: "grid",
-				gridTemplateRows: "1fr auto 1fr",
-				minHeight: "100vh",
-			}}
-		>
-			<TopBar client:load currentPath={Astro.url.pathname} />
+      listen();
+    </script>
+  </head>
+  <body>
+    <Box
+      css={{
+        display: "grid",
+        gridTemplateRows: "auto 1fr auto",
+        minHeight: "100vh",
+      }}
+    >
+      <TopBar client:load currentPath={Astro.url.pathname} />
 
-			<slot />
-			<Footer />
-		</Box>
-	</body>
+      <slot />
+      <Footer />
+    </Box>
+  </body>
 </html>

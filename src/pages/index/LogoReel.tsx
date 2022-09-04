@@ -1,9 +1,9 @@
-import { Box } from "@/components/index";
+import { Box, Image } from "@/components/index";
 
-type Logo = {
+interface Logo {
   alt: string;
   src: string;
-};
+}
 
 interface Props {
   logos: Logo[];
@@ -11,9 +11,15 @@ interface Props {
 
 const LogoReel = ({ logos }: Props) => {
   return (
-    <Box>
+    <Box css={{ display: "flex", alignItems: "center", gap: "$4" }}>
       {logos.map(({ src, alt }) => (
-        <img src={src} alt={alt}></img>
+        <Image
+          src={src}
+          key={alt}
+          css={{
+            height: "$fontSizes$xl3",
+          }}
+        />
       ))}
     </Box>
   );

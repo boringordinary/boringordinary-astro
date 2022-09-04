@@ -1,9 +1,46 @@
 ---
 import { Box, Section, Text } from "@components/index";
 import { Hero } from "./index/Hero";
+import { LogoReel } from "./index/LogoReel";
 import Layout from "../layouts/Layout.astro";
+import { client } from "@content/index";
+import groq from "groq";
 
-const data = { companies: [] };
+const data = await client.fetch(groq`
+*[_type == "homepage"][0]{
+  ...,
+  featuredWork[]-> {
+    ...,
+    slug,
+    color,
+    preview {
+      ...,
+      "image": image.asset->,
+    }
+  },
+  services {
+    ...,
+    "services": services[]->{
+      ...,
+      "icon": icon.asset->,
+    }
+  },
+  companies {
+    ...,
+    logos[] {
+      ...,
+      "image": asset->
+    }
+  },
+}
+`);
+
+const logos = data.companies.logos.map(({ image }: any) => {
+	return {
+		alt: image.url,
+		src: image.url,
+	};
+});
 ---
 
 <Layout title="Where Ambitious Brands Grow">
@@ -11,9 +48,13 @@ const data = { companies: [] };
 		<Hero client:load />
 
 		<Box css={{ maxWidth: "$sm", mx: "auto" }}>
-			<Text display color="neutral" align="center">
-				Agencies devouring your budget? Recruitment slowing you down?</Text
-			>
+			<Text display color="neutral" align="center" />
 		</Box>
+
+		<LogoReel logos={logos} />
 	</Section>
+	<Text display align="center"
+		>Agencies devouring your budget? Recruitment slowing you down? B+O is a
+		productized agency .</Text
+	>
 </Layout>
