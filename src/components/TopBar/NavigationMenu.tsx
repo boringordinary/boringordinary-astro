@@ -120,8 +120,13 @@ const StyledLink = styled(NavigationMenuPrimitive.Link, {
   display: "block",
   textDecoration: "none",
   lineHeight: 1,
-  "&[data-active]": {
-    backgroundColor: violet.violet3,
+
+  variants: {
+    active: {
+      true: {
+        backgroundColor: violet.violet3,
+      },
+    },
   },
 });
 
@@ -190,12 +195,11 @@ const CustomLink = ({
   children,
   href,
   currentPath,
-  ...props
 }: ComponentProps<"a"> & { currentPath: string }) => {
   const isActive = currentPath === href && currentPath !== "/";
 
   return (
-    <StyledLink active={isActive} href={href} {...props}>
+    <StyledLink active={isActive} href={href}>
       {children}
     </StyledLink>
   );

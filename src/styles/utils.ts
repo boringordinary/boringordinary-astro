@@ -6,6 +6,14 @@ export const utils = {
     height: value,
   }),
 
+  w: (value: Stitches.PropertyValue<"width">) => ({
+    width: value,
+  }),
+
+  h: (value: Stitches.PropertyValue<"height">) => ({
+    width: value,
+  }),
+
   mw: (value: Stitches.PropertyValue<"maxWidth">) => ({
     maxWidth: value,
   }),

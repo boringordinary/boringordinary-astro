@@ -10,10 +10,14 @@ const tiers: Tiers = [
     priceMonthly: 3995,
     features: [
       {
-        title: "Time capacity",
         features: [
           {
-            title: "60 hours",
+            title: "Time capacity",
+            value: "60 hours",
+          },
+          {
+            title: "Time capacity",
+            value: "60 hours",
           },
         ],
       },
@@ -26,10 +30,10 @@ const tiers: Tiers = [
     priceMonthly: 7995,
     features: [
       {
-        title: "Time capacity",
         features: [
           {
-            title: "120 hours",
+            title: "Time capacity",
+            value: "120 hours",
           },
         ],
       },
@@ -41,10 +45,10 @@ const tiers: Tiers = [
     priceMonthly: 3000,
     features: [
       {
-        title: "Time capacity",
         features: [
           {
-            title: "120 hours",
+            title: "Time capacity",
+            value: "120 hours",
           },
         ],
       },
@@ -55,9 +59,9 @@ const tiers: Tiers = [
 
 <Layout title="Pricing">
   <Container size="lg" center>
-    <Section>
+    <Section css={{ maxWidth: "$sizes$md" }}>
       <Text display size="lg" align="center"
-        >Scalable plans to cover your needs.</Text
+        >Plans for all your project's needs.</Text
       >
       <Text size="xl" align="center"
         >Every plan includes a dedicated team, unlimited requests and revisions,

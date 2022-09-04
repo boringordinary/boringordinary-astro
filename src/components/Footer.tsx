@@ -53,8 +53,8 @@ const Footer = () => {
         p: "$4",
       }}
     >
-      <Text color="lighter" css={{ fontWeight: 500 }}>
-        Ⓒ {new Date().getFullYear()} Boring+Ordinary, Inc, MTL / TO
+      <Text size="sm" color="lighter" weight="500">
+        Ⓒ {new Date().getFullYear()} Boring+Ordinary, Inc
       </Text>
     </Box>
   );

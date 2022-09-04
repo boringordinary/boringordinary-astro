@@ -81,6 +81,11 @@ const BaseButton = styled("button", {
         br: "$xl",
       },
     },
+    fullWidth: {
+      true: {
+        width: "100%",
+      },
+    },
     round: {
       true: {
         br: "$pill",
