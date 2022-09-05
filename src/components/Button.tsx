@@ -94,7 +94,7 @@ const BaseButton = styled("button", {
   },
 });
 
-const Button = forwardRef(({ children, ...rest }: any) => {
+const Button = forwardRef(({ children, ...rest }: any, forwardedRef: any) => {
   const ref = useRef<HTMLButtonElement>();
 
   useEffect(() => {

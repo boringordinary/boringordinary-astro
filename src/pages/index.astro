@@ -36,25 +36,28 @@ const data = await client.fetch(groq`
 `);
 
 const logos = data.companies.logos.map(({ image }: any) => {
-	return {
-		alt: image.url,
-		src: image.url,
-	};
+  return {
+    alt: image.url,
+    src: image.url,
+  };
 });
 ---
 
 <Layout title="Where Ambitious Brands Grow">
-	<Section>
-		<Hero client:load />
+  <Section>
+    <Hero client:load />
 
-		<Box css={{ maxWidth: "$sm", mx: "auto" }}>
-			<Text display color="neutral" align="center" />
-		</Box>
+    <Box css={{ maxWidth: "$sm", mx: "auto" }}>
+      <Text display color="neutral" align="center" />
+    </Box>
 
-		<LogoReel logos={logos} />
-	</Section>
-	<Text display align="center"
-		>Agencies devouring your budget? Recruitment slowing you down? B+O is a
-		productized agency .</Text
-	>
+    <LogoReel logos={logos} />
+  </Section>
+  <Text display align="center">Traditional agencies are flawed.</Text>
+
+  <Section>
+    <Text display size="sm">Inefficient, overpriced, risky</Text>
+  </Section>
+
+  <Text display align="center">We work differently.</Text>
 </Layout>

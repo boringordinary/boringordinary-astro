@@ -1,10 +1,18 @@
-import { Button, Text, Container, Box, ImageClip } from "@components/index";
+import {
+  Button,
+  Text,
+  Container,
+  Box,
+  Section,
+  ImageClip,
+} from "@components/index";
 import { LogoReel } from "./LogoReel";
 
 const Hero = () => {
   return (
-    <Box
+    <Section
       css={{
+        mx: "auto",
         maxWidth: "$md",
         display: "flex",
         justifyContent: "center",
@@ -12,17 +20,33 @@ const Hero = () => {
         gridAutoFlow: "dense",
       }}
     >
-      <Container size="md">
+      <Container
+        size="md"
+        css={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <Text as="h1" display size="xl" gradient="primary" align="center">
-          World-class Design & Dev
+          A Non-Traditional Web Agency
         </Text>
-        <Text as="h1" display size="md" gradient="primary" align="center">
-          Fixed price for all projects.
+        <Text as="h1" display size="sm" gradient="primary" align="center">
+          That delivers non-traditional solutions.
         </Text>
 
-        <Button size="xl" round shadow="lg">
-          Start a project
-        </Button>
+        <Box
+          css={{
+            mt: "$4",
+            w: "100%",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button size="xl" round shadow="lg">
+            Start a project
+          </Button>
+        </Box>
 
         <Box
           css={{
@@ -34,7 +58,7 @@ const Hero = () => {
           <LogoReel logos={[]} />
         </Box>
       </Container>
-    </Box>
+    </Section>
   );
 };
 

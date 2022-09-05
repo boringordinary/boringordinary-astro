@@ -312,12 +312,12 @@ const ContentListItemCallout = forwardRef(
       </LinkTitle>
       <LinkText
         css={{
-          fontSize: 14,
+          fontSize: "$sm",
           color: mauve.mauve4,
           lineHeight: 1,
         }}
       >
-        Get a tailored approach to your industry.
+        See our tailored approach to your industry.
       </LinkText>
     </ListItem>
   )

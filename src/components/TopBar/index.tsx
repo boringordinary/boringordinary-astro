@@ -24,7 +24,7 @@ import {
   ContentListItemCallout,
 } from "./NavigationMenu";
 import { styled } from "@/styles/index";
-import { Button, Box } from "@/components";
+import { Button } from "@/components/Button";
 
 interface Item {
   label: string;
@@ -39,7 +39,6 @@ const items: Item[] = [
     label: "Our Story",
     href: "/about",
   },
-
   {
     label: "Industries",
     href: "#",
@@ -98,10 +97,6 @@ const items: Item[] = [
       },
     ],
   },
-  {
-    label: "Pricing",
-    href: "/pricing",
-  },
 ];
 
 const LogoWrapper = styled("div", {
@@ -134,8 +129,12 @@ interface Props {
 const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
+  if (typeof window === "undefined") {
+    return null;
+  }
+
   return (
-    <div>
+    <>
       <StylisticBorder />
       <NavigationMenu>
         <a href="/">
@@ -144,12 +143,12 @@ const TopBar = ({ currentPath }: Props) => {
           </LogoWrapper>
         </a>
 
-        <Box
-          css={{
-            width: "100%",
-            display: "none",
-            "@sm": { display: "flex", justifyContent: "center" },
-          }}
+        <div
+        // css={{
+        //   width: "100%",
+        //   display: "none",
+        //   "@sm": { display: "flex", justifyContent: "center" },
+        // }}
         >
           <NavigationMenuList>
             {items.map(({ label, href, items, callout }) => {
@@ -183,7 +182,7 @@ const TopBar = ({ currentPath }: Props) => {
             })}
             <NavigationMenuIndicator />
           </NavigationMenuList>
-        </Box>
+        </div>
 
         <div className="flex justify-self-end">
           <Button
@@ -199,7 +198,7 @@ const TopBar = ({ currentPath }: Props) => {
           </Button>
 
           <a href="/sessions/strategy-call">
-            <Button css={{ mr: "$4" }}>Work with Us</Button>
+            <Button css={{ marginRight: "$4" }}>Work with Us</Button>
           </a>
         </div>
 
@@ -207,7 +206,7 @@ const TopBar = ({ currentPath }: Props) => {
           <NavigationMenuViewport />
         </ViewportPosition>
       </NavigationMenu>
-    </div>
+    </>
   );
 };
 
