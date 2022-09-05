@@ -9,22 +9,9 @@ import {
   TbPaint,
 } from "react-icons/tb/index";
 import type { IconType } from "react-icons/lib";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  ContentList,
-  ContentListItem,
-  ViewportPosition,
-  ContentListItemCallout,
-} from "./NavigationMenu";
 import { styled } from "@/styles/index";
 import { Button } from "@/components/Button";
+import { Box } from "../Box";
 
 interface Item {
   label: string;
@@ -122,6 +109,16 @@ const StylisticBorder = styled("div", {
   background: "linear-gradient(to right, $orange9 0%, $accent9 100%)",
 });
 
+const Menu = styled("div", {
+  display: "grid",
+  gridTemplateColumns: "auto 1fr auto",
+});
+
+const MenuItem = styled("div", {
+  fontSize: "$md",
+  fontWeight: "500",
+});
+
 interface Props {
   currentPath: string;
 }
@@ -129,60 +126,45 @@ interface Props {
 const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
-  if (typeof window === "undefined") {
-    return null;
-  }
-
   return (
     <>
       <StylisticBorder />
-      <NavigationMenu>
+      <Menu>
         <a href="/">
           <LogoWrapper>
             <img src="/branding/logo-symbol.svg" alt="Logo" />
           </LogoWrapper>
         </a>
 
-        <div
-        // css={{
-        //   width: "100%",
-        //   display: "none",
-        //   "@sm": { display: "flex", justifyContent: "center" },
-        // }}
-        >
-          <NavigationMenuList>
-            {items.map(({ label, href, items, callout }) => {
-              if (items) {
-                return (
-                  <NavigationMenuItem key={label}>
-                    <NavigationMenuTrigger>{label}</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                      <ContentList layout="one">
-                        {callout && <ContentListItemCallout />}
-                        {items.map(({ label, href }) => (
-                          <ContentListItem
-                            href={href}
-                            title={label}
-                            key={label}
-                          />
-                        ))}
-                      </ContentList>
-                    </NavigationMenuContent>
-                  </NavigationMenuItem>
-                );
-              }
+        <Box css={{ display: "flex", width: "100%" }}>
+          {items.map(({ label, href, items, callout }) => {
+            // if (items) {
+            //   return (
+            //     <div key={label}>
+            //       {label}
+            //       {/* <NavigationMenuContent>
+            //         <ContentList layout="one">
+            //           {callout && <ContentListItemCallout />}
+            //           {items.map(({ label, href }) => (
+            //             <ContentListItem
+            //               href={href}
+            //               title={label}
+            //               key={label}
+            //             />
+            //           ))}
+            //         </ContentList>
+            //       </NavigationMenuContent> */}
+            //     </div>
+            //   );
+            // }
 
-              return (
-                <NavigationMenuItem key={label}>
-                  <NavigationMenuLink href={href} currentPath={currentPath}>
-                    {label}
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-              );
-            })}
-            <NavigationMenuIndicator />
-          </NavigationMenuList>
-        </div>
+            return (
+              <div key={label}>
+                <MenuItem>{label}</MenuItem>
+              </div>
+            );
+          })}
+        </Box>
 
         <div className="flex justify-self-end">
           <Button
@@ -201,11 +183,7 @@ const TopBar = ({ currentPath }: Props) => {
             <Button css={{ marginRight: "$4" }}>Work with Us</Button>
           </a>
         </div>
-
-        <ViewportPosition>
-          <NavigationMenuViewport />
-        </ViewportPosition>
-      </NavigationMenu>
+      </Menu>
     </>
   );
 };
