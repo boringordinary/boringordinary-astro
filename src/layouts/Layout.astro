@@ -1,7 +1,7 @@
 ---
 import { Footer, Box } from "@/components/index";
 import { TopBar } from "@/components/TopBar/index";
-import { getCssText, css, } from "@/styles/index";
+import { getCssText, css } from "@/styles/index";
 
 export interface Props {
   title: string;
@@ -30,11 +30,11 @@ const globalCss = css({
     transitionDuration: "200ms",
   },
 });
-const globalClass = globalCss().toString();
+
 ---
 
 <!DOCTYPE html>
-<html lang="en" class={globalClass}>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -81,13 +81,16 @@ const globalClass = globalCss().toString();
     <script>
       // @ts-ignore
       import { listen } from "quicklink";
-      import { globalStyles } from '@/styles/index';
 
-      globalStyles()
       listen();
     </script>
   </head>
   <body>
+    <script>
+      import {globalStyles} from '@/styles'
+
+      globalStyles()
+    </script>
     <Box
       css={{
         display: "grid",
