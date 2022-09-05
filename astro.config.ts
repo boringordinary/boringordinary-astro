@@ -13,6 +13,7 @@ import { astroImageTools } from "astro-imagetools";
 export default defineConfig({
   // output: "server",
   // adapter: vercel(),
+  site: "https://boringordinary.com",
   integrations: [astroImageTools, react(), sitemap(), compress()],
   trailingSlash: "never",
   vite: {},
