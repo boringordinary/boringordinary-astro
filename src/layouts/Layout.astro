@@ -9,6 +9,8 @@ export interface Props {
 
 const { title } = Astro.props as Props;
 const themeStyles = getCssText();
+
+const initialStyles = themeStyles + globalStyles;
 ---
 
 <!DOCTYPE html>
@@ -21,11 +23,7 @@ const themeStyles = getCssText();
     <link rel="shortcut icon" href="/branding/favicon.png" />
     <link rel="icon" href="/branding/favicon.png" />
 
-    <style set:html={themeStyles} is:inline id="stitches">
-
-    </style>
-
-    <style set:html={globalStyles} is:inline id="stitches-global">
+    <style set:html={initialStyles} is:inline id="stitches">
 
     </style>
 

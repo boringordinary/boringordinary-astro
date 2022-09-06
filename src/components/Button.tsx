@@ -46,11 +46,12 @@ const BaseButton = styled("button", {
     },
     variant: {
       ghost: {
-        background: "transparent",
+        bg: "transparent",
         border: "0",
         color: "$gray11",
 
         "&:hover": {
+          bg: "$divider",
           transform: "none",
           boxShadow: "none",
         },

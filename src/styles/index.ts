@@ -83,7 +83,7 @@ const { theme, styled, keyframes, getCssText, css } = createStitches({
     space: generateSpacing(4, 30),
     fontSizes: {
       xs: "0.75rem" /* 12px */,
-      sm: "0.875rem" /* 14px */,
+      sm: "0.975rem" /* 14px */,
       base: "1rem" /* 16px */,
       md: "1.25rem" /* 16px */,
       lg: "1.125rem" /* 18px */,

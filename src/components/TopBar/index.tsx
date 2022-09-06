@@ -117,6 +117,14 @@ const Menu = styled("div", {
 const MenuItem = styled("div", {
   fontSize: "$md",
   fontWeight: "500",
+  cursor: "pointer",
+  py: "$2",
+  px: "$3",
+  br: "$md",
+
+  "&:hover": {
+    bg: "$divider",
+  },
 });
 
 interface Props {
@@ -136,37 +144,31 @@ const TopBar = ({ currentPath }: Props) => {
           </LogoWrapper>
         </a>
 
-        <Box css={{ display: "flex", width: "100%" }}>
+        <Box
+          css={{
+            display: "flex",
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
           {items.map(({ label, href, items, callout }) => {
-            // if (items) {
-            //   return (
-            //     <div key={label}>
-            //       {label}
-            //       {/* <NavigationMenuContent>
-            //         <ContentList layout="one">
-            //           {callout && <ContentListItemCallout />}
-            //           {items.map(({ label, href }) => (
-            //             <ContentListItem
-            //               href={href}
-            //               title={label}
-            //               key={label}
-            //             />
-            //           ))}
-            //         </ContentList>
-            //       </NavigationMenuContent> */}
-            //     </div>
-            //   );
-            // }
-
             return (
               <div key={label}>
-                <MenuItem>{label}</MenuItem>
+                <Button size="lg" css={{ fontSize: "$xl" }} variant="ghost">
+                  {label}
+                </Button>
               </div>
             );
           })}
         </Box>
 
-        <div className="flex justify-self-end">
+        <Box
+          css={{
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <Button
             css={{
               display: "flex",
@@ -182,7 +184,7 @@ const TopBar = ({ currentPath }: Props) => {
           <a href="/sessions/strategy-call">
             <Button css={{ marginRight: "$4" }}>Work with Us</Button>
           </a>
-        </div>
+        </Box>
       </Menu>
     </>
   );
