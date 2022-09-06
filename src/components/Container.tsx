@@ -1,8 +1,6 @@
 import { styled } from "@styles/index";
 
 const Container = styled("div", {
-  py: "$10",
-
   variants: {
     center: {
       true: {

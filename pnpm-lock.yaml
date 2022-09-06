@@ -12,6 +12,7 @@ specifiers:
   '@linaria/babel-preset': ^4.1.2
   '@linaria/core': ^4.1.1
   '@linaria/react': ^4.1.2
+  '@mux/mux-player-react': 0.1.0-beta.28
   '@nanostores/persistent': ^0.6.0
   '@nanostores/react': ^0.3.0
   '@nextui-org/react': 1.0.0-beta.9
@@ -56,6 +57,7 @@ dependencies:
   '@linaria/babel-preset': 4.1.2
   '@linaria/core': 4.1.1
   '@linaria/react': 4.1.2_react@18.2.0
+  '@mux/mux-player-react': 0.1.0-beta.28_zxljzmqdrxwnuenbkrz77w74uy
   '@nanostores/persistent': 0.6.0_nanostores@0.6.0
   '@nanostores/react': 0.3.0_resngft2y545aodfc4fe35fzvu
   '@nextui-org/react': 1.0.0-beta.9_biqbaboplfbrettd7655fr4n2y
@@ -2589,6 +2591,10 @@ packages:
       tslib: 2.4.0
     dev: false
 
+  /@github/template-parts/0.5.3:
+    resolution: {integrity: sha512-Jw7gNq1zIwd17gTmtD/h+kTpSsue/fRGiqso42+A36AYMVlkXxmQ3UB+lInE8+4KPSxaOIvMMLD90LQjFlLz5A==}
+    dev: false
+
   /@internationalized/date/3.0.0-rc.1:
     resolution: {integrity: sha512-IHc1NqUTA/fo9nf0pwRXrMjrabJ/9vTw5RIFAF3qS8JsdEGnw3dIyDb/+ipjEEqZyHVHHXwnqD8hKM18gGoWTg==}
     dependencies:
@@ -3204,6 +3210,49 @@ packages:
       '@motionone/types': 10.14.0
       hey-listen: 1.0.8
       tslib: 2.4.0
+    dev: false
+
+  /@mux/mux-player-react/0.1.0-beta.28_zxljzmqdrxwnuenbkrz77w74uy:
+    resolution: {integrity: sha512-MnakTnKbPziXfoafP2N+9IpZJwWrmQJb3Mv44d++QQYuEW3bjleX7DS+1rZQvCRa6US1L3KcdGvqZRtU02OadA==}
+    peerDependencies:
+      '@types/react': ^17.0.0 || ^18
+      '@types/react-dom': '*'
+      react: ^17.0.2 || ^18
+      react-dom: ^17.0.2 || ^18
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+    dependencies:
+      '@mux/mux-player': 0.1.0-beta.27
+      '@mux/playback-core': 0.10.0
+      '@types/react': 18.0.17
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@mux/mux-player/0.1.0-beta.27:
+    resolution: {integrity: sha512-ieo4i/4ga5G/rLvdRA1wGo1yOivy6xNrhvE3qfKJp59g88yNZ+YTw9qBSP2T8xCU9v/tok/7CsBnEVRO8hxhpQ==}
+    dependencies:
+      '@github/template-parts': 0.5.3
+      '@mux/mux-video': 0.8.5
+      '@mux/playback-core': 0.10.0
+      media-chrome: 0.10.0
+    dev: false
+
+  /@mux/mux-video/0.8.5:
+    resolution: {integrity: sha512-mD534nJpkQRiDVy2cguAGOdiHp3yPoqsYlqzRx794fiinJYo7yb9UUh8VGoPL6y6l9jqR0VKumSixBkQYGLreQ==}
+    dependencies:
+      '@mux/playback-core': 0.10.0
+    dev: false
+
+  /@mux/playback-core/0.10.0:
+    resolution: {integrity: sha512-zn4yfsD+ACnjb8QssiQeFFjGitpR/AfHU4qAxyvzyXhGzL0kyvg3ziF5OOcd45SHK+/kY9EYxptZ2SLcwgIPuw==}
+    dependencies:
+      hls.js: 1.1.5
+      mux-embed: 4.13.1
     dev: false
 
   /@nanostores/persistent/0.6.0_nanostores@0.6.0:
@@ -6180,6 +6229,10 @@ packages:
     resolution: {integrity: sha512-COpmrF2NOg4TBWUJ5UVyaCU2A88wEMkUPK4hNqyCkqHbxT92BbvfjoSozkAIIm6XhicGlJHhFdullInrdhwU8Q==}
     dev: false
 
+  /hls.js/1.1.5:
+    resolution: {integrity: sha512-mQX5TSNtJEzGo5HPpvcQgCu+BWoKDQM6YYtg/KbgWkmVAcqOCvSTi0SuqG2ZJLXxIzdnFcKU2z7Mrw/YQWhPOA==}
+    dev: false
+
   /hoist-non-react-statics/3.3.2:
     resolution: {integrity: sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw==}
     dependencies:
@@ -6781,6 +6834,10 @@ packages:
   /mdurl/1.0.1:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
 
+  /media-chrome/0.10.0:
+    resolution: {integrity: sha512-kAJzB1+JwI4tSjOUmRUL6VjdJwcdOKeLzUK24v32+ntyhDa14Q3zrRMQ16G6kogvyTn1Md2HR714IfvI4c/NNg==}
+    dev: false
+
   /memoize-one/5.2.1:
     resolution: {integrity: sha512-zYiwtZUcYyXKo/np96AGZAckk+FWWsUdJ3cHGGmld7+AhvcWmQyGCYUh1hc4Q/pkOhb65dQR/pqCyK0cOaHz4Q==}
     dev: false
@@ -7158,6 +7215,10 @@ packages:
   /ms/2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
     dev: true
+
+  /mux-embed/4.13.1:
+    resolution: {integrity: sha512-cQF1wC4tN77OxR2EtADhTroMnKb2P9dQoNFU9mcDbLpRap7sM4VhhqiWKHcSjK/ghKXUwHrNQvKojkX8ZBfaCw==}
+    dev: false
 
   /nano-pubsub/1.0.2:
     resolution: {integrity: sha512-HtPs1RbULM/z8wt3BbeeZlxVNiJbl+zQAwwrbc0KAq5NHaCG3MmffOVCpRhNTs+TK67MdN6aZ+5wzPtRZvME+w==}

@@ -1,74 +1,100 @@
 ---
 import {
-	Box,
-	Text,
-	Container,
-	Divider,
-	Section,
-	Avatar,
+  Box,
+  Text,
+  Container,
+  Divider,
+  Section,
+  Avatar,
 } from "@/components/index";
+import MuxPlayer from "@mux/mux-player-react";
+import { Member } from "./components/Member";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="About">
-	<Container
-		size="xl"
-		css={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
-	>
-		<Box css={{ maxWidth: "100%" }}>
-			<!-- Wistia player -->
-		</Box>
-		<Box css={{ px: "$8", py: "$8" }}>
-			<Text display gradient="primary" size="xs">Strategy call</Text>
+  <Container
+    size="xl"
+    css={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
+  >
+    <Box
+      css={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        maxWidth: "100%",
+      }}
+    >
+      <MuxPlayer
+        client:load
+        streamType="on-demand"
+        playbackId="Dc8u02pLO02SbclOCuS6Hgue8EOaFRbrq8"
+        metadata={{
+          video_id: "video-id-54321",
+          video_title: "Test video title",
+          viewer_user_id: "user-id-007",
+        }}
+      />
+    </Box>
+    <Box css={{ px: "$8", py: "$8" }}>
+      <Text display gradient="primary" size="xs">Strategy call</Text>
 
-			<Text display size="lg">Are we a fit?</Text>
+      <Text display size="lg">Are we a fit?</Text>
 
-			<Text size="xl2" css={{ fontWeight: 400 }}>
-				👋 Kathryn, let's understand your biggest goals and challenges, diagnose
-				whatever's holding you back, and see what your options are to grow.
-			</Text>
+      <Text size="xl2" css={{ fontWeight: 400 }}>
+        👋 Kathryn, let's understand your biggest goals and challenges, diagnose
+        whatever's holding you back, and see what your options are to grow.
+      </Text>
 
-			<Text size="xl2" css={{ fontWeight: 400 }}>
-				Together, we'll explore the highest impact, lowest cost solutions that
-				are tailored around your goals.</Text
-			>
+      <Text size="xl2" css={{ fontWeight: 400 }}>
+        Together, we'll explore the highest impact, lowest cost solutions that
+        are tailored around your goals.</Text
+      >
 
-			<Text size="xl2" css={{ fontWeight: 400 }}>
-				What we'll do
-				<ul>
-					<li>Understand the positioning of your brand.</li>
-					<li>Deduce what's holding you back.</li>
-					<li>Uncover the best path to achieve your goals.</li>
-				</ul>
-			</Text>
-		</Box>
-	</Container>
+      <Text size="xl2" css={{ fontWeight: 400 }}>
+        What we'll do
+        <ul>
+          <li>Understand the positioning of your brand.</li>
+          <li>Deduce what's holding you back.</li>
+          <li>Uncover the best path to achieve your goals.</li>
+        </ul>
+      </Text>
+    </Box>
+  </Container>
 
-	<Divider />
+  <Divider />
 
-	<Container
-		size="sm"
-		css={{
-			mx: "auto",
-		}}
-	>
-		<Section
-			css={{
-				textAlign: "center",
-			}}
-		>
-			<Text display gradient="primary">You're in good hands</Text>
-			<Text display size="xs" color="neutral">
-				We're leaders from the top companies in digital commerce, from D2C
-				brands to the platforms themselves.
-			</Text>
+  <Container
+    size="sm"
+    css={{
+      mx: "auto",
+    }}
+  >
+    <Section
+      css={{
+        textAlign: "center",
+      }}
+    >
+      <Text display gradient="primary">You're in good hands</Text>
+      <Text display size="xs" color="neutral">
+        We're leaders from the top companies in digital commerce, from D2C
+        brands to the platforms themselves.
+      </Text>
 
-			<Avatar
-				src="https://cdn.sanity.io/images/qnrs6r79/production/3850685847785dd1ddca73cc515b538970286d8d-1337x1110.jpg"
-			/>
-			<Avatar
-				src="https://cdn.sanity.io/images/qnrs6r79/production/d61f385b12b911859b4d41132aa504909b9174a5-512x512.png"
-			/>
-		</Section>
-	</Container>
+      <Box
+        css={{ display: "flex", gap: "$6", justifyContent: "center", mt: "$8" }}
+      >
+        <Member
+          name="Andy Fang"
+          role="Director, Design & Dev"
+          avatar="https://cdn.sanity.io/images/qnrs6r79/production/3850685847785dd1ddca73cc515b538970286d8d-1337x1110.jpg"
+        />
+        <Member
+          name="Charles Lin"
+          role="Director, Brand Strategy"
+          avatar="https://cdn.sanity.io/images/qnrs6r79/production/d61f385b12b911859b4d41132aa504909b9174a5-512x512.png"
+        />
+      </Box>
+    </Section>
+  </Container>
 </Layout>

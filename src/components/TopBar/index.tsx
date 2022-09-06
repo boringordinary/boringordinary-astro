@@ -132,7 +132,7 @@ const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <>
+    <Box>
       <StylisticBorder />
       <Menu>
         <a href="/">
@@ -180,11 +180,11 @@ const TopBar = ({ currentPath }: Props) => {
           </Button>
 
           <a href="/sessions/strategy-call">
-            <Button css={{ pr: "$4" }}>Work with Us</Button>
+            <Button css={{ mr: "$4" }}>Chat with Us</Button>
           </a>
         </Box>
       </Menu>
-    </>
+    </Box>
   );
 };
 

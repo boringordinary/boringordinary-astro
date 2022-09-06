@@ -78,6 +78,7 @@ const { theme, styled, keyframes, getCssText, css } = createStitches({
       ...generateColorScales("background"),
       ...generateColorScales("orange"),
       ...generateColorScales("gray"),
+      ...generateColorScales("ink"),
       divider: "rgba(151, 117, 65, 0.25)",
     },
     space: generateSpacing(4, 30),

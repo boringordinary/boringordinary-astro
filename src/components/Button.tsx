@@ -51,9 +51,17 @@ const BaseButton = styled("button", {
         color: "$gray11",
 
         "&:hover": {
-          bg: "$divider",
+          bg: "$ink7",
           transform: "none",
           boxShadow: "none",
+        },
+
+        "&:active": {
+          bg: "$ink11",
+        },
+
+        "&:focus": {
+          bg: "$ink11",
         },
       },
     },

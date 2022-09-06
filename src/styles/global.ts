@@ -23,8 +23,14 @@ const globalStyles = stringify({
     borderColor: "var(--colors-divider)",
     transitionDuration: "200ms",
   },
+  ul: {
+    fontSize: "var(--fontSizes-md)",
+    color: "inherit",
+  },
   li: {
     fontSize: "inherit",
+    lineHeight: "initial",
+    color: "inherit",
   },
 });
 
