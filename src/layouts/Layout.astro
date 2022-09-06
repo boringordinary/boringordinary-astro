@@ -2,6 +2,7 @@
 import { Footer, Box } from "@/components/index";
 import { TopBar } from "@/components/TopBar/index";
 import { getCssText, globalStyles } from "@/styles/index";
+import Styles from "@components/Styles";
 
 export interface Props {
   title: string;
@@ -23,7 +24,7 @@ const initialStyles = themeStyles + globalStyles;
     <link rel="shortcut icon" href="/branding/favicon.png" />
     <link rel="icon" href="/branding/favicon.png" />
 
-    <style set:html={initialStyles} is:inline id="stitches">
+    <style set:html={globalStyles} is:inline id="stitches">
 
     </style>
 
@@ -66,6 +67,8 @@ const initialStyles = themeStyles + globalStyles;
     </script>
   </head>
   <body>
+    <Styles />
+
     <Box
       css={{
         display: "grid",
