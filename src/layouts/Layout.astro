@@ -9,9 +9,6 @@ export interface Props {
 }
 
 const { title } = Astro.props as Props;
-const themeStyles = getCssText();
-
-const initialStyles = themeStyles + globalStyles;
 ---
 
 <!DOCTYPE html>
@@ -73,7 +70,9 @@ const initialStyles = themeStyles + globalStyles;
       css={{
         display: "grid",
         gridTemplateRows: "auto 1fr auto",
-        minHeight: "100vh",
+        minH: "100vh",
+        maxW: "100vw",
+        overflow: "hidden",
       }}
     >
       <TopBar client:load currentPath={Astro.url.pathname} />

@@ -1,3 +1,5 @@
+// No typings for @stitches/stringify
+// @ts-ignore
 import { stringify } from "@stitches/stringify";
 
 const globalStyles = stringify({
@@ -14,6 +16,7 @@ const globalStyles = stringify({
     background: "#fafafc",
     fontFamily: "var(--fonts-sansSerif)",
     margin: "0",
+    overflowX: "hidden",
   },
   "*": {
     letterSpacing: "0.01rem",

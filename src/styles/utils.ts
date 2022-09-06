@@ -14,11 +14,19 @@ export const utils = {
     width: value,
   }),
 
-  mw: (value: Stitches.PropertyValue<"maxWidth">) => ({
+  minW: (value: Stitches.PropertyValue<"minWidth">) => ({
+    minWidth: value,
+  }),
+
+  minH: (value: Stitches.PropertyValue<"minHeight">) => ({
+    minHeight: value,
+  }),
+
+  maxW: (value: Stitches.PropertyValue<"maxWidth">) => ({
     maxWidth: value,
   }),
 
-  mh: (value: Stitches.PropertyValue<"maxHeight">) => ({
+  maxH: (value: Stitches.PropertyValue<"maxHeight">) => ({
     maxHeight: value,
   }),
 

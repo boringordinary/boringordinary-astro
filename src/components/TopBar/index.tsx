@@ -27,6 +27,10 @@ const items: Item[] = [
     href: "/about",
   },
   {
+    label: "Pricing",
+    href: "/pricing",
+  },
+  {
     label: "Industries",
     href: "#",
     callout: true,
@@ -112,19 +116,12 @@ const StylisticBorder = styled("div", {
 const Menu = styled("div", {
   display: "grid",
   gridTemplateColumns: "auto 1fr auto",
+  maxW: "100vw",
+  maxH: "65px",
 });
 
-const MenuItem = styled("div", {
-  fontSize: "$md",
-  fontWeight: "500",
-  cursor: "pointer",
-  py: "$2",
-  px: "$3",
-  br: "$md",
-
-  "&:hover": {
-    bg: "$divider",
-  },
+const MenuItem = styled(Button, {
+  fontSize: "$xl !important",
 });
 
 interface Props {
@@ -154,11 +151,11 @@ const TopBar = ({ currentPath }: Props) => {
         >
           {items.map(({ label, href, items, callout }) => {
             return (
-              <div key={label}>
-                <Button size="lg" css={{ fontSize: "$xl" }} variant="ghost">
+              <a href={href} key={label}>
+                <MenuItem size="lg" variant="ghost">
                   {label}
-                </Button>
-              </div>
+                </MenuItem>
+              </a>
             );
           })}
         </Box>
@@ -167,6 +164,7 @@ const TopBar = ({ currentPath }: Props) => {
           css={{
             display: "flex",
             alignItems: "center",
+            pr: "$4",
           }}
         >
           <Button
@@ -182,7 +180,7 @@ const TopBar = ({ currentPath }: Props) => {
           </Button>
 
           <a href="/sessions/strategy-call">
-            <Button css={{ marginRight: "$4" }}>Work with Us</Button>
+            <Button css={{ pr: "$4" }}>Work with Us</Button>
           </a>
         </Box>
       </Menu>
