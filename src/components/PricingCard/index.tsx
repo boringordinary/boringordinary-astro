@@ -45,7 +45,7 @@ const PricingCard = ({ tiers }: Props) => {
         const priceText = `${priceMonthly}`;
 
         return (
-          <Card>
+          <Card key={title}>
             <Text display size="sm" align="center">
               {title}
             </Text>
@@ -81,8 +81,8 @@ const PricingCard = ({ tiers }: Props) => {
               </Text>
             </Box>
 
-            {features.map(({ title, features }) => (
-              <Box>
+            {features.map(({ title, features }, index) => (
+              <Box key={`feature-${index}`}>
                 {title && (
                   <Text display size="xs">
                     {title}
