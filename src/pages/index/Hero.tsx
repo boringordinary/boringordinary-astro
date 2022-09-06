@@ -11,12 +11,12 @@ import { LogoReel } from "./LogoReel";
 const Hero = () => {
   return (
     <Section
+      size="xl"
       css={{
         mx: "auto",
         maxWidth: "$md",
         display: "flex",
         justifyContent: "center",
-        py: "$20",
         gridAutoFlow: "dense",
       }}
     >
@@ -29,10 +29,10 @@ const Hero = () => {
         }}
       >
         <Text as="h1" display size="xl" gradient="primary" align="center">
-          A Non-Traditional Web Agency
+          The Web Agency of the Future
         </Text>
-        <Text as="h1" display size="sm" gradient="primary" align="center">
-          That delivers non-traditional solutions.
+        <Text as="h2" display size="sm" gradient="primary" align="center">
+          All the benefits of a traditional agency – none of the headaches.
         </Text>
 
         <Box
@@ -43,9 +43,11 @@ const Hero = () => {
             justifyContent: "center",
           }}
         >
-          <Button size="xl" round shadow="lg">
-            Start a project
-          </Button>
+          <a href="/pricing">
+            <Button size="xl" round shadow="lg">
+              Start a project
+            </Button>
+          </a>
         </Box>
 
         <Box

@@ -121,7 +121,7 @@ const Menu = styled("div", {
 });
 
 const MenuItem = styled(Button, {
-  fontSize: "$xl !important",
+  fontSize: "$lg !important",
 });
 
 interface Props {
@@ -137,7 +137,7 @@ const TopBar = ({ currentPath }: Props) => {
       <Menu>
         <a href="/">
           <LogoWrapper>
-            <img src="/branding/logo-symbol.svg" alt="Logo" />
+            <img src="/branding/logo-symbol.svg" alt="Logo" w="100%" h="100%" />
           </LogoWrapper>
         </a>
 
@@ -152,9 +152,7 @@ const TopBar = ({ currentPath }: Props) => {
           {items.map(({ label, href, items, callout }) => {
             return (
               <a href={href} key={label}>
-                <MenuItem size="lg" variant="ghost">
-                  {label}
-                </MenuItem>
+                <MenuItem variant="ghost">{label}</MenuItem>
               </a>
             );
           })}

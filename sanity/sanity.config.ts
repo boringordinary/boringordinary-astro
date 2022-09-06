@@ -3,6 +3,8 @@ import {visionTool} from '@sanity/vision'
 import {deskTool} from 'sanity/desk'
 import {schemaTypes} from './schemas'
 
+import {muxInput} from 'sanity-plugin-mux-input'
+
 export default createConfig({
   name: 'default',
   title: 'Boring+Ordinary',
@@ -12,6 +14,7 @@ export default createConfig({
 
   plugins: [
     deskTool(),
+    muxInput(),
     visionTool({
       defaultApiVersion: '2022-08-15',
       defaultDataset: 'production',

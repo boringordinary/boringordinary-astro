@@ -1,22 +1,12 @@
 ---
-import {
-  Box,
-  Text,
-  Container,
-  Divider,
-  Section,
-  Avatar,
-} from "@/components/index";
+import { Box, Text, Container, Divider, Section, Button } from "@/components";
 import MuxPlayer from "@mux/mux-player-react";
 import { Member } from "./components/Member";
 import Layout from "../../layouts/Layout.astro";
 ---
 
 <Layout title="About">
-  <Container
-    size="xl"
-    css={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}
-  >
+  <Container size="xl">
     <Box
       css={{
         display: "flex",
@@ -30,9 +20,9 @@ import Layout from "../../layouts/Layout.astro";
         streamType="on-demand"
         playbackId="Dc8u02pLO02SbclOCuS6Hgue8EOaFRbrq8"
         metadata={{
-          video_id: "video-id-54321",
-          video_title: "Test video title",
-          viewer_user_id: "user-id-007",
+          video_id: "strategy-call",
+          video_title: "Strategy call",
+          viewer_user_id: "unidentified",
         }}
       />
     </Box>
@@ -59,6 +49,8 @@ import Layout from "../../layouts/Layout.astro";
           <li>Uncover the best path to achieve your goals.</li>
         </ul>
       </Text>
+
+      <Button client:load size="xl">Book a call</Button>
     </Box>
   </Container>
 
