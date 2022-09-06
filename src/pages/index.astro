@@ -51,13 +51,22 @@ const logos = data.companies.logos.map(({ image }: any) => {
       <Text display color="neutral" align="center" />
     </Box>
 
-    <LogoReel logos={logos} />
+    <Box
+      css={{
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <Text align="center" weight="500" size="sm"
+        >Trusted by the world's fastest-growing brands</Text
+      >
+      <LogoReel logos={logos} />
+    </Box>
   </Section>
-  <Text display align="center">Traditional agencies</Text>
-  <Text display align="center">With B+O</Text>
 
   <Section>
-    <Text display size="sm">Inefficient, overpriced, risky</Text>
+    <Text display align="center">Tired of traditional agencies?</Text>
   </Section>
 
   <Text display align="center">We work differently.</Text>

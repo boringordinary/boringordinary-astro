@@ -137,7 +137,12 @@ const TopBar = ({ currentPath }: Props) => {
       <Menu>
         <a href="/">
           <LogoWrapper>
-            <img src="/branding/logo-symbol.svg" alt="Logo" w="100%" h="100%" />
+            <img
+              src="/branding/logo-symbol.svg"
+              alt="Logo"
+              width="100%"
+              height="100%"
+            />
           </LogoWrapper>
         </a>
 

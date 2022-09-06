@@ -15,7 +15,7 @@ const LogoReel = ({ logos }: Props) => {
       css={{
         display: "flex",
         alignItems: "center",
-        gap: "$4",
+        gap: "$8",
         filter: "contrast(0.1)",
       }}
     >
