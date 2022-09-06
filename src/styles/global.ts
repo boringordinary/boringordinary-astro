@@ -1,22 +1,23 @@
-import { globalCss } from "./";
+import { stringify } from "@stitches/stringify";
 
-const globalStyles = globalCss({
+const globalStyles = stringify({
   html: {
     fontFeatureSettings: `"rlig" 1,"calt" 0`,
     textRendering: "optimizeLegibility",
     WebkitFontSmoothing: "antialiased",
     MozOsxFontSmoothing: "grayscale",
     fontDisplay: "optional",
-    background: "#fafafc",
-    fontFamily: "$sansSerif",
+    WebkitTextSizeAdjust: "100%",
+    lineHeight: "1.15",
   },
   body: {
     background: "#fafafc",
-    fontFamily: "$sansSerif",
+    fontFamily: "var(--fonts-sansSerif)",
+    margin: "0",
   },
   "*": {
     letterSpacing: "0.01rem",
-    borderColor: "$divider",
+    borderColor: "var(--colors-divider)",
     transitionDuration: "200ms",
   },
   li: {

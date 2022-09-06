@@ -44,6 +44,7 @@
     "@sanity/image-url": "^1.0.1",
     "@stitches/core": "^1.2.8",
     "@stitches/react": "^1.2.8",
+    "@stitches/stringify": "^1.2.8",
     "astro-imagetools": "^0.6.10",
     "clsx": "^1.2.1",
     "framer-motion": "^7.2.1",

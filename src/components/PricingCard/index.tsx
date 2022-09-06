@@ -82,7 +82,7 @@ const PricingCard = ({ tiers }: Props) => {
             </Box>
 
             {features.map(({ title, features }, index) => (
-              <Box key={`feature-${index}`}>
+              <Box key={`featureList-${index}`}>
                 {title && (
                   <Text display size="xs">
                     {title}
@@ -90,8 +90,9 @@ const PricingCard = ({ tiers }: Props) => {
                 )}
 
                 <Box>
-                  {features.map(({ title, value }) => (
+                  {features.map(({ title, value }, index) => (
                     <Box
+                      key={`feature-${title}-${index}`}
                       css={{ display: "flex", justifyContent: "space-between" }}
                     >
                       <Text display size="xs">

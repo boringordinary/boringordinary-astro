@@ -1,7 +1,7 @@
 ---
 import { Footer, Box } from "@/components/index";
 import { TopBar } from "@/components/TopBar/index";
-import { getCssText, css } from "@/styles/index";
+import { getCssText, globalStyles } from "@/styles/index";
 
 export interface Props {
   title: string;
@@ -9,29 +9,6 @@ export interface Props {
 
 const { title } = Astro.props as Props;
 const themeStyles = getCssText();
-
-const globalCss = css({
-  fontFeatureSettings: `"rlig" 1,"calt" 0`,
-  textRendering: "optimizeLegibility",
-  WebkitFontSmoothing: "antialiased",
-  MozOsxFontSmoothing: "grayscale",
-  background: "#fafafc",
-  fontFamily: "$sansSerif",
-
-  body: {
-    background: "#fafafc",
-    fontFamily: "$sansSerif",
-    margin: 0,
-  },
-
-  "*": {
-    letterSpacing: "0.01rem",
-    borderColor: "$divider",
-    transitionDuration: "200ms",
-  },
-});
-
-const globalClassName = globalCss.toString();
 ---
 
 <!DOCTYPE html>
@@ -45,6 +22,10 @@ const globalClassName = globalCss.toString();
     <link rel="icon" href="/branding/favicon.png" />
 
     <style set:html={themeStyles} is:inline id="stitches">
+
+    </style>
+
+    <style set:html={globalStyles} is:inline id="stitches-global">
 
     </style>
 
@@ -87,12 +68,6 @@ const globalClassName = globalCss.toString();
     </script>
   </head>
   <body>
-    <script>
-      import { globalStyles } from "@/styles";
-
-      globalStyles();
-    </script>
-
     <Box
       css={{
         display: "grid",
