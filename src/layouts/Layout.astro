@@ -9,6 +9,7 @@ export interface Props {
 
 const { title } = Astro.props as Props;
 const themeStyles = getCssText();
+console.log(themeStyles);
 
 const globalCss = css({
   fontFeatureSettings: `"rlig" 1,"calt" 0`,
@@ -31,10 +32,11 @@ const globalCss = css({
   },
 });
 
+const globalClassName = globalCss.toString();
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class={globalClassName}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -87,10 +89,29 @@ const globalCss = css({
   </head>
   <body>
     <script>
-      import {globalStyles} from '@/styles'
+      import { css } from "@/styles";
+      const globalCss = css({
+        fontFeatureSettings: `"rlig" 1,"calt" 0`,
+        textRendering: "optimizeLegibility",
+        WebkitFontSmoothing: "antialiased",
+        MozOsxFontSmoothing: "grayscale",
+        background: "#fafafc",
+        fontFamily: "$sansSerif",
 
-      globalStyles()
+        body: {
+          background: "#fafafc",
+          fontFamily: "$sansSerif",
+          margin: 0,
+        },
+
+        "*": {
+          letterSpacing: "0.01rem",
+          borderColor: "$divider",
+          transitionDuration: "200ms",
+        },
+      });
     </script>
+
     <Box
       css={{
         display: "grid",
@@ -101,6 +122,7 @@ const globalCss = css({
       <TopBar client:load currentPath={Astro.url.pathname} />
 
       <slot />
+
       <Footer />
     </Box>
   </body>
