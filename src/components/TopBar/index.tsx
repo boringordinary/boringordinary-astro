@@ -120,8 +120,31 @@ const Menu = styled("div", {
   maxH: "65px",
 });
 
-const MenuItem = styled(Button, {
-  fontSize: "$lg !important",
+const MenuItem = styled("a", {
+  br: "$lg",
+  py: "$3",
+  px: "$5",
+  textDecoration: "none",
+  fontSize: "$xl",
+  fontWeight: "500",
+  color: "$gray9",
+
+  "&:hover": {
+    color: "$gray11",
+  },
+
+  "&:active": {
+    bg: "$ink9",
+  },
+
+  variants: {
+    active: {
+      true: {
+        color: "$gray11",
+        bg: "$ink9",
+      },
+    },
+  },
 });
 
 interface Props {
@@ -149,16 +172,19 @@ const TopBar = ({ currentPath }: Props) => {
         <Box
           css={{
             display: "flex",
+            gap: "$4",
             width: "100%",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           {items.map(({ label, href, items, callout }) => {
+            const isActive = currentPath.startsWith(href);
+
             return (
-              <a href={href} key={label}>
-                <MenuItem variant="ghost">{label}</MenuItem>
-              </a>
+              <MenuItem key={label} href={href} active={isActive}>
+                {label}
+              </MenuItem>
             );
           })}
         </Box>

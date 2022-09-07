@@ -28,11 +28,10 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        <Text as="h1" display size="xl" gradient="primary" align="center">
-          The Web Agency of the Future
-        </Text>
-        <Text as="h2" display size="sm" gradient="primary" align="center">
-          All the benefits of a traditional agency – none of the headaches.
+        <Text as="h1" display size="lg" gradient="primary" align="center">
+          World-class Design & Dev
+          <br />
+          without the Headaches.
         </Text>
 
         <Box

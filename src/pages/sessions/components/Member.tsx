@@ -21,7 +21,7 @@ const Member = ({ avatar, name, role }: Props) => {
         <Text display size="xs">
           {name}
         </Text>
-        <Text size="md" weight="500">
+        <Text size="sm" weight="500">
           {role}
         </Text>
       </Box>
