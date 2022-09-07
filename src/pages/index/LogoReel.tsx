@@ -11,14 +11,7 @@ interface Props {
 
 const LogoReel = ({ logos }: Props) => {
   return (
-    <Box
-      css={{
-        display: "flex",
-        alignItems: "center",
-        gap: "$8",
-        filter: "contrast(0.1)",
-      }}
-    >
+    <div className="flex items-center justify-center gap-4">
       {logos.map(({ src, alt }) => (
         <Image
           src={src}
@@ -28,7 +21,7 @@ const LogoReel = ({ logos }: Props) => {
           }}
         />
       ))}
-    </Box>
+    </div>
   );
 };
 

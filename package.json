@@ -17,10 +17,13 @@
     "@types/react": "^18.0.17",
     "astro": "^1.0.7",
     "astro-compress": "^1.0.4",
+    "babel-plugin-macros": "^3.1.0",
     "concurrently": "^7.3.0",
     "prettier": "^2.7.1",
     "prettier-plugin-astro": "^0.5.3",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "tailwindcss": "^3.1.8",
+    "twin.macro": "^2.8.2"
   },
   "dependencies": {
     "@astrojs/image": "^0.3.6",

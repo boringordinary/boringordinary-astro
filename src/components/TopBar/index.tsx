@@ -181,6 +181,14 @@ const TopBar = ({ currentPath }: Props) => {
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
 
+            if (items) {
+              return (
+                <MenuItem key={label} href={href} active={isActive}>
+                  {label}
+                </MenuItem>
+              );
+            }
+
             return (
               <MenuItem key={label} href={href} active={isActive}>
                 {label}
