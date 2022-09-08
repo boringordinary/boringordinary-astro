@@ -10,8 +10,8 @@ const Section = styled("section", {
   variants: {
     size: {
       md: {
-        paddingTop: "$8",
-        paddingBottom: "$8",
+        paddingTop: "20px",
+        paddingBottom: "20px",
       },
       lg: {
         py: "$12",
