@@ -1,3 +1,4 @@
+import { variants } from "@/styles/index";
 import { blackA } from "@radix-ui/colors";
 import { createStitches, globalCss } from "@stitches/react";
 import { darken, lighten } from "polished";
@@ -140,5 +141,6 @@ const { theme, styled, keyframes, getCssText, css } = createStitches({
 });
 
 export { theme, styled, keyframes, globalCss, getCssText, css };
+export { variants } from "./tailwind";
 export { globalStyles } from "./global";
 // export type { CSS } from "@stitches/react";
