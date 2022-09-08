@@ -1,4 +1,32 @@
-import { styled } from "@/styles/index";
+import { styled, variants } from "@/styles/index";
+import cx from "clsx";
+
+interface Props {
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  as?: keyof JSX.IntrinsicElements;
+  color?: string;
+  display?: string;
+  children?: React.ReactNode;
+}
+
+export const TextC = ({ size = "md", as = "p", display, children }: Props) => {
+  const styles = cx({
+    "text-xs": size === "xs",
+    "text-sm": size === "sm",
+    "text-base": size === "md",
+    "text-lg": size === "lg",
+    "text-xl": size === "xl",
+    "text-2xl font-bold": size === "xs" && display,
+    "text-3xl font-bold": size === "sm" && display,
+    "text-4xl font-bold": size === "md" && display,
+    "text-5xl font-extrabold": size === "lg" && display,
+    "text-6xl font-extrabold": size === "xl" && display,
+  });
+
+  const El = as;
+
+  return <El className={styles}>{children}</El>;
+};
 
 const Text = styled("p", {
   lineHeight: "1.5",

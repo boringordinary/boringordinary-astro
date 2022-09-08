@@ -8,6 +8,7 @@ import {
   TbPhoto,
   TbPaint,
 } from "react-icons/tb/index";
+import clsx from "clsx";
 import type { IconType } from "react-icons/lib";
 import { styled } from "@/styles/index";
 import { Button } from "@/components/Button";
@@ -159,51 +160,56 @@ const TopBar = ({ currentPath }: Props) => {
       <StylisticBorder />
       <Menu>
         <a href="/">
-          <LogoWrapper>
+          <div className="align-center relative flex h-16 w-16 cursor-pointer">
             <img
               src="/branding/logo-symbol.svg"
               alt="Logo"
               width="100%"
               height="100%"
             />
-          </LogoWrapper>
+          </div>
         </a>
 
-        <Box
-          css={{
-            display: "flex",
-            gap: "$4",
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <div className="flex w-full items-center justify-center gap-8">
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
 
             if (items) {
               return (
-                <MenuItem key={label} href={href} active={isActive}>
+                <a
+                  className={clsx({
+                    "text-xl font-medium duration-100 hover:text-neutral-900":
+                      true,
+                    "text-neutral-600": !isActive,
+                    "text-neutral-900": isActive,
+                  })}
+                  key={label}
+                  href={href}
+                >
                   {label}
-                </MenuItem>
+                </a>
               );
             }
 
+            console.log(isActive);
             return (
-              <MenuItem key={label} href={href} active={isActive}>
+              <a
+                className={clsx({
+                  "text-xl font-medium duration-100 hover:text-neutral-900":
+                    true,
+                  "text-neutral-600": !isActive,
+                  "text-neutral-900": isActive,
+                })}
+                key={label}
+                href={href}
+              >
                 {label}
-              </MenuItem>
+              </a>
             );
           })}
-        </Box>
+        </div>
 
-        <Box
-          css={{
-            display: "flex",
-            alignItems: "center",
-            pr: "$4",
-          }}
-        >
+        <div className="flex items-center pr-2">
           <Button
             css={{
               display: "flex",
@@ -219,7 +225,7 @@ const TopBar = ({ currentPath }: Props) => {
           <a href="/sessions/strategy-call">
             <Button css={{ mr: "$4" }}>Chat with Us</Button>
           </a>
-        </Box>
+        </div>
       </Menu>
     </Box>
   );

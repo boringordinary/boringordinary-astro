@@ -10,8 +10,7 @@ module.exports = {
 				"Nanum Pen Script, --apple-system, BlinkMacSystemFont, sans-serif",
 			],
 		},
-		extend: {
-		}
+		extend: {}
 	},
 	plugins: [
 		require('@tailwindcss/aspect-ratio')

@@ -47,22 +47,16 @@ const logos = data.companies.logos.map(({ image }: any) => {
   <Section>
     <Hero client:load />
 
-    <Box css={{ maxWidth: "$sm", mx: "auto" }}>
+    <div class="max-w-screen-sm mx-auto">
       <Text display color="neutral" align="center" />
-    </Box>
+    </div>
 
-    <Box
-      css={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <Text align="center" weight="500" size="sm"
-        >Trusted by modern fast-growing brands</Text
-      >
+    <div class="flex items-center flex-col gap-2">
+      <p class="align-center font-medium text-base text-neutral-600">
+        Trusted by modern fast-growing brands
+      </p>
       <LogoReel logos={logos} />
-    </Box>
+    </div>
   </Section>
 
   <Section size="md">

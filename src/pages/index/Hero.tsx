@@ -10,7 +10,7 @@ import { LogoReel } from "./LogoReel";
 
 const Hero = () => {
   return (
-    <Section size="xl" className="mx-auto flex max-w-screen-md justify-center">
+    <section className="mx-auto flex max-w-screen-md justify-center py-16">
       <Container
         size="md"
         css={{
@@ -19,26 +19,17 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        <Text as="h1" display size="lg" gradient="primary" align="center">
+        <h1 className="align-center bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 bg-clip-text text-5xl font-extrabold leading-snug text-transparent">
           World-class Design & Dev
           <br />
           without the Headaches.
-        </Text>
+        </h1>
 
-        <Box
-          css={{
-            mt: "$4",
-            w: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <a href="/pricing">
-            <Button size="xl" round shadow="lg">
-              Start a project
-            </Button>
-          </a>
-        </Box>
+        <div className="mt-4 flex w-full justify-center">
+          <Button size="xl" round shadow="lg">
+            Start a project
+          </Button>
+        </div>
 
         <Box
           css={{
@@ -50,7 +41,7 @@ const Hero = () => {
           <LogoReel logos={[]} />
         </Box>
       </Container>
-    </Section>
+    </section>
   );
 };
 

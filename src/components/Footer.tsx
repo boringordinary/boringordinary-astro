@@ -47,16 +47,11 @@ export const links = [
 
 const Footer = () => {
   return (
-    <Box
-      css={{
-        bg: "black",
-        p: "$4",
-      }}
-    >
-      <Text size="sm" color="lighter" weight="500">
+    <div className="bg-black p-4">
+      <p className="font-medium text-neutral-100 text-opacity-50">
         Ⓒ {new Date().getFullYear()} Boring+Ordinary, Inc
-      </Text>
-    </Box>
+      </p>
+    </div>
   );
 };
 
