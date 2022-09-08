@@ -65,23 +65,19 @@ const { title } = Astro.props as Props;
       listen();
     </script>
   </head>
-  <body>
+  <body
+    class="duration-100 hover:duration-100 active:duration-100 focus:duration-100 ease-in-out"
+  >
     <Styles />
 
-    <Box
-      css={{
-        display: "grid",
-        gridTemplateRows: "auto 1fr auto",
-        minH: "100vh",
-        maxW: "100vw",
-        overflow: "hidden",
-      }}
+    <div
+      class="grid grid-rows-[auto_1fr_auto] min-h-screen max-w-screen overflow-hidden"
     >
       <TopBar client:load currentPath={Astro.url.pathname} />
 
       <slot />
 
       <Footer />
-    </Box>
+    </div>
   </body>
 </html>

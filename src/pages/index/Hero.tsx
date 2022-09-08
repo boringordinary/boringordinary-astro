@@ -19,7 +19,7 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        <h1 className="align-center bg-gradient-to-r from-rose-600 via-rose-500 to-orange-500 bg-clip-text text-5xl font-extrabold leading-snug text-transparent">
+        <h1 className="text-center text-5xl font-extrabold leading-snug">
           World-class Design & Dev
           <br />
           without the Headaches.

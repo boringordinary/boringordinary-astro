@@ -104,16 +104,6 @@ const LogoWrapper = styled("div", {
   },
 });
 
-const StylisticBorder = styled("div", {
-  position: "relative",
-  top: "0",
-  left: "0",
-  margin: 0,
-  width: "100vw",
-  height: "5px",
-  background: "linear-gradient(to right, $orange9 0%, $accent9 100%)",
-});
-
 const Menu = styled("div", {
   display: "grid",
   gridTemplateColumns: "auto 1fr auto",
@@ -157,7 +147,7 @@ const TopBar = ({ currentPath }: Props) => {
 
   return (
     <Box>
-      <StylisticBorder />
+      <div className="width-screen relative top-0 left-0 h-1 bg-gradient-to-r from-violet-900 to-rose-500"></div>
       <Menu>
         <a href="/">
           <div className="align-center relative flex h-16 w-16 cursor-pointer">
@@ -170,39 +160,26 @@ const TopBar = ({ currentPath }: Props) => {
           </div>
         </a>
 
-        <div className="flex w-full items-center justify-center gap-8">
+        <div className="flex w-full items-center justify-center gap-4">
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
+            const itemStyles = clsx({
+              "rounded-full px-4 py-2 text-xl font-medium hover:bg-stone-100 hover:text-neutral-900 active:bg-neutral-200":
+                true,
+              "text-neutral-600 hover:bg-neutral-100": !isActive,
+              "hover:bg-stone-200 bg-stone-200 text-neutral-900": isActive,
+            });
 
             if (items) {
               return (
-                <a
-                  className={clsx({
-                    "text-xl font-medium duration-100 hover:text-neutral-900":
-                      true,
-                    "text-neutral-600": !isActive,
-                    "text-neutral-900": isActive,
-                  })}
-                  key={label}
-                  href={href}
-                >
+                <a className={itemStyles} key={label} href={href}>
                   {label}
                 </a>
               );
             }
 
-            console.log(isActive);
             return (
-              <a
-                className={clsx({
-                  "text-xl font-medium duration-100 hover:text-neutral-900":
-                    true,
-                  "text-neutral-600": !isActive,
-                  "text-neutral-900": isActive,
-                })}
-                key={label}
-                href={href}
-              >
+              <a className={itemStyles} key={label} href={href}>
                 {label}
               </a>
             );
