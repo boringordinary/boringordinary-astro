@@ -19,11 +19,11 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        <h1 className="text-center text-5xl">
+        <Text as="h1" display size="lg" gradient="primary" align="center">
           World-class Design & Dev
           <br />
           without the Headaches.
-        </h1>
+        </Text>
 
         <Box
           css={{
