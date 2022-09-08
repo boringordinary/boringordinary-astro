@@ -10,16 +10,7 @@ import { LogoReel } from "./LogoReel";
 
 const Hero = () => {
   return (
-    <Section
-      size="xl"
-      css={{
-        mx: "auto",
-        maxWidth: "$md",
-        display: "flex",
-        justifyContent: "center",
-        gridAutoFlow: "dense",
-      }}
-    >
+    <Section size="xl" className="mx-auto flex max-w-screen-md justify-center">
       <Container
         size="md"
         css={{
@@ -28,11 +19,11 @@ const Hero = () => {
           justifyContent: "center",
         }}
       >
-        <Text as="h1" display size="lg" gradient="primary" align="center">
+        <h1 className="text-center text-5xl">
           World-class Design & Dev
           <br />
           without the Headaches.
-        </Text>
+        </h1>
 
         <Box
           css={{

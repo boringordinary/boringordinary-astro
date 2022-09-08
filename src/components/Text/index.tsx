@@ -1,5 +1,80 @@
 import { styled } from "@/styles/index";
 
+// const SizeMap = {
+//   xs: "text-xs",
+//   sm: {
+//     fontSize: "$sm",
+//     marginBottom: "$4",
+//   },
+//   md: {
+//     fontWeight: "400",
+//     fontSize: "$md",
+//     marginBottom: "$4",
+//   },
+//   lg: {
+//     fontWeight: "400",
+//     fontSize: "$lg",
+//     marginBottom: "$4",
+//   },
+//   xl: {
+//     fontWeight: "400",
+//     fontSize: "$xl",
+//     marginBottom: "$3",
+//   },
+//   xl2: {
+//     lineHeight: "1.4",
+//     fontWeight: "600",
+//     fontSize: "$xl",
+//     marginBottom: "$3",
+
+//     "@md": {
+//       fontSize: "$xl2",
+//     },
+//   },
+//   xl3: {
+//     lineHeight: "1.4",
+//     fontWeight: "600",
+//     fontSize: "$xl2",
+//     marginBottom: "$4",
+
+//     "@md": {
+//       fontSize: "$xl3",
+//     },
+//   },
+//   xl4: {
+//     color: "$gray10",
+//     lineHeight: "1.15",
+//     fontWeight: "700",
+//     fontSize: "$xl4",
+//     marginBottom: "$4",
+//   },
+//   xl5: {
+//     color: "$gray10",
+//     lineHeight: "1.15",
+//     fontWeight: "700",
+//     fontSize: "$xl5",
+//     marginBottom: "$4",
+//   },
+//   xl6: {
+//     color: "$gray10",
+//     lineHeight: "1.15",
+//     fontWeight: "800",
+//     fontSize: "$xl6",
+//     marginBottom: "$4",
+//   },
+//   xl7: {
+//     color: "$gray10",
+//     lineHeight: "1.15",
+//     fontWeight: "800",
+//     fontSize: "$xl5",
+//     marginBottom: "$4",
+
+//     "@md": {
+//       fontSize: "$xl7",
+//     },
+//   },
+// };
+
 const Text = styled("p", {
   lineHeight: "1.5",
   margin: 0,
