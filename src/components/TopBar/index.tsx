@@ -13,8 +13,9 @@ import type { IconType } from "react-icons/lib";
 import { styled } from "@/styles/index";
 import { Button } from "@/components/Button";
 import { Box } from "../Box";
+import { MegaMenu } from "./MegaMenu";
 
-interface Item {
+export interface Item {
   label: string;
   href: string;
   items?: Item[];
@@ -164,17 +165,20 @@ const TopBar = ({ currentPath }: Props) => {
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
             const itemStyles = clsx({
-              "rounded-full px-4 py-2 text-xl font-medium hover:bg-stone-100 hover:text-neutral-900 active:bg-neutral-200":
+              "relative rounded-full px-4 py-2 text-xl font-medium hover:bg-violet-100 hover:text-neutral-900 active:bg-violet-200":
                 true,
-              "text-neutral-600 hover:bg-neutral-100": !isActive,
-              "hover:bg-stone-200 bg-stone-200 text-neutral-900": isActive,
+              "text-neutral-600 hover:bg-violet-100": !isActive,
+              "hover:bg-violet-200 bg-violet-100 text-neutral-900": isActive,
             });
 
             if (items) {
               return (
-                <a className={itemStyles} key={label} href={href}>
-                  {label}
-                </a>
+                <MegaMenuWithItem
+                  key={label}
+                  label={label}
+                  href={href}
+                  className={itemStyles}
+                />
               );
             }
 
@@ -205,6 +209,30 @@ const TopBar = ({ currentPath }: Props) => {
         </div>
       </Menu>
     </Box>
+  );
+};
+
+const MegaMenuWithItem = ({ items, label, className, href }: any) => {
+  const [open, setOpen] = useState(false);
+
+  const openMenu = () => {
+    setOpen(true);
+  };
+
+  const closeMenu = () => {
+    setOpen(false);
+  };
+
+  return (
+    <a
+      className={className}
+      href={href}
+      onMouseEnter={openMenu}
+      onMouseLeave={closeMenu}
+    >
+      {label}
+      {open && <MegaMenu items={items} />}
+    </a>
   );
 };
 
