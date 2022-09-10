@@ -172,14 +172,12 @@ const TopBar = ({ currentPath }: Props) => {
             });
 
             if (items) {
-              return (
-                <MegaMenuWithItem
-                  key={label}
-                  label={label}
-                  href={href}
-                  className={itemStyles}
-                />
+              const Item = (
+                <a className={itemStyles} href={href}>
+                  {label}
+                </a>
               );
+              return <MegaMenu items={items} target={Item} key={label} />;
             }
 
             return (
@@ -209,30 +207,6 @@ const TopBar = ({ currentPath }: Props) => {
         </div>
       </Menu>
     </Box>
-  );
-};
-
-const MegaMenuWithItem = ({ items, label, className, href }: any) => {
-  const [open, setOpen] = useState(false);
-
-  const openMenu = () => {
-    setOpen(true);
-  };
-
-  const closeMenu = () => {
-    setOpen(false);
-  };
-
-  return (
-    <a
-      className={className}
-      href={href}
-      onMouseEnter={openMenu}
-      onMouseLeave={closeMenu}
-    >
-      {label}
-      {open && <MegaMenu items={items} />}
-    </a>
   );
 };
 
