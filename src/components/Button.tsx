@@ -1,4 +1,4 @@
-import { useEffect, useRef, forwardRef, Ref } from "react";
+import { useEffect, useRef, forwardRef } from "react";
 import { styled } from "@/styles/index";
 
 const BaseButton = styled("button", {

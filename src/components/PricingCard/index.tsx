@@ -1,5 +1,4 @@
-import { styled } from "@styles/index";
-import { Box, Text, Button } from "@/components";
+import { Text, Button } from "@/components";
 
 interface FeatureList {
   title?: string;
@@ -25,93 +24,64 @@ interface Props {
   tiers: Tiers;
 }
 
-const Wrapper = styled("div", {
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-  border: "$divider 0.5px solid",
-  br: "$md",
-  width: "100%",
-});
-
-const Card = styled("div", {
-  p: "$6",
-  border: "$divider 0.5px solid",
-});
-
 const PricingCard = ({ tiers }: Props) => {
   return (
-    <Wrapper>
+    <div className="width-full grid grid-cols-3 rounded-md">
       {tiers.map(({ title, description, priceMonthly, features }) => {
         const priceText = `${priceMonthly}`;
 
         return (
-          <Card key={title}>
-            <Text display size="sm" align="center">
-              {title}
-            </Text>
+          <div className="rounded-md border border-neutral-200 p-6" key={title}>
+            <p className="text-center text-3xl font-bold">{title}</p>
 
-            <Text align="center">{description}</Text>
+            <p className="text-lg text-neutral-600">{description}</p>
 
-            <Box css={{ display: "flex", justifyContent: "center", pt: "$4" }}>
-              <Text display css={{ display: "flex", alignItems: "baseline" }}>
-                <Text
-                  as="sup"
-                  size="sm"
-                  weight="600"
-                  color="neutral"
-                  css={{ mr: "$1", alignSelf: "flex-start" }}
-                >
+            <div className="my-4 flex justify-center pt-4">
+              <div className="align-baseline text-3xl font-bold">
+                <sup className="mr-1 text-base">
                   USD{" "}
-                  <Text color="dark" as="span" size="sm" weight="600">
+                  <Text color="dark" as="span" size="sm">
                     $
                   </Text>
-                </Text>
+                </sup>
 
                 <span>{priceText}</span>
 
-                <Text
-                  as="sub"
-                  size="sm"
-                  weight="600"
-                  color="neutral"
-                  css={{ ml: "$1", justifySelf: "flex-end" }}
-                >
-                  /mo
-                </Text>
-              </Text>
-            </Box>
+                <sub className="ml-1 justify-end text-base">/mo</sub>
+              </div>
+            </div>
 
-            {features.map(({ title, features }, index) => (
-              <Box key={`featureList-${index}`}>
-                {title && (
-                  <Text display size="xs">
-                    {title}
-                  </Text>
-                )}
+            <div className="mt-6 mb-4">
+              {features.map(({ title, features }, index) => (
+                <div key={`featureList-${index}`}>
+                  {title && (
+                    <Text display size="xs">
+                      {title}
+                    </Text>
+                  )}
 
-                <Box>
-                  {features.map(({ title, value }, index) => (
-                    <Box
-                      key={`feature-${title}-${index}`}
-                      css={{ display: "flex", justifyContent: "space-between" }}
-                    >
-                      <Text display size="xs">
-                        {title}
-                      </Text>
-                      <Text>{value}</Text>
-                    </Box>
-                  ))}
-                </Box>
-              </Box>
-            ))}
+                  <div className="flex flex-col gap-2">
+                    {features.map(({ title, value }, index) => (
+                      <div
+                        className="flex justify-between"
+                        key={`feature-${title}-${index}`}
+                      >
+                        <p className="text-xl font-semibold">{title}</p>
+                        <p className="text-xl">{value}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
 
             <Button shadow="lg" size="lg" fullWidth css={{ mt: "$4" }}>
               Get Started
             </Button>
-          </Card>
+          </div>
         );
       })}
-    </Wrapper>
+    </div>
   );
 };
 

@@ -59,15 +59,15 @@ const tiers: Tiers = [
 
 <Layout title="Pricing">
   <Container size="lg" center>
-    <Section css={{ maxWidth: "$sizes$md" }} size="xl">
-      <Text display size="lg" align="center"
-        >Plans for all your project's needs.</Text
-      >
-      <Text size="xl" align="center"
-        >Every plan includes a dedicated team, unlimited requests and revisions,
+    <div class="max-w-prose py-10 text-center flex flex-col gap-4 mx-auto">
+      <h1 class="text-5xl font-bold leading-tight">
+        Scalable plans for all your project's needs.
+      </h1>
+      <p class="text-xl text-neutral-600">
+        Every plan includes a dedicated team, unlimited requests and revisions,
         and a project manager to keep you posted every step of the way.
-      </Text>
-    </Section>
+      </p>
+    </div>
 
     <PricingCard tiers={tiers} client:load />
   </Container>
