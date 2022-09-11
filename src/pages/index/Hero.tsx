@@ -3,7 +3,7 @@ import { LogoReel } from "./LogoReel";
 
 const Hero = () => {
   return (
-    <Section>
+    <Section size="xl">
       <h1 className="text-center text-5xl font-extrabold leading-snug">
         World-class Design & Dev
         <br />
