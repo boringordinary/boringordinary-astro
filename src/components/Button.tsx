@@ -53,7 +53,7 @@ const Button = forwardRef(
       backgroundPosition:
         "calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%)",
       backgroundImage: "radial-gradient(circle, #ed1594 0%, #ff7615)",
-      backgroundSize: "100% 100%",
+      backgroundSize: "200% 200%",
       borderColor: "#ed1594",
     };
 
@@ -69,7 +69,5 @@ const Button = forwardRef(
     );
   }
 );
-
-Button.displayName = "Button";
 
 export { Button };

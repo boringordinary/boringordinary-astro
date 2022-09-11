@@ -1,5 +1,5 @@
 ---
-import { Box, Text, Container, Divider, Section } from "@/components/index";
+import { Text, Container, Divider, Section } from "@/components/index";
 import Layout from "../layouts/Layout.astro";
 ---
 
@@ -36,30 +36,4 @@ import Layout from "../layouts/Layout.astro";
       </Text>
     </div>
   </div>
-
-  <Container
-    size="lg"
-    center
-    css={{
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      "@md": {
-        gridTemplateColumns: "1fr 1fr",
-      },
-    }}
-  />
-
-  <Divider />
-
-  <Container size="sm">
-    <Section>
-      <Text display gradient="primary">You're in good hands</Text>
-      <Text display size="xs" color="neutral">
-        We're leaders from the top companies in digital commerce, from D2C
-        brands to the platforms themselves.
-      </Text>
-
-      <Box />
-    </Section>
-  </Container>
 </Layout>

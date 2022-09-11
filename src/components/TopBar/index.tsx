@@ -10,9 +10,7 @@ import {
 } from "react-icons/tb/index";
 import clsx from "clsx";
 import type { IconType } from "react-icons/lib";
-import { styled } from "@/styles/index";
 import { Button } from "@/components/Button";
-import { Box } from "../Box";
 import { MegaMenu } from "./MegaMenu";
 
 export interface Item {
@@ -92,13 +90,6 @@ const items: Item[] = [
   },
 ];
 
-const div = styled("div", {
-  display: "grid",
-  gridTemplateColumns: "auto 1fr auto",
-  maxW: "100vw",
-  maxH: "65px",
-});
-
 interface Props {
   currentPath: string;
 }
@@ -107,7 +98,7 @@ const TopBar = ({ currentPath }: Props) => {
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <Box>
+    <div>
       <div className="width-screen relative top-0 left-0 h-1 bg-gradient-to-r from-violet-900 to-rose-500"></div>
       <div className="max-w-screen grid max-h-16 grid-cols-[1fr_auto_1fr]">
         <a
@@ -165,7 +156,7 @@ const TopBar = ({ currentPath }: Props) => {
           </a>
         </div>
       </div>
-    </Box>
+    </div>
   );
 };
 
