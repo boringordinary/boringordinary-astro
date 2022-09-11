@@ -34,7 +34,7 @@ const Text = ({
     "text-left": align === "left",
     "text-center": align === "center",
     "text-right": align === "right",
-    "bg-gradient-to-r from-violet-500 via-indigo-500 to-orange-500 text-transparent bg-clip-text":
+    "bg-gradient-to-r from-violet-500 via-indigo-500 to-purple-500 text-transparent bg-clip-text":
       gradient === "primary",
   });
 

@@ -75,9 +75,11 @@ const PricingCard = ({ tiers }: Props) => {
               ))}
             </div>
 
-            <Button shadow="lg" size="lg" fullWidth css={{ mt: "$4" }}>
-              Get Started
-            </Button>
+            <div className="flex justify-center">
+              <Button shadow="lg" size="lg" round>
+                Get Started
+              </Button>
+            </div>
           </div>
         );
       })}

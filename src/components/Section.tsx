@@ -5,7 +5,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-const Section = ({ size, children }: Props) => {
+const Section = ({ size = "md", children }: Props) => {
   const styles = cx({
     "py-4": size === "xs",
     "py-6": size === "sm",

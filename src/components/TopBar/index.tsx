@@ -122,7 +122,7 @@ const TopBar = ({ currentPath }: Props) => {
           />
         </a>
 
-        <div className="flex w-full items-center justify-center gap-4">
+        <div className="hidden w-full items-center justify-center gap-4 sm:flex">
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
             const itemStyles = clsx({
@@ -150,20 +150,18 @@ const TopBar = ({ currentPath }: Props) => {
         </div>
 
         <div className="flex items-center justify-end pr-2">
-          <Button
-            css={{
-              display: "flex",
-              "@sm": { display: "none" },
-            }}
-            aria-label="Open menu"
-            variant="ghost"
-            onClick={() => setMobileNavOpen(true)}
-          >
-            MENU
-          </Button>
+          <div className="block sm:hidden">
+            <Button
+              aria-label="Open menu"
+              variant="ghost"
+              onClick={() => setMobileNavOpen(true)}
+            >
+              MENU
+            </Button>
+          </div>
 
-          <a href="/sessions/strategy-call">
-            <Button css={{ mr: "$4" }}>Chat with Us</Button>
+          <a href="/sessions/strategy-call" className="mr-4">
+            <Button>Chat with Us</Button>
           </a>
         </div>
       </div>

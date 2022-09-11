@@ -4,27 +4,18 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="About">
-  <Container
-    size="lg"
-    center
-    css={{
-      display: "grid",
-      gridTemplateColumns: "1fr",
-      "@md": {
-        gridTemplateColumns: "1fr 1fr",
-      },
-    }}
-  >
-    <Box>
+  <div class="max-w-screen-xl mx-auto grid grid-cols-2">
+    <div>
       <video
         src="https://cdn.boringordinary.com/snowy-about.mp4"
+        class="aspect-1"
         autoplay
         loop
         muted
         width="100%"
         playsinline></video>
-    </Box>
-    <div class="max-w-prose p-8 leading-normal">
+    </div>
+    <div class="prose max-w-prose p-8 leading-normal text-neutral-600">
       <Text display gradient="primary">We do things differently.</Text>
 
       <Text>It’s the only way we know how.</Text>
@@ -44,21 +35,24 @@ import Layout from "../layouts/Layout.astro";
         accident.
       </Text>
     </div>
-  </Container>
+  </div>
+
+  <Container
+    size="lg"
+    center
+    css={{
+      display: "grid",
+      gridTemplateColumns: "1fr",
+      "@md": {
+        gridTemplateColumns: "1fr 1fr",
+      },
+    }}
+  />
 
   <Divider />
 
-  <Container
-    size="sm"
-    css={{
-      mx: "auto",
-    }}
-  >
-    <Section
-      css={{
-        textAlign: "center",
-      }}
-    >
+  <Container size="sm">
+    <Section>
       <Text display gradient="primary">You're in good hands</Text>
       <Text display size="xs" color="neutral">
         We're leaders from the top companies in digital commerce, from D2C
