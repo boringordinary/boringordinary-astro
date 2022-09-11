@@ -1,5 +1,5 @@
 ---
-import { Text, Container, PricingCard, Section } from "@/components";
+import { Text, div, PricingCard, Section } from "@/components";
 import type { Tiers } from "@/components/PricingCard";
 import Layout from "@/layouts/Layout.astro";
 
@@ -39,26 +39,26 @@ const tiers: Tiers = [
       },
     ],
   },
-  {
-    title: "Plus",
-    description: "Industry-standard design quality",
-    priceMonthly: 3000,
-    features: [
-      {
-        features: [
-          {
-            title: "Time capacity",
-            value: "120 hours",
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   title: "Plus",
+  //   description: "Industry-standard design quality",
+  //   priceMonthly: 3000,
+  //   features: [
+  //     {
+  //       features: [
+  //         {
+  //           title: "Time capacity",
+  //           value: "120 hours",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
 ];
 ---
 
 <Layout title="Pricing">
-  <Container size="lg" center>
+  <div class="max-w-screen-xl">
     <div class="max-w-prose py-10 text-center flex flex-col gap-4 mx-auto">
       <h1 class="text-5xl font-bold leading-tight">
         Scalable plans for all your project's needs.
@@ -70,5 +70,5 @@ const tiers: Tiers = [
     </div>
 
     <PricingCard tiers={tiers} client:load />
-  </Container>
+  </div>
 </Layout>

@@ -1,8 +1,6 @@
 ---
-import { Footer, Box } from "@/components/index";
+import { Footer } from "@/components/index";
 import { TopBar } from "@/components/TopBar/index";
-import { globalStyles } from "@/styles/index";
-import Styles from "@components/Styles";
 
 export interface Props {
   title: string;
@@ -20,10 +18,6 @@ const { title } = Astro.props as Props;
 
     <link rel="shortcut icon" href="/branding/favicon.png" />
     <link rel="icon" href="/branding/favicon.png" />
-
-    <style set:html={globalStyles} is:inline id="stitches">
-
-    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -68,8 +62,6 @@ const { title } = Astro.props as Props;
   <body
     class="duration-100 hover:duration-100 active:duration-100 focus:duration-100 ease-in-out"
   >
-    <Styles />
-
     <div
       class="grid grid-rows-[auto_1fr_auto] min-h-screen max-w-screen overflow-hidden"
     >

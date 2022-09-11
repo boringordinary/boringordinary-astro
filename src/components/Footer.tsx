@@ -1,5 +1,3 @@
-import { Box, Text } from "@/components";
-
 export const links = [
   {
     title: "Company",

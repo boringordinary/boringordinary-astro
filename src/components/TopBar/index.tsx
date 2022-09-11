@@ -92,51 +92,11 @@ const items: Item[] = [
   },
 ];
 
-const LogoWrapper = styled("div", {
-  cursor: "pointer",
-  display: "flex",
-  alignItems: "center",
-  height: "50px",
-  width: "50px",
-  position: "relative",
-  "@sm": {
-    height: "65px",
-    width: "65px",
-  },
-});
-
-const Menu = styled("div", {
+const div = styled("div", {
   display: "grid",
   gridTemplateColumns: "auto 1fr auto",
   maxW: "100vw",
   maxH: "65px",
-});
-
-const MenuItem = styled("a", {
-  br: "$lg",
-  py: "$3",
-  px: "$5",
-  textDecoration: "none",
-  fontSize: "$xl",
-  fontWeight: "500",
-  color: "$gray9",
-
-  "&:hover": {
-    color: "$gray11",
-  },
-
-  "&:active": {
-    bg: "$ink9",
-  },
-
-  variants: {
-    active: {
-      true: {
-        color: "$gray11",
-        bg: "$ink9",
-      },
-    },
-  },
 });
 
 interface Props {
@@ -149,26 +109,27 @@ const TopBar = ({ currentPath }: Props) => {
   return (
     <Box>
       <div className="width-screen relative top-0 left-0 h-1 bg-gradient-to-r from-violet-900 to-rose-500"></div>
-      <Menu>
-        <a href="/">
-          <div className="align-center relative flex h-16 w-16 cursor-pointer">
-            <img
-              src="/branding/logo-symbol.svg"
-              alt="Logo"
-              width="100%"
-              height="100%"
-            />
-          </div>
+      <div className="max-w-screen grid max-h-16 grid-cols-[1fr_auto_1fr]">
+        <a
+          href="/"
+          className="align-center relative flex h-16 w-16 cursor-pointer"
+        >
+          <img
+            src="/branding/logo-symbol.svg"
+            alt="Logo"
+            width="100%"
+            height="100%"
+          />
         </a>
 
         <div className="flex w-full items-center justify-center gap-4">
           {items.map(({ label, href, items, callout }) => {
             const isActive = currentPath.startsWith(href);
             const itemStyles = clsx({
-              "relative rounded-full px-4 py-2 text-xl font-medium hover:bg-violet-100 hover:text-neutral-900 active:bg-violet-200":
+              "relative rounded-full px-4 py-2 text-xl font-medium hover:text-neutral-900":
                 true,
-              "text-neutral-600 hover:bg-violet-100": !isActive,
-              "hover:bg-violet-200 bg-violet-100 text-neutral-900": isActive,
+              "text-neutral-700 hover:text-violet-700": !isActive,
+              "text-violet-700 hover:text-violet-700": isActive,
             });
 
             if (items) {
@@ -188,7 +149,7 @@ const TopBar = ({ currentPath }: Props) => {
           })}
         </div>
 
-        <div className="flex items-center pr-2">
+        <div className="flex items-center justify-end pr-2">
           <Button
             css={{
               display: "flex",
@@ -205,7 +166,7 @@ const TopBar = ({ currentPath }: Props) => {
             <Button css={{ mr: "$4" }}>Chat with Us</Button>
           </a>
         </div>
-      </Menu>
+      </div>
     </Box>
   );
 };
