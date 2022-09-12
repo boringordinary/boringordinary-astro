@@ -26,12 +26,15 @@ interface Props {
 
 const PricingCard = ({ tiers }: Props) => {
   return (
-    <div className="width-full grid grid-cols-3 rounded-md">
+    <div className={`grid grid-cols-${tiers.length} w-full gap-6`}>
       {tiers.map(({ title, description, priceMonthly, features }) => {
         const priceText = `${priceMonthly}`;
 
         return (
-          <div className="rounded-md border border-neutral-200 p-6" key={title}>
+          <div
+            className="duration-400 rounded-lg border border-neutral-200 p-6 shadow-md transition-shadow hover:shadow-lg"
+            key={title}
+          >
             <p className="text-center text-3xl font-bold">{title}</p>
 
             <p className="text-lg text-neutral-600">{description}</p>
@@ -75,7 +78,7 @@ const PricingCard = ({ tiers }: Props) => {
               ))}
             </div>
 
-            <div className="flex justify-center">
+            <div className="mt-6 flex justify-center">
               <Button shadow="lg" size="lg" round>
                 Get Started
               </Button>

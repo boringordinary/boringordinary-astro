@@ -12,6 +12,7 @@ import clsx from "clsx";
 import type { IconType } from "react-icons/lib";
 import { Button } from "@/components/Button";
 import { MegaMenu } from "./MegaMenu";
+import { Divider } from "../Divider";
 
 export interface Item {
   label: string;
@@ -156,6 +157,7 @@ const TopBar = ({ currentPath }: Props) => {
           </a>
         </div>
       </div>
+      <Divider />
     </div>
   );
 };

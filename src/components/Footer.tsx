@@ -1,13 +1,7 @@
 export const links = [
   {
     title: "Company",
-    links: [
-      { label: "Our story", href: "/about" },
-      // {
-      //   label: "Careers",
-      //   href: "/careers",
-      // },
-    ],
+    links: [{ label: "Our story", href: "/about" }],
   },
   {
     title: "Services",
@@ -45,11 +39,17 @@ export const links = [
 
 const Footer = () => {
   return (
-    <div className="bg-black p-4">
-      <p className="font-medium text-neutral-100 text-opacity-50">
-        Ⓒ {new Date().getFullYear()} Boring+Ordinary, Inc
-      </p>
-    </div>
+    <footer className="max-w-container mx-auto mt-32 w-full px-4 sm:px-6 lg:px-8">
+      <div className="border-t border-slate-900/5 py-8">
+        <p className="mt-5 text-center text-sm leading-6 text-slate-500">
+          © {new Date().getFullYear()} Boring+Ordinary, Inc
+        </p>
+        <div className="mt-8 flex items-center justify-center space-x-4 text-sm font-semibold leading-6 text-slate-700">
+          {/* <a href="/privacy">Privacy policy</a>
+          <div className="h-4 w-px bg-slate-500/20" /> */}
+        </div>
+      </div>
+    </footer>
   );
 };
 
