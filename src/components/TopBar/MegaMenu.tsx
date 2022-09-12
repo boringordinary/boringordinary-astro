@@ -80,7 +80,8 @@ const MegaMenu = ({ target, items }: Props) => {
   };
   const closeMenu = () => {
     if (!open) return;
-    timeout = setTimeout(() => setOpen(false), 50);
+    // timeout = setTimeout(() => setOpen(false), 50);
+    setOpen(false);
   };
 
   return (

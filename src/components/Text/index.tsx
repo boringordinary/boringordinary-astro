@@ -16,6 +16,7 @@ const Text = ({
   display,
   gradient,
   align,
+  color,
   children,
 }: Props) => {
   const styles = cx({
@@ -34,6 +35,7 @@ const Text = ({
     "text-left": align === "left",
     "text-center": align === "center",
     "text-right": align === "right",
+    [color as string]: color,
     "bg-gradient-to-r from-rose-500 via-violet-500 to-orange-500 text-transparent bg-clip-text":
       gradient === "primary",
   });

@@ -9,7 +9,7 @@ interface Props {
 
 const LogoReel = ({ logos }: Props) => {
   return (
-    <div className="flex items-center justify-center gap-4">
+    <div className="flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
       {logos.map(({ src, alt }) => (
         <img src={src} key={alt} className="h-6 contrast-[0%]" />
       ))}

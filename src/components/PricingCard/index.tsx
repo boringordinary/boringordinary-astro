@@ -1,4 +1,4 @@
-import { Text, Button } from "@/components";
+import { Text, Button, Divider } from "@/components";
 
 interface FeatureList {
   title?: string;
@@ -32,15 +32,17 @@ const PricingCard = ({ tiers }: Props) => {
 
         return (
           <div
-            className="duration-400 rounded-lg border border-neutral-200 p-6 shadow-md transition-shadow hover:shadow-lg"
+            className="duration-400 cursor-pointer rounded-lg border-2 border-neutral-100 p-6 shadow-md transition-all hover:border-violet-900 hover:shadow-lg"
             key={title}
           >
-            <p className="text-center text-3xl font-bold">{title}</p>
+            <p className="border- mb-1 text-center text-3xl font-bold text-violet-900">
+              {title}
+            </p>
 
-            <p className="text-lg text-neutral-600">{description}</p>
+            <p className="text-center text-lg text-gray-500">{description}</p>
 
             <div className="my-4 flex justify-center pt-4">
-              <div className="align-baseline text-3xl font-bold">
+              <div className="align-baseline text-4xl font-bold">
                 <sup className="mr-1 text-base">
                   USD{" "}
                   <Text color="dark" as="span" size="sm">
@@ -53,6 +55,14 @@ const PricingCard = ({ tiers }: Props) => {
                 <sub className="ml-1 justify-end text-base">/mo</sub>
               </div>
             </div>
+
+            <div className="flex justify-center py-6">
+              <Button shadow="lg" size="lg" round>
+                Select Plan
+              </Button>
+            </div>
+
+            <Divider />
 
             <div className="mt-6 mb-4">
               {features.map(({ title, features }, index) => (
@@ -76,12 +86,6 @@ const PricingCard = ({ tiers }: Props) => {
                   </div>
                 </div>
               ))}
-            </div>
-
-            <div className="mt-6 flex justify-center">
-              <Button shadow="lg" size="lg" round>
-                Get Started
-              </Button>
             </div>
           </div>
         );
