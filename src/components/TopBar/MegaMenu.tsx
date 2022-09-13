@@ -7,7 +7,7 @@ const solutions = [
   {
     name: "Real Estate",
     description: "Measure actions your users take",
-    href: "##",
+    href: "/industries/real-estate",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ const solutions = [
   {
     name: "HVAC & Plumbing",
     description: "Create your own targeted content",
-    href: "##",
+    href: "/industries/hvac-plumbing",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -42,7 +42,7 @@ const solutions = [
   {
     name: "E-Commerce",
     description: "Keep track of your growth",
-    href: "##",
+    href: "/industries/ecommerce",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"

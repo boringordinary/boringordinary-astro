@@ -3,23 +3,24 @@ import { Text, Button, Section } from "@/components";
 
 const Hero = () => {
   return (
-    <Section size="lg">
-      <div className="grid max-w-screen-xl grid-cols-2 p-8">
-        <div className="flex flex-col gap-4 ">
+    <Section size="lg" align="center">
+      <div className="grid max-w-screen-xl grid-cols-2 gap-4 md:gap-6">
+        <div className="flex flex-col justify-center gap-4 ">
           <Text display size="lg">
             The New Standard for Real Estate Agents
           </Text>
           <Text color="text-neutral-500" size="lg">
-            Sell more, easier by cutting through the noise.
+            Authentic, video-first websites that get you profitable clients,
+            easier, by cutting through the noise.
           </Text>
           <div>
             <Button variant="primary" size="lg" round shadow="lg">
-              Get Started
+              View packages
             </Button>
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-lg">
+        <div className="sticky top-0 overflow-hidden rounded-lg">
           <MuxPlayer
             style={{ height: "100%", maxWidth: "100%" }}
             streamType="on-demand"

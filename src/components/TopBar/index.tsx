@@ -4,9 +4,6 @@ import {
   TbShoppingCart,
   TbPizza,
   TbScale,
-  TbBrowser,
-  TbPhoto,
-  TbPaint,
 } from "react-icons/tb/index";
 import clsx from "clsx";
 import type { IconType } from "react-icons/lib";
@@ -28,11 +25,11 @@ const items: Item[] = [
     href: "/about",
   },
   {
-    label: "Pricing",
+    label: "Subscriptions",
     href: "/pricing",
   },
   {
-    label: "Industries",
+    label: "Fixed Builds",
     href: "#",
     callout: true,
     items: [
@@ -58,37 +55,37 @@ const items: Item[] = [
       },
     ],
   },
-  {
-    label: "Services",
-    href: "#",
-    items: [
-      {
-        label: "Logo & Illustrations",
-        href: "/services/logo-illustrations",
-        icon: TbPaint,
-      },
-      {
-        label: "Shopify Builds",
-        href: "/services/shopify-dev",
-        icon: TbBrowser,
-      },
-      {
-        label: "Webflow Builds",
-        href: "/services/webflow-dev",
-        icon: TbBrowser,
-      },
-      {
-        label: "Web Design",
-        href: "/services/web-design",
-        icon: TbBrowser,
-      },
-      {
-        label: "Product Photos",
-        href: "/services/product-photos",
-        icon: TbPhoto,
-      },
-    ],
-  },
+  // {
+  //   label: "Services",
+  //   href: "#",
+  //   items: [
+  //     {
+  //       label: "Logo & Illustrations",
+  //       href: "/services/logo-illustrations",
+  //       icon: TbPaint,
+  //     },
+  //     {
+  //       label: "Shopify Builds",
+  //       href: "/services/shopify-dev",
+  //       icon: TbBrowser,
+  //     },
+  //     {
+  //       label: "Webflow Builds",
+  //       href: "/services/webflow-dev",
+  //       icon: TbBrowser,
+  //     },
+  //     {
+  //       label: "Web Design",
+  //       href: "/services/web-design",
+  //       icon: TbBrowser,
+  //     },
+  //     {
+  //       label: "Product Photos",
+  //       href: "/services/product-photos",
+  //       icon: TbPhoto,
+  //     },
+  //   ],
+  // },
 ];
 
 interface Props {
@@ -152,8 +149,11 @@ const TopBar = ({ currentPath }: Props) => {
             </Button>
           </div>
 
-          <a href="/sessions/strategy-call" className="mr-4">
-            <Button>Chat with Us</Button>
+          <a
+            href="https://savvycal.com/boringordinary/discovery"
+            className="mr-4"
+          >
+            <Button>Book a Call</Button>
           </a>
         </div>
       </div>

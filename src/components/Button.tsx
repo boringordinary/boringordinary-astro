@@ -36,7 +36,7 @@ const Button = forwardRef(
     }, []);
 
     const styles = clsx({
-      "text-md font-medium transition-all transition-75 ease-in-out text-center text-white rounded-lg focus:brightness-90 border-2":
+      "text-md font-medium transition transition-75 ease-in-out text-center text-white rounded-lg focus:brightness-90 border-2":
         true,
       "active:shadow-none active:translate-y-0": shadow,
       "hover:translate-y-[-2px] hover:shadow-sm": shadow === "md",

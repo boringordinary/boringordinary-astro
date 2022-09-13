@@ -1,5 +1,5 @@
 ---
-import { PricingCard, Section } from "@/components";
+import { PricingCard, Section, Text } from "@/components";
 import type { Tiers } from "@/components/PricingCard";
 import Layout from "@/layouts/Layout.astro";
 
@@ -65,7 +65,8 @@ const tiers: Tiers = [
           Scalable plans for all your project's needs.
         </h1>
         <p class="text-xl text-neutral-600">
-          Every plan includes a dedicated team, unlimited requests and
+          For when your requirements are changing, and you want to retain an
+          elite team. Includes a dedicated team, unlimited requests and
           revisions, and a project manager to keep you posted every step of the
           way.
         </p>
@@ -77,5 +78,22 @@ const tiers: Tiers = [
     <div class="flex justify-center max-w-screen-md w-full">
       <PricingCard tiers={tiers} client:load />
     </div>
+  </Section>
+
+  <Section>
+    <Text display>Need something more?</Text>
+
+    <a href="/sessions/book">
+      <div class="mx-auto w-full">
+        <div class="mt-4">
+          <div
+            class="bg-zinc-900 text-white rounded-lg w-full p-6 text-center shadow-xl border-2 transition hover:border-violet-400 border-transparent duration-150"
+          >
+            <Text display size="md" gradient="primary">B+O Plus+</Text>
+            <Text display size="xs">Pay what it's worth</Text>
+          </div>
+        </div>
+      </div>
+    </a>
   </Section>
 </Layout>
