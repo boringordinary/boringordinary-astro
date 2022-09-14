@@ -98,7 +98,7 @@ const TopBar = ({ currentPath }: Props) => {
   return (
     <div>
       <div className="width-screen relative top-0 left-0 h-1 bg-gradient-to-r from-violet-900 to-rose-500"></div>
-      <div className="max-w-screen grid max-h-16 grid-cols-[1fr_auto_1fr]">
+      <div className="max-w-screen grid max-h-16 grid-cols-[1fr_auto] md:grid-cols-[1fr_auto_1fr]">
         <a
           href="/"
           className="align-center relative flex h-16 w-16 cursor-pointer"
@@ -153,7 +153,7 @@ const TopBar = ({ currentPath }: Props) => {
             href="https://savvycal.com/boringordinary/discovery"
             className="mr-4"
           >
-            <Button>Book a Call</Button>
+            <Button>Book a Demo</Button>
           </a>
         </div>
       </div>

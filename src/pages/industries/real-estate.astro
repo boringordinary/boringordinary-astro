@@ -1,9 +1,97 @@
 ---
-import { Section, Text } from "@/components";
+import { Section, Text, Button, PricingCard } from "@/components";
 import Layout from "@/layouts/Layout.astro";
-import { Hero } from "./components/Hero";
+import MuxPlayer from "@mux/mux-player-react";
 ---
 
+<style>
+  .hero {
+    position: relative;
+    background: url("/images/gradients/4.png") no-repeat center center;
+    background-size: cover;
+  }
+</style>
+
 <Layout title="Real Estate">
-  <Hero client:load />
+  <div class="hero">
+    <div
+      class="bg-gradient-to-t from-transparent to-white absolute top-0 left-0 z-10 h-full w-full"
+    >
+    </div>
+    <Section size="xl" align="center">
+      <div class="max-w-screen-md z-20">
+        <div class="flex flex-col justify-center gap-4 text-center">
+          <Text display size="lg"
+            >The New Standard<br />for Real Estate Agents</Text
+          >
+
+          <div class="flex gap-4 justify-center">
+            <Button variant="primary" size="lg" round shadow="lg">
+              Watch Video
+            </Button>
+          </div>
+        </div>
+      </div>
+    </Section>
+  </div>
+
+  <Section>
+    <div
+      class="grid md:grid-cols-2 grid-rows-2 relative gap-4 md:gap-6 lg:gap-8"
+    >
+      <div class="flex flex-col justify-center">
+        <div class="mb-4">
+          <Text display size="md" gradient="primary"
+            >Optimized Sales Videos</Text
+          >
+        </div>
+        <Text color="text-gray-500" size="lg"
+          >Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+          aspernatur odit aliquid reiciendis totam explicabo nisi atque corrupti
+          molestias dolores rerum enim, amet voluptates praesentium nam
+          voluptatem ducimus sint asperiores?</Text
+        >
+
+        <div class="my-6 flex gap-4">
+          <div
+            class="flex justify-center items-center text-white bg-violet-500 rounded-lg w-14 h-14"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z"
+              ></path>
+            </svg>
+          </div>
+          <div class="flex flex-col gap-1">
+            <Text display size="xs">Get clients, easier</Text>
+            <Text color="text-gray-500"
+              >Lorem ipsum dolor sit amet consectetur, adipisicing elit. A
+              consequatur</Text
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="sticky top-0 overflow-hidden rounded-xl shadow-2xl">
+        <MuxPlayer
+          client:load
+          style={{ height: "100%", maxWidth: "100%" }}
+          streamType="on-demand"
+          playbackId="Dc8u02pLO02SbclOCuS6Hgue8EOaFRbrq8"
+          metadata={{
+            video_id: "strategy-call",
+            video_title: "Strategy call",
+            viewer_user_id: "unidentified",
+          }}
+        />
+      </div>
+    </div>
+  </Section>
+
+  <PricingCard tiers={[]} />
 </Layout>
