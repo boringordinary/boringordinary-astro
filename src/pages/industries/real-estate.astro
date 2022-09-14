@@ -2,18 +2,81 @@
 import { Section, Text, Button, PricingCard } from "@/components";
 import Layout from "@/layouts/Layout.astro";
 import MuxPlayer from "@mux/mux-player-react";
+import { Picture } from "astro-imagetools/components";
+
+const tiers = [
+  {
+    title: "Starter",
+    description: "Industry-standard design quality",
+    priceMonthly: 3995,
+    features: [
+      {
+        features: [
+          {
+            title: "Time capacity",
+            value: "60 hours",
+          },
+          {
+            title: "Time capacity",
+            value: "60 hours",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: "Pro",
+    prominent: true,
+    description: "Industry-standard design quality",
+    priceMonthly: 7995,
+    features: [
+      {
+        features: [
+          {
+            title: "Time capacity",
+            value: "120 hours",
+          },
+        ],
+      },
+    ],
+  },
+  // {
+  //   title: "Plus",
+  //   description: "Industry-standard design quality",
+  //   priceMonthly: 3000,
+  //   features: [
+  //     {
+  //       features: [
+  //         {
+  //           title: "Time capacity",
+  //           value: "120 hours",
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
+];
 ---
 
 <style>
   .hero {
     position: relative;
-    background: url("/images/gradients/4.png") no-repeat center center;
-    background-size: cover;
+  }
+  .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+    overflow: hidden;
   }
 </style>
 
 <Layout title="Real Estate">
   <div class="hero">
+    <div class="hero-bg">
+      <Picture src="/images/gradients/4.png" alt="hero background" />
+    </div>
     <div
       class="bg-gradient-to-t from-transparent to-white absolute top-0 left-0 z-10 h-full w-full"
     >
@@ -35,10 +98,8 @@ import MuxPlayer from "@mux/mux-player-react";
     </Section>
   </div>
 
-  <Section>
-    <div
-      class="grid md:grid-cols-2 grid-rows-2 relative gap-4 md:gap-6 lg:gap-8"
-    >
+  <Section size="lg">
+    <div class="grid md:grid-cols-2 relative gap-4 md:gap-6 lg:gap-8">
       <div class="flex flex-col justify-center">
         <div class="mb-4">
           <Text display size="md" gradient="primary"
@@ -93,5 +154,7 @@ import MuxPlayer from "@mux/mux-player-react";
     </div>
   </Section>
 
-  <PricingCard tiers={[]} />
+  <Section>
+    <PricingCard tiers={tiers} />
+  </Section>
 </Layout>

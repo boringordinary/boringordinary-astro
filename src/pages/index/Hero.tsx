@@ -11,9 +11,11 @@ const Hero = () => {
       </h1>
 
       <div className="mt-4 flex w-full justify-center">
-        <Button size="xl" round shadow="lg">
-          Start a project
-        </Button>
+        <a href="/pricing">
+          <Button size="xl" round shadow="lg">
+            Start a project
+          </Button>
+        </a>
       </div>
 
       <div className="flex justify-center grayscale">
