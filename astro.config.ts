@@ -1,22 +1,23 @@
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import compress from "astro-compress";
+import compress from "astro-compress"; // @ts-ignore
 
-// @ts-ignore
 import { astroImageTools } from "astro-imagetools";
 import { defineConfig } from "astro/config"; // import vercel from "@astrojs/vercel/serverless";
 // https://astro.build/config
 
 import tailwind from "@astrojs/tailwind";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   // output: "server",
   // adapter: vercel(),
   site: "https://boringordinary.com",
-  integrations: [astroImageTools, react(), sitemap(), compress(), tailwind()],
+  integrations: [astroImageTools, react(), sitemap(), compress(), tailwind(), partytown()],
   trailingSlash: "never",
   vite: {
-    plugins: [],
-  },
+    plugins: []
+  }
 });

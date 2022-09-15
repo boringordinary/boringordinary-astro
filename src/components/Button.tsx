@@ -36,12 +36,13 @@ const Button = forwardRef(
     }, []);
 
     const styles = clsx({
-      "text-md font-medium transition transition-75 ease-in-out text-center text-white rounded-lg focus:brightness-90 border-2":
+      "text-md font-medium transition transition-75 ease-in-out text-center rounded-lg focus:brightness-90 border-2":
         true,
       "active:shadow-none active:translate-y-0": shadow,
       "hover:translate-y-[-2px] hover:shadow-sm": shadow === "md",
       "hover:translate-y-[-2px] hover:shadow-md": shadow === "lg",
       "text-gray-500": variant === "ghost",
+      "border-primary-600 text-white": variant === "primary",
       "px-3 py-2": size === "sm",
       "px-4 py-2": size === "md",
       "text-lg px-8 py-3": size === "lg",
@@ -54,7 +55,6 @@ const Button = forwardRef(
         "calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%)",
       backgroundImage: "radial-gradient(circle, #ed1594 0%, #ff7615)",
       backgroundSize: "200% 200%",
-      borderColor: "#ed1594",
     };
 
     return (
