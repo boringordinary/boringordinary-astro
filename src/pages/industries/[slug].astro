@@ -1,11 +1,10 @@
 ---
 import groq from "groq";
-import { Section, Text, Button, PricingCard } from "@/components";
+import { Section, Text, Button, PricingCard, ImageClip } from "@/components";
 import { client } from "@/lib/sanity";
 import Layout from "@/layouts/Layout.astro";
 import { toPlainText } from "@portabletext/react";
 import MuxPlayer from "@mux/mux-player-react";
-import { Picture } from "astro-imagetools/components";
 
 export async function getStaticPaths() {
   const query = groq`
@@ -91,32 +90,28 @@ const tiers = [
 </style>
 
 <Layout title="Real Estate">
-  <div class="hero">
-    <div class="hero-bg">
-      <Picture src="/images/gradients/4.png" alt="hero background" />
-    </div>
-    <div
+  <!-- <div
       class="bg-gradient-to-t from-transparent to-white absolute top-0 left-0 z-10 h-full w-full"
-    >
-    </div>
-    <Section size="xl" align="center">
-      <div class="max-w-screen-md z-20">
-        <div class="flex flex-col justify-center gap-4 text-center">
-          <Text display size="lg">{data.header.title}</Text>
+    > -->
+  <Section size="xl" align="center">
+    <div class="max-w-screen-lg z-20 grid grid-cols-2">
+      <div class="flex flex-col justify-center gap-4">
+        <Text display size="lg">{data.header.title}</Text>
 
-          <div class="flex gap-4 justify-center">
-            <Button variant="primary" size="lg" round shadow="lg">
-              Watch Video
-            </Button>
-          </div>
+        <div class="flex gap-4">
+          <Button variant="primary" size="lg" round shadow="lg">
+            Watch Video
+          </Button>
         </div>
       </div>
-    </Section>
-  </div>
+      <ImageClip src="/images/gradients/4.png" />
+    </div>
+  </Section>
 
   {
     data.features.map((feature: any) => {
       const video = feature.video.asset;
+      console.log(video);
 
       return (
         <Section size="lg">
