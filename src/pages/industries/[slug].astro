@@ -1,13 +1,12 @@
 ---
-import groq from "groq";
 import { Section, Text, Button, PricingCard, ImageClip } from "@/components";
-import { client } from "@/lib/sanity";
+import { client } from "@/content";
 import Layout from "@/layouts/Layout.astro";
 import { toPlainText } from "@portabletext/react";
 import MuxPlayer from "@mux/mux-player-react";
 
 export async function getStaticPaths() {
-  const query = groq`
+  const query = `
     *[_type == "industry"]{
       slug,
     }
@@ -22,9 +21,16 @@ export async function getStaticPaths() {
 
 const { slug } = Astro.params;
 
-const query = groq`
+const query = `
 *[_type == "industry" && slug.current == $slug][0]{
   ...,
+  header {
+    ...,
+    "image": image.asset->
+  },
+  pricing[]->{
+    ...,
+  },
   features[]->{
     ...,
     video {
@@ -35,44 +41,6 @@ const query = groq`
 `;
 
 const data = await client.fetch(query, { slug });
-
-const tiers = [
-  {
-    title: "Starter",
-    description: "Industry-standard design quality",
-    priceMonthly: 3995,
-    features: [
-      {
-        features: [
-          {
-            title: "Time capacity",
-            value: "60 hours",
-          },
-          {
-            title: "Time capacity",
-            value: "60 hours",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    title: "Pro",
-    prominent: true,
-    description: "Industry-standard design quality",
-    priceMonthly: 7995,
-    features: [
-      {
-        features: [
-          {
-            title: "Time capacity",
-            value: "120 hours",
-          },
-        ],
-      },
-    ],
-  },
-];
 ---
 
 <style>
@@ -83,7 +51,6 @@ const tiers = [
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 0;
     height: 100%;
     overflow: hidden;
   }
@@ -93,8 +60,8 @@ const tiers = [
   <!-- <div
       class="bg-gradient-to-t from-transparent to-white absolute top-0 left-0 z-10 h-full w-full"
     > -->
-  <Section size="xl" align="center">
-    <div class="max-w-screen-lg z-20 grid grid-cols-2">
+  <Section size="lg" align="center">
+    <div class="max-w-screen-lg grid md:grid-cols-2">
       <div class="flex flex-col justify-center gap-4">
         <Text display size="lg">{data.header.title}</Text>
 
@@ -104,14 +71,13 @@ const tiers = [
           </Button>
         </div>
       </div>
-      <ImageClip src="/images/gradients/4.png" />
+      <ImageClip src={data.header.image.url} className="max-h-80 " />
     </div>
   </Section>
 
   {
     data.features.map((feature: any) => {
       const video = feature.video.asset;
-      console.log(video);
 
       return (
         <Section size="lg">
@@ -171,6 +137,6 @@ const tiers = [
   }
 
   <Section>
-    <PricingCard tiers={tiers} />
+    <PricingCard tiers={data.pricing} />
   </Section>
 </Layout>
