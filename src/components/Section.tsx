@@ -8,7 +8,8 @@ interface Props {
 
 const Section = ({ size = "md", children, align }: Props) => {
   const styles = cx({
-    "max-w-screen-xl mx-auto px-4": true,
+    "w-full max-w-screen-md md:max-w-screen-lg xl:max-w-screen-xl mx-auto px-4":
+      true,
     "py-4": size === "xs",
     "py-6": size === "sm",
     "py-8": size === "md",
