@@ -7,7 +7,6 @@ import { defineConfig } from "astro/config"; // import vercel from "@astrojs/ver
 // https://astro.build/config
 
 import tailwind from "@astrojs/tailwind";
-
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
@@ -15,7 +14,7 @@ export default defineConfig({
   // output: "server",
   // adapter: vercel(),
   site: "https://boringordinary.com",
-  integrations: [astroImageTools, react(), sitemap(), compress(), tailwind(), partytown()],
+  integrations: [astroImageTools, react(), sitemap(), compress(), tailwind(), partytown({})],
   trailingSlash: "never",
   vite: {
     plugins: []
