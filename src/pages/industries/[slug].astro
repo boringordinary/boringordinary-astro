@@ -1,5 +1,6 @@
 ---
 import { Section, Text, Button, PricingCard, ImageClip } from "@/components";
+import { Picture } from 'astro-imagetools/components';
 import { client } from "@/content";
 import Layout from "@/layouts/Layout.astro";
 import { toPlainText } from "@portabletext/react";
@@ -26,6 +27,7 @@ const query = `
   ...,
   header {
     ...,
+    "backgroundImage": backgroundImage.asset->,
     "image": image.asset->
   },
   pricing[]->{
@@ -43,37 +45,27 @@ const query = `
 const data = await client.fetch(query, { slug });
 ---
 
-<style>
-  .hero {
-    position: relative;
-  }
-  .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    overflow: hidden;
-  }
-</style>
-
 <Layout title="Real Estate">
-  <!-- <div
-      class="bg-gradient-to-t from-transparent to-white absolute top-0 left-0 z-10 h-full w-full"
-    > -->
-  <Section size="lg" align="center">
-    <div class="grid md:grid-cols-2 place-items-center">
-      <div class="flex flex-col justify-center gap-4">
-        <Text display size="lg">{data.header.title}</Text>
-
-        <div class="flex gap-4">
-          <Button variant="primary" size="lg" round shadow="lg">
-            Watch Video
-          </Button>
-        </div>
-      </div>
-      <ImageClip src={data.header.image.url} className="max-h-80 " />
+  <div class="relative overflow-hidden">
+    <div class="bg-gradient-to-t from-transparent to-white z-10 w-full h-full absolute"></div>
+    <div class="bg-cover absolute w-full h-full z-1">
+      <Picture src={data.header.backgroundImage.url} alt="bg" />
     </div>
-  </Section>
+    <Section size="lg" align="center" className="relative z-3">
+      <div class="grid md:grid-cols-2 place-items-center z-10">
+        <div class="flex flex-col justify-center gap-4">
+          <Text display size="lg">{data.header.title}</Text>
+
+          <div class="flex gap-4">
+            <Button variant="primary" size="lg" round shadow="lg">
+              Watch Video
+            </Button>
+          </div>
+        </div>
+        <ImageClip src={data.header.image.url} className="max-h-80 " />
+      </div>
+    </Section>
+  </div>
 
   {
     data.features.map((feature: any) => {
