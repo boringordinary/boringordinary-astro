@@ -25,7 +25,7 @@ const items: Item[] = [
     href: "/about",
   },
   {
-    label: "Subscriptions",
+    label: "Pricing",
     href: "/pricing",
   },
   {

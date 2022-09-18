@@ -39,7 +39,7 @@ export const links = [
 
 const Footer = () => {
   return (
-    <footer className="max-w-container mx-auto mt-32 w-full px-4 sm:px-6 lg:px-8">
+    <footer className="max-w-container mx-auto w-full px-4 sm:px-6 lg:px-8">
       <div className="border-t border-slate-900/5 py-8">
         <p className="mt-5 text-center text-sm leading-6 text-slate-500">
           © {new Date().getFullYear()} Boring+Ordinary, Inc

@@ -6,3 +6,4 @@ export * from "./Divider";
 export * from "./TopBar";
 export * from "./Footer";
 export * from "./PricingCard";
+export * from "./DiffusedGradientBg";

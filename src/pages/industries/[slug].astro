@@ -1,6 +1,13 @@
 ---
-import { Section, Text, Button, PricingCard, ImageClip } from "@/components";
-import { Picture } from 'astro-imagetools/components';
+import {
+  Section,
+  Text,
+  Button,
+  PricingCard,
+  ImageClip,
+  DiffusedGradientBg,
+} from "@/components";
+import { Picture } from "astro-imagetools/components";
 import { client } from "@/content";
 import Layout from "@/layouts/Layout.astro";
 import { toPlainText } from "@portabletext/react";
@@ -43,38 +50,37 @@ const query = `
 `;
 
 const data = await client.fetch(query, { slug });
+
+const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 ---
 
 <Layout title="Real Estate">
   <div class="relative overflow-hidden">
-    <div class="bg-gradient-to-t from-transparent to-white z-10 w-full h-full absolute"></div>
-    <div class="bg-cover absolute w-full h-full z-1">
-      <Picture src={data.header.backgroundImage.url} alt="bg" />
-    </div>
-    <Section size="lg" align="center" className="relative z-3">
-      <div class="grid md:grid-cols-2 place-items-center z-10">
-        <div class="flex flex-col justify-center gap-4">
-          <Text display size="lg">{data.header.title}</Text>
+    <DiffusedGradientBg src={bgGradient}>
+      <Section size="lg" align="center" className="relative">
+        <div class="grid md:grid-cols-2 place-items-center z-10">
+          <div class="flex flex-col justify-center gap-4">
+            <Text display size="lg">{data.header.title}</Text>
 
-          <div class="flex gap-4">
-            <Button variant="primary" size="lg" round shadow="lg">
-              Watch Video
-            </Button>
+            <div class="flex gap-4">
+              <Button variant="primary" size="lg" round shadow="lg">
+                Watch Video
+              </Button>
+            </div>
           </div>
+          <ImageClip src={data.header.image.url} className="max-h-80 " />
         </div>
-        <ImageClip src={data.header.image.url} className="max-h-80 " />
-      </div>
-    </Section>
+      </Section>
+    </DiffusedGradientBg>
   </div>
 
   {
     data.features.map((feature: any) => {
       const video = feature.video.asset;
-      console.log(video.playbackId);
 
       return (
         <Section size="lg">
-          <div class="relative grid gap-4 md:grid-cols-2 md:gap-6 lg:gap-8 place-items-center">
+          <div class="relative grid place-items-center gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
             <div class="flex flex-col justify-center">
               <div class="mb-4">
                 <Text display size="md" gradient="primary">
@@ -90,24 +96,26 @@ const data = await client.fetch(query, { slug });
                 <div class="flex flex-col gap-4">
                   {feature.benefits.map((benefit: any) => {
                     return (
-                    <div class="flex gap-4">
-                      <div class="flex h-14 w-14 aspect-1 items-center justify-center rounded-lg bg-violet-500 text-white">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                          fill="currentColor"
-                          class="h-5 w-5"
-                        >
-                          <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
-                        </svg>
+                      <div class="flex gap-4">
+                        <div class="aspect-1 flex h-14 w-14 items-center justify-center rounded-xl bg-violet-500 text-white">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            class="h-5 w-5"
+                          >
+                            <path d="M11 5a3 3 0 11-6 0 3 3 0 016 0zM2.615 16.428a1.224 1.224 0 01-.569-1.175 6.002 6.002 0 0111.908 0c.058.467-.172.92-.57 1.174A9.953 9.953 0 018 18a9.953 9.953 0 01-5.385-1.572zM16.25 5.75a.75.75 0 00-1.5 0v2h-2a.75.75 0 000 1.5h2v2a.75.75 0 001.5 0v-2h2a.75.75 0 000-1.5h-2v-2z" />
+                          </svg>
+                        </div>
+                        <div class="flex flex-col gap-2">
+                          <Text display size="xs">
+                            {benefit.title}
+                          </Text>
+                          <Text color="text-gray-500">
+                            {benefit.description}
+                          </Text>
+                        </div>
                       </div>
-                      <div class="flex flex-col gap-2">
-                        <Text display size="xs">
-                          {benefit.title}
-                        </Text>
-                        <Text color="text-gray-500">{benefit.description}</Text>
-                      </div>
-                    </div>
                     );
                   })}
                 </div>
