@@ -38,7 +38,7 @@ const Button = forwardRef(
     const styles = clsx({
       "text-md font-medium transition transition-75 ease-in-out text-center rounded-lg focus:brightness-90 border-2":
         true,
-      "active:shadow-none active:translate-y-0": shadow,
+      "active:shadow-none active:translate-y-0 focus:translate-y-0": shadow,
       "hover:translate-y-[-2px] hover:shadow-sm": shadow === "md",
       "hover:translate-y-[-2px] hover:shadow-md": shadow === "lg",
       "text-gray-500": variant === "ghost",
