@@ -1,5 +1,11 @@
 ---
-import { Divider, PricingCard, Section, Text } from "@/components";
+import {
+  DiffusedGradientBg,
+  Divider,
+  PricingCard,
+  Section,
+  Text,
+} from "@/components";
 import { toPlainText } from "@portabletext/react";
 import { client } from "@/content";
 import Layout from "@/layouts/Layout.astro";
@@ -26,18 +32,22 @@ const data = await client.fetch(query);
 ---
 
 <Layout title="Pricing">
-  <Section size="sm">
-    <div class="max-w-screen-xl mx-auto">
-      <div class="max-w-prose py-10 text-center flex flex-col gap-4 mx-auto">
-        <h1 class="text-5xl font-bold leading-tight">
-          {data.title}
-        </h1>
-        <p class="text-xl text-neutral-600">
-          {toPlainText(data.description)}
-        </p>
+  <DiffusedGradientBg
+    src="https://cdn.sanity.io/images/qnrs6r79/production/14896f3b2cab11551308a94c1989b8bab5009ed0-5600x3550.png?h=400"
+  >
+    <Section size="sm">
+      <div class="max-w-screen-xl mx-auto">
+        <div class="max-w-prose py-10 text-center flex flex-col gap-4 mx-auto">
+          <h1 class="text-5xl font-bold leading-tight">
+            {data.title}
+          </h1>
+          <p class="text-xl text-neutral-600">
+            {toPlainText(data.description)}
+          </p>
+        </div>
       </div>
-    </div>
-  </Section>
+    </Section>
+  </DiffusedGradientBg>
 
   <Section align="center">
     <div class="flex flex-col gap-4">
