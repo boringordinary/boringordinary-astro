@@ -18,29 +18,20 @@ const data = await client.fetch(groq`
       "image": image.asset->,
     }
   },
-  services {
+  orgs[]-> {
     ...,
-    "services": services[]->{
-      ...,
-      "icon": icon.asset->,
-    }
-  },
-  companies {
-    ...,
-    logos[] {
-      ...,
-      "image": asset->
-    }
+    "logo": logo.asset->
   },
 }
 `);
 
-const logos = data.companies.logos.map(({ image }: any) => {
-  return {
-    alt: image.url,
-    src: image.url,
-  };
-});
+const logos =
+  data.orgs.slice(0, -1).map(({ logo, name }: any) => {
+    return {
+      alt: name,
+      src: logo.url,
+    };
+  }) || [];
 ---
 
 <Layout title="Where Ambitious Brands Grow">
@@ -52,7 +43,7 @@ const logos = data.companies.logos.map(({ image }: any) => {
 
   <div class="flex items-center flex-col gap-4">
     <p class="align-center font-medium text-base text-gray-500">
-      Trusted by modern fast-growing brands
+      Trusted by fast-growing, modern brands
     </p>
     <LogoReel logos={logos} />
   </div>

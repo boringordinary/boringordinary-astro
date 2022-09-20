@@ -40,6 +40,13 @@ const query = `
   pricing[]->{
     ...,
   },
+  featuredWork[]->{
+    ...,
+    preview {
+      ...,
+      "image": image.asset->
+    }
+  },
   features[]->{
     ...,
     video {
@@ -76,14 +83,14 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 
   {
     data.features.map((feature: any) => {
-      const video = feature.video.asset;
+      const video = feature.video?.asset;
 
       return (
         <Section size="lg">
           <div class="relative grid place-items-center gap-4 md:grid-cols-2 md:gap-6 lg:gap-8">
             <div class="flex flex-col justify-center">
               <div class="mb-4">
-                <Text display size="md" gradient="primary">
+                <Text display size="md">
                   {feature.title}
                 </Text>
               </div>
@@ -94,7 +101,7 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 
               <div class="my-6 flex gap-4">
                 <div class="flex flex-col gap-4">
-                  {feature.benefits.map((benefit: any) => {
+                  {feature.benefits?.map((benefit: any) => {
                     return (
                       <div class="flex gap-4">
                         <div class="aspect-1 flex h-14 w-14 items-center justify-center rounded-xl bg-violet-500 text-white">
@@ -123,16 +130,18 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
             </div>
 
             <div class="overflow-hidden rounded-xl shadow-2xl">
-              <MuxPlayer
-                client:visible
-                style={{ height: "100%", maxWidth: "100%" }}
-                streamType="on-demand"
-                playbackId={video.playbackId}
-                metadata={{
-                  video_title: "Strategy call",
-                  viewer_user_id: "unidentified",
-                }}
-              />
+              {video && (
+                <MuxPlayer
+                  client:visible
+                  style={{ height: "100%", maxWidth: "100%" }}
+                  streamType="on-demand"
+                  playbackId={video.playbackId}
+                  metadata={{
+                    video_title: "Strategy call",
+                    viewer_user_id: "unidentified",
+                  }}
+                />
+              )}
             </div>
           </div>
         </Section>

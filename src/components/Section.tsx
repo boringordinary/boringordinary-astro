@@ -14,8 +14,8 @@ const Section = ({ size = "md", children, align, className }: Props) => {
     "py-8": size === "xs",
     "py-12": size === "sm",
     "py-16": size === "md",
-    "py-18": size === "lg",
-    "py-24": size === "xl",
+    "py-20": size === "lg",
+    "py-28": size === "xl",
     "flex justify-center": align === "center",
     [className as string]: className,
   });

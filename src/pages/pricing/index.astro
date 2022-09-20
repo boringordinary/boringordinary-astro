@@ -75,11 +75,11 @@ const data = await client.fetch(query);
       <div class="grid grid-cols-2">
         {
           data.faqs.map(({ question, answer }: any) => (
-            <div class="mt-4 flex w-full max-w-screen-sm flex-col justify-center">
-              <Text display size="xs">
-                {question}
-              </Text>
-              <Text size="lg">{toPlainText(answer)}</Text>
+            <div class="mt-4 flex w-full max-w-screen-sm flex-col justify-center gap-2 p-1">
+              <p class="text-xl font-medium">{question}</p>
+              <p class="text-md leading-normal text-gray-500">
+                {toPlainText(answer)}
+              </p>
             </div>
           ))
         }

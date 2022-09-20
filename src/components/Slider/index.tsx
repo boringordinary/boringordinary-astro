@@ -52,14 +52,11 @@ const Slider = ({ value }: Props) => {
         return (
           <SwiperSlide key={index}>
             <div>
-              <Image
+              <img
                 src={asset.url}
-                // blurDataURL={asset.metadata.lqip}
-                // placeholder="blur"
-                layout="responsive"
+                alt={asset.title}
                 height={asset.metadata.dimensions.height}
                 width={asset.metadata.dimensions.width}
-                alt={value.title}
               />
             </div>
           </SwiperSlide>

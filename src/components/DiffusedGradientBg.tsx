@@ -4,8 +4,6 @@ interface Props {
 }
 
 const DiffusedGradientBg = ({ children, src }: Props) => {
-  console.log(src);
-
   return (
     <div className="relative">
       <div className="z-10">{children}</div>
