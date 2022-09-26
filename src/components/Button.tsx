@@ -4,6 +4,7 @@ import clsx from "clsx";
 interface Props {
   children: React.ReactNode;
   size?: "sm" | "md" | "lg" | "xl";
+  fullWidth?: boolean;
   variant?: "primary" | "secondary" | "ghost";
   shadow?: "md" | "lg";
   onClick?: () => void;
@@ -18,6 +19,7 @@ const Button = forwardRef(
       variant = "primary",
       shadow,
       round,
+      fullWidth,
       ...rest
     }: Props,
     forwardedRef: any
@@ -48,6 +50,7 @@ const Button = forwardRef(
       "text-lg px-8 py-3": size === "lg",
       "text-xl px-6 py-3": size === "xl",
       "rounded-full": round,
+      "w-full": fullWidth,
     });
 
     const gradientStyles = {

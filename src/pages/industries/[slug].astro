@@ -6,8 +6,8 @@ import {
   PricingCard,
   ImageClip,
   DiffusedGradientBg,
+  VideoWidget,
 } from "@/components";
-import { Picture } from "astro-imagetools/components";
 import { client } from "@/content";
 import Layout from "@/layouts/Layout.astro";
 import { toPlainText } from "@portabletext/react";
@@ -62,6 +62,7 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 ---
 
 <Layout title="Real Estate">
+  <VideoWidget src="foo" title="Test" />
   <div class="relative overflow-hidden">
     <DiffusedGradientBg src={bgGradient}>
       <Section size="lg" align="center" className="relative">
@@ -83,7 +84,9 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 
   {
     data.features.map((feature: any) => {
-      const video = feature.video?.asset;
+      if (!feature) return null;
+
+      const video = feature?.video?.asset;
 
       return (
         <Section size="lg">
@@ -95,7 +98,7 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
                 </Text>
               </div>
 
-              <Text color="text-gray-500" size="lg">
+              <Text color="gray-500" size="lg">
                 {toPlainText(feature.description)}
               </Text>
 
@@ -118,9 +121,7 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
                           <Text display size="xs">
                             {benefit.title}
                           </Text>
-                          <Text color="text-gray-500">
-                            {benefit.description}
-                          </Text>
+                          <Text color="gray-500">{benefit.description}</Text>
                         </div>
                       </div>
                     );
@@ -151,7 +152,7 @@ const bgGradient = `${data.header.backgroundImage.url}?h=400`;
 
   <Section>
     <div class="max-w-screen-md mx-auto">
-      <PricingCard tiers={data.pricing} />
+      <PricingCard tiers={data.pricing} client:load />
     </div>
   </Section>
 </Layout>

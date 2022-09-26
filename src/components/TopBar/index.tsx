@@ -25,7 +25,11 @@ const items: Item[] = [
     href: "/about",
   },
   {
-    label: "Industries & Pricing",
+    label: "Pricing Plans",
+    href: "/pricing",
+  },
+  {
+    label: "Industries",
     href: "#",
     callout: true,
     items: [

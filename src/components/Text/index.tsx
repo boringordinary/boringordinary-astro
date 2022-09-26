@@ -4,6 +4,7 @@ interface Props {
   gradient?: "primary";
   align?: "left" | "center" | "right";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
+  weight?: "normal" | "medium" | "semibold" | "bold";
   as?: keyof JSX.IntrinsicElements;
   color?: string;
   display?: boolean;
@@ -17,13 +18,14 @@ const Text = ({
   gradient,
   align,
   color,
+  weight,
   children,
 }: Props) => {
   const styles = cx({
-    "leading-normal": !display,
-    "leading-tight": display,
-    "text-xs": size === "xs" && !display,
-    "text-sm": size === "sm" && !display,
+    "leading-normal": true,
+    "text-neutral-600": !display,
+    "text-md": size === "xs" && !display,
+    "text-lg": size === "sm" && !display,
     "text-xl": size === "md" && !display,
     "text-2xl": size === "lg" && !display,
     "text-3xl": size === "xl" && !display,
@@ -35,7 +37,8 @@ const Text = ({
     "text-left": align === "left",
     "text-center": align === "center",
     "text-right": align === "right",
-    [color as string]: color,
+    [`font-${weight}`]: weight,
+    [`text-${color}`]: color,
     "bg-gradient-to-r from-violet-800 via-violet-500 to-violet-600 text-transparent bg-clip-text":
       gradient === "primary",
   });

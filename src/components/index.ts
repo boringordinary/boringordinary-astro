@@ -7,3 +7,6 @@ export * from "./TopBar";
 export * from "./Footer";
 export * from "./PricingCard";
 export * from "./DiffusedGradientBg";
+export * from "./VideoWidget";
+export * from "./ContentRenderer";
+export * from "./Testimonial";

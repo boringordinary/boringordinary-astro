@@ -1,7 +1,8 @@
 ---
-import { Section, Text } from "@components/index";
+import { Section, Text, ContentRenderer } from "@components/index";
 import { Hero } from "./index/Hero";
 import { LogoReel } from "./index/LogoReel";
+import { Letter } from "./index/Letter";
 import Layout from "../layouts/Layout.astro";
 import { client } from "@content/index";
 import groq from "groq";
@@ -9,14 +10,8 @@ import groq from "groq";
 const data = await client.fetch(groq`
 *[_type == "homepage"][0]{
   ...,
-  featuredWork[]-> {
-    ...,
-    slug,
-    color,
-    preview {
-      ...,
-      "image": image.asset->,
-    }
+  features -> {
+    features[]->
   },
   orgs[]-> {
     ...,
@@ -48,11 +43,55 @@ const logos =
     <LogoReel logos={logos} />
   </div>
 
+  <!-- Testimonial cards that animate and pop out to the sides -->
+  <!-- Testimonials can also prove a point -->
   <Section size="md">
-    <Text display align="center">Tired of traditional agencies?</Text>
+    <Letter content={data.letter.content} client:visible />
   </Section>
 
   <Section>
-    <Text display align="center">We work differently.</Text>
+    <Text display align="center"
+      >Your frontend includes everything to set you apart.</Text
+    >
+    <Text size="lg" align="center"
+      >Branding, authentic videos, a cutting-edge website.</Text
+    >
+
+    {
+      data.features.features.map((feature: any) => {
+        return (
+          <div class="mx-auto my-8 grid max-w-screen-sm grid-cols-2">
+            <div>
+              <Text display size="sm">
+                {feature.title}
+              </Text>
+              <ContentRenderer content={feature.description} />
+            </div>
+
+            <div>
+              <video
+                src="https://www.sanity.io/dad34dae-73ae-4c4d-9b02-b1872b805480"
+                autoplay
+                playsinline
+                muted
+                loop
+              />
+            </div>
+          </div>
+        );
+      })
+    }
+  </Section>
+
+  <Section>
+    <!-- Simple Testimonials -->
+  </Section>
+
+  <Section>
+    <!-- Pricing -->
+  </Section>
+
+  <Section>
+    <!-- More Tesimonials -->
   </Section>
 </Layout>
