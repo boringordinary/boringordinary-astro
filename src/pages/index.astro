@@ -1,8 +1,9 @@
 ---
-import { Section, Text, ContentRenderer } from "@components/index";
+import { Section, Text, ContentRenderer, Button } from "@components/index";
 import { Hero } from "./index/Hero";
 import { LogoReel } from "./index/LogoReel";
 import { Letter } from "./index/Letter";
+import { Testimonials } from "./index/Testimonials";
 import Layout from "../layouts/Layout.astro";
 import { client } from "@content/index";
 import groq from "groq";
@@ -53,7 +54,7 @@ const logos =
     <Text display align="center"
       >Your frontend includes everything to set you apart.</Text
     >
-    <Text size="lg" align="center"
+    <Text size="lg" align="center" color="neutral-600"
       >Branding, authentic videos, a cutting-edge website.</Text
     >
 
@@ -61,7 +62,7 @@ const logos =
       data.features.features.map((feature: any) => {
         return (
           <div class="mx-auto my-8 grid max-w-screen-sm grid-cols-2">
-            <div>
+            <div class="flex flex-col gap-2">
               <Text display size="sm">
                 {feature.title}
               </Text>
@@ -84,14 +85,25 @@ const logos =
   </Section>
 
   <Section>
-    <!-- Simple Testimonials -->
+    <Testimonials client:visible />
   </Section>
 
   <Section>
-    <!-- Pricing -->
+    <div
+      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
+    >
+      <Text align="center" display>Take your business to the next level</Text>
+      <Text color="neutral-600"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+        quasi temporibus ipsam nostrum earum hic omnis perferendis impedit
+        praesentium laborum?</Text
+      >
+
+      <div class="mt-2">
+        <Button size="lg" shadow="lg">Get Started</Button>
+      </div>
+    </div>
   </Section>
 
-  <Section>
-    <!-- More Tesimonials -->
-  </Section>
+  <Section />
 </Layout>

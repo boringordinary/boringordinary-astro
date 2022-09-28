@@ -23,14 +23,13 @@ const Text = ({
 }: Props) => {
   const styles = cx({
     "leading-normal": true,
-    "text-neutral-600": !display,
     "text-md": size === "xs" && !display,
     "text-lg": size === "sm" && !display,
     "text-xl": size === "md" && !display,
     "text-2xl": size === "lg" && !display,
     "text-3xl": size === "xl" && !display,
     "text-2xl font-semibold": size === "xs" && display,
-    "text-3xl font-semibold": size === "sm" && display,
+    "text-3xl font-semibold leading-tight": size === "sm" && display,
     "text-4xl font-bold": size === "md" && display,
     "text-5xl font-bold": size === "lg" && display,
     "text-6xl font-bold": size === "xl" && display,

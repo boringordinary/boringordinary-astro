@@ -8,11 +8,20 @@ const ContentRenderer = ({ content }: any) => {
       components={{
         block: {
           h2: ({ children }) => (
-            <Text as="h2" display>
-              {children}
-            </Text>
+            <div className="mb-4">
+              <Text as="h2" display size="sm">
+                {children}
+              </Text>
+            </div>
           ),
-          normal: ({ children }) => <Text>{children}</Text>,
+          h3: ({ children }) => (
+            <div className="mb-4">
+              <Text as="h3" display size="sm">
+                {children}
+              </Text>
+            </div>
+          ),
+          normal: ({ children }) => <Text color="neutral-600">{children}</Text>,
         },
       }}
     />

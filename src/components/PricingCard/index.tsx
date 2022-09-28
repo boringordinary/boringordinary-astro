@@ -69,9 +69,9 @@ const PricingCard = ({ tiers }: Props) => {
 
                     <div className="flex flex-col justify-center">
                       <span className="font-medium">
-                        or $14999
+                        or $699
                         <br />
-                        one-time
+                        per month
                       </span>
                     </div>
                   </div>
