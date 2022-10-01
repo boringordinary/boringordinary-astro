@@ -1,8 +1,7 @@
 ---
-import { Section, Text, ContentRenderer, Button } from "@components/index";
+import { Section, Text, Divider, Button } from "@components/index";
 import { Hero } from "./index/Hero";
 import { LogoReel } from "./index/LogoReel";
-import { Letter } from "./index/Letter";
 import { Testimonials } from "./index/Testimonials";
 import Layout from "../layouts/Layout.astro";
 import { client } from "@content/index";
@@ -46,46 +45,179 @@ const logos =
 
   <!-- Testimonial cards that animate and pop out to the sides -->
   <!-- Testimonials can also prove a point -->
-  <Section size="md">
-    <Letter content={data.letter.content} client:visible />
+
+  <Section>
+    <div class="max-w-md mx-auto">
+      <Text display gradient="primary" size="sm">
+        Made by world-class talent, designed for your industry, positioned for
+        your segment, and customized for your quirks.<br /><br />Built on
+        cutting-edge tech, and constantly evolving, at an impossibly low monthly
+        price.<br /><br />
+      </Text>
+    </div>
+
+    <Text display gradient="primary" size="lg" align="center"
+      >B+O websites are without compromise.</Text
+    >
+
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <div class="flex flex-col gap-2">
+        <img src="/images/wand.png" class="h-36 w-36" />
+        <Text display size="lg" lineHeight="snug">Link Magic</Text>
+        <img src="/" />
+
+        <Text display size="sm"
+          >A website with your visitor's (Andy's) name on it. Introducing Link
+          Magic, a B+O innovation that’s personalization done to the extreme,
+          enabling your site to adapt its text, images, videos, reviews, theme –
+          basically every detail, to leave a lasting impression on visitors.
+        </Text>
+      </div>
+
+      <div>
+        <video
+          src="https://www.sanity.io/dad34dae-73ae-4c4d-9b02-b1872b805480"
+          autoplay
+          playsinline
+          muted
+          loop></video>
+      </div>
+    </div>
   </Section>
 
   <Section>
-    <Text display align="center"
-      >Your frontend includes everything to set you apart.</Text
-    >
-    <Text size="lg" align="center" color="neutral-600"
-      >Branding, authentic videos, a cutting-edge website.</Text
-    >
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <img src="/images/portal.png" class="h-36 w-36" />
+      <Text display size="lg" lineHeight="snug">Video Portal</Text>
 
-    {
-      data.features.features.map((feature: any) => {
-        return (
-          <div class="mx-auto my-8 grid max-w-screen-sm grid-cols-2">
-            <div class="flex flex-col gap-2">
-              <Text display size="sm">
-                {feature.title}
-              </Text>
-              <ContentRenderer content={feature.description} />
-            </div>
+      <Text display size="sm"
+        >Greet your visitors with a pre-recorded video that shows your face and
+        makes it easy for them to chat with you. Conveniently reply to visitors
+        with the app or SMS.
+        <br />
 
-            <div>
-              <video
-                src="https://www.sanity.io/dad34dae-73ae-4c4d-9b02-b1872b805480"
-                autoplay
-                playsinline
-                muted
-                loop
-              />
-            </div>
+        <br />
+        Combined with Link Magic, you can personalize your video to different types
+        of visitors.
+      </Text>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <img src="/images/pen-stroke.png" class="h-36 w-36" />
+      <Text display size="lg"
+        >We'll make written and visual content that sells.</Text
+      >
+
+      <div class="mx-auto">
+        <Text display size="sm">
+          Effective content tells your value proposition in a way that hooks
+          your audience.
+          <br />
+          <br />
+          But it's impossible to stand out without knowing the visual constraints
+          unique to web.
+          <br />
+          <br />
+        </Text>
+
+        <Text display>You just can't be an expert in everything.</Text>
+        <Text display size="xs">Content Architecture</Text>
+        <Text color="neutral-600">
+          Defines the visual hierarchy and sequence of your content. Without it,
+          visitors can't see how you're different.
+        </Text>
+
+        <Text display size="xs">Clear Positioning</Text>
+        <Text color="neutral-600">
+          Finds your winning lane, in a market that is crowded with competitors.
+          It's also knowing who you're uniquely qualified to serve.
+        </Text>
+
+        <Text display size="xs">Industry Research</Text>
+        <Text color="neutral-600">
+          Our advisors know the zeitgeist of your industry, and we are
+          constantly learning from the latest research from Neilsen Norman.
+        </Text>
+      </div>
+    </div>
+  </Section>
+
+  <Section>
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <img src="/images/fast-comet.png" class="h-36" />
+      <Text display size="lg" lineHeight="snug"
+        >Insanely fast. Optimized for Google Core Vital scores.</Text
+      >
+
+      <!-- Google core vital scores -->
+
+      <Text display size="sm"
+        >B+O websites are built on web tech you won't find with mainstream site
+        builders, or even other agencies.
+        <br />
+      </Text>
+
+      <Section size="sm">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="">
+            <Text display size="xs" gradient="secondary"
+              >Content on Headless CMS</Text
+            >
+            <Text
+              >Easily edit content on our CMS – decoupled from the frontend –
+              and never worry about breaking your website or slowing it down.</Text
+            >
           </div>
-        );
-      })
-    }
+          <div class="">
+            <Text display size="xs" gradient="secondary"
+              >Island Rendering Architecture</Text
+            >
+            <Text
+              >Components on the page load incrementally, built statically, and
+              don't ship unnecessary code. This results in sites up to 92%
+              lighter to deliver over the network.</Text
+            >
+          </div>
+        </div>
+        <div class="my-8">
+          <Divider />
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="">
+            <Text display size="xs" gradient="secondary">Mobile Responsive</Text
+            >
+            <Text weight="medium" color="neutral-700"
+              >Pixel-perfect for any screen size, every component is designed
+              for a smooth experience on-the-go.</Text
+            >
+          </div>
+          <div class="">
+            <Text display size="xs" gradient="secondary">SEO-optimized UI</Text>
+            <Text weight="medium" color="neutral-700"
+              >Each page is highly accessible and performant, giving you favored
+              treatment with Google's ranking algorithm.</Text
+            >
+          </div>
+        </div>
+      </Section>
+    </div>
   </Section>
 
   <Section>
     <Testimonials client:visible />
+  </Section>
+
+  <Section>
+    <div
+      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
+    >
+      <Text align="center" display size="sm"
+        >You're in good hands. Our team is seasoned-veterans from world-class
+        companies.</Text
+      >
+    </div>
   </Section>
 
   <Section>
@@ -105,5 +237,20 @@ const logos =
     </div>
   </Section>
 
-  <Section />
+  <Section>
+    <div
+      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
+    >
+      <Text align="center" display>Take your business to the next level</Text>
+      <Text color="neutral-600"
+        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
+        quasi temporibus ipsam nostrum earum hic omnis perferendis impedit
+        praesentium laborum?</Text
+      >
+
+      <div class="mt-2">
+        <Button size="lg" shadow="lg">Get Started</Button>
+      </div>
+    </div>
+  </Section>
 </Layout>

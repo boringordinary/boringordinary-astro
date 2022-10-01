@@ -1,10 +1,11 @@
 import cx from "clsx";
 
 interface Props {
-  gradient?: "primary";
+  gradient?: "primary" | "secondary";
   align?: "left" | "center" | "right";
   size?: "xs" | "sm" | "md" | "lg" | "xl";
   weight?: "normal" | "medium" | "semibold" | "bold";
+  lineHeight?: string;
   as?: keyof JSX.IntrinsicElements;
   color?: string;
   display?: boolean;
@@ -17,6 +18,7 @@ const Text = ({
   display,
   gradient,
   align,
+  lineHeight,
   color,
   weight,
   children,
@@ -29,17 +31,20 @@ const Text = ({
     "text-2xl": size === "lg" && !display,
     "text-3xl": size === "xl" && !display,
     "text-2xl font-semibold": size === "xs" && display,
-    "text-3xl font-semibold leading-tight": size === "sm" && display,
+    "text-3xl font-semibold leading-normal": size === "sm" && display,
     "text-4xl font-bold": size === "md" && display,
-    "text-5xl font-bold": size === "lg" && display,
+    "text-5xl font-bold leading-snug": size === "lg" && display,
     "text-6xl font-bold": size === "xl" && display,
     "text-left": align === "left",
     "text-center": align === "center",
     "text-right": align === "right",
+    [`leading-${lineHeight}`]: lineHeight,
     [`font-${weight}`]: weight,
     [`text-${color}`]: color,
-    "bg-gradient-to-r from-violet-800 via-violet-500 to-violet-600 text-transparent bg-clip-text":
+    "bg-gradient-to-b from-violet-500 to-violet-800 text-transparent bg-clip-text":
       gradient === "primary",
+    "bg-gradient-to-b from-purple-200 to-purple-800 text-transparent bg-clip-text":
+      gradient === "secondary",
   });
 
   const El = as;
