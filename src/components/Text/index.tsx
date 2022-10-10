@@ -30,7 +30,7 @@ const Text = ({
     "text-xl": size === "md" && !display,
     "text-2xl": size === "lg" && !display,
     "text-3xl": size === "xl" && !display,
-    "text-2xl font-semibold": size === "xs" && display,
+    "text-xl font-semibold": size === "xs" && display,
     "text-3xl font-semibold leading-normal": size === "sm" && display,
     "text-4xl font-bold": size === "md" && display,
     "text-5xl font-bold leading-snug": size === "lg" && display,
@@ -41,7 +41,7 @@ const Text = ({
     [`leading-${lineHeight}`]: lineHeight,
     [`font-${weight}`]: weight,
     [`text-${color}`]: color,
-    "bg-gradient-to-b from-violet-500 to-violet-800 text-transparent bg-clip-text":
+    "bg-gradient-to-b to-orange-500 from-purple-600 text-transparent bg-clip-text":
       gradient === "primary",
     "bg-gradient-to-b from-purple-200 to-purple-800 text-transparent bg-clip-text":
       gradient === "secondary",

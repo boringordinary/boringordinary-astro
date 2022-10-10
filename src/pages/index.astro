@@ -2,10 +2,12 @@
 import { Section, Text, Divider, Button } from "@components/index";
 import { Hero } from "./index/Hero";
 import { LogoReel } from "./index/LogoReel";
-import { Testimonials } from "./index/Testimonials";
+import { LinkMagic } from "./index/LinkMagic";
+import { EvolvingSection } from "./index/EvolvingSection";
 import Layout from "../layouts/Layout.astro";
 import { client } from "@content/index";
 import groq from "groq";
+import MuxPlayer from "@mux/mux-player-react";
 
 const data = await client.fetch(groq`
 *[_type == "homepage"][0]{
@@ -27,6 +29,26 @@ const logos =
       src: logo.url,
     };
   }) || [];
+
+const orderSteps = [
+  {
+    title: "1. Pick a plan",
+    tagline: "Choose a plan that fits your needs",
+    description: "Choose a plan that fits your needs and budget.",
+  },
+  {
+    title: "2. Prepare",
+    tagline: "We build your site and launch it",
+    description:
+      "Fill out a 100 point survey to help us position your business and create your content. B+O’s project manager books a video call with you to learn even more.",
+  },
+  {
+    title: "3. Launch",
+    tagline: "You launch your site and start selling",
+    description:
+      "We work our magic and your site is fully online in 14 business days or less.",
+  },
+];
 ---
 
 <Layout title="Where Ambitious Brands Grow">
@@ -60,29 +82,7 @@ const logos =
       >B+O websites are without compromise.</Text
     >
 
-    <div class="mx-auto my-8 grid max-w-screen-md">
-      <div class="flex flex-col gap-2">
-        <img src="/images/wand.png" class="h-36 w-36" />
-        <Text display size="lg" lineHeight="snug">Link Magic</Text>
-        <img src="/" />
-
-        <Text display size="sm"
-          >A website with your visitor's (Andy's) name on it. Introducing Link
-          Magic, a B+O innovation that’s personalization done to the extreme,
-          enabling your site to adapt its text, images, videos, reviews, theme –
-          basically every detail, to leave a lasting impression on visitors.
-        </Text>
-      </div>
-
-      <div>
-        <video
-          src="https://www.sanity.io/dad34dae-73ae-4c4d-9b02-b1872b805480"
-          autoplay
-          playsinline
-          muted
-          loop></video>
-      </div>
-    </div>
+    <LinkMagic client:visible />
   </Section>
 
   <Section>
@@ -146,7 +146,35 @@ const logos =
 
   <Section>
     <div class="mx-auto my-8 grid max-w-screen-md">
-      <img src="/images/fast-comet.png" class="h-36" />
+      <div class="flex gap-4">
+        <img src="/images/play-shape.png" class="h-36 w-36 rotate-[-514deg]" />
+        <div>
+          <Text display size="lg" align="left"
+            >The future of websites is watchable.</Text
+          >
+          <Text display size="sm" color="neutral-600" align="left"
+            >Our talented voice actors make you whiteboard pitch videos that
+            convey complex ideas in an engaging video format.</Text
+          >
+        </div>
+      </div>
+      <MuxPlayer
+        client:visible
+        style={{ height: "100%", maxWidth: "100%" }}
+        streamType="on-demand"
+        playbackId="Dc8u02pLO02SbclOCuS6Hgue8EOaFRbrq8"
+        metadata={{
+          video_title: "Strategy call",
+          viewer_user_id: "unidentified",
+        }}
+      />
+    </div>
+  </Section>
+
+  <Section>
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <img class="h-36 rotate-[187deg]" src="/images/faster-comet.png" />
+
       <Text display size="lg" lineHeight="snug"
         >Insanely fast. Optimized for Google Core Vital scores.</Text
       >
@@ -206,51 +234,13 @@ const logos =
   </Section>
 
   <Section>
-    <Testimonials client:visible />
-  </Section>
-
-  <Section>
-    <div
-      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
-    >
-      <Text align="center" display size="sm"
-        >You're in good hands. Our team is seasoned-veterans from world-class
-        companies.</Text
+    <div class="mx-auto my-8 grid max-w-screen-md">
+      <img src="/images/ouroboros.png" class="h-24" />
+      <Text display lineHeight="snug"
+        >Subscription gets you top-quality<br />at the lowest price.</Text
       >
     </div>
   </Section>
 
-  <Section>
-    <div
-      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
-    >
-      <Text align="center" display>Take your business to the next level</Text>
-      <Text color="neutral-600"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        quasi temporibus ipsam nostrum earum hic omnis perferendis impedit
-        praesentium laborum?</Text
-      >
-
-      <div class="mt-2">
-        <Button size="lg" shadow="lg">Get Started</Button>
-      </div>
-    </div>
-  </Section>
-
-  <Section>
-    <div
-      class="mx-auto text-center flex flex-col items-center max-w-screen-sm gap-4"
-    >
-      <Text align="center" display>Take your business to the next level</Text>
-      <Text color="neutral-600"
-        >Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
-        quasi temporibus ipsam nostrum earum hic omnis perferendis impedit
-        praesentium laborum?</Text
-      >
-
-      <div class="mt-2">
-        <Button size="lg" shadow="lg">Get Started</Button>
-      </div>
-    </div>
-  </Section>
+  <EvolvingSection />
 </Layout>
