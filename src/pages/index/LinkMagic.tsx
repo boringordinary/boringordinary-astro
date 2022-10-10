@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Text } from "@/components";
 import { profile } from "@/state/profile";
 import { useStore } from "@nanostores/react";
+import clsx from "clsx";
 
 function titlecase(string: string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -22,20 +23,22 @@ const LinkMagic = () => {
         <Text display size="lg" lineHeight="snug">
           Link Magic
         </Text>
-        <AddressBar
-          content={
-            <div className="my-8">
-              <Text display size="sm" color="gray-800">
-                A website with{" "}
-                <span className="text-purple-900">{visitorText}</span> name on
-                it. Introducing Link Magic, a B+O innovation that’s
-                personalization done to the extreme, enabling your site to adapt
-                its text, images, videos, reviews, theme – basically every
-                detail, to leave a lasting impression on visitors.
-              </Text>
-            </div>
-          }
-        />
+        <div className="mt-4">
+          <AddressBar
+            content={
+              <div className="p-6">
+                <Text display size="sm" color="gray-800">
+                  A website with{" "}
+                  <span className="text-purple-900">{visitorText}</span> name on
+                  it. Introducing Link Magic, a B+O innovation that’s
+                  personalization done to the extreme, enabling your site to
+                  adapt its text, images, videos, reviews, theme – basically
+                  every detail, to leave a lasting impression on visitors.
+                </Text>
+              </div>
+            }
+          />
+        </div>
       </div>
       <div>
         <video
@@ -52,6 +55,8 @@ const LinkMagic = () => {
 
 const AddressBar = ({ content }) => {
   const input = useRef<HTMLInputElement>(null);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocus] = useState(false);
 
   const handleChange = (event: any) => {
     console.log(event.target.value);
@@ -61,44 +66,94 @@ const AddressBar = ({ content }) => {
 
   const focusInput = () => {
     input?.current.focus();
+    setFocus(true);
+  };
+
+  const onMouseEnter = () => {
+    setHovered(true);
+  };
+
+  const onMouseLeave = () => {
+    setHovered(false);
+  };
+
+  const onBlur = () => {
+    setFocus(false);
+  };
+
+  const clickEdit = () => {
+    setFocus(true);
+    setHovered(false);
   };
 
   return (
-    <div className="relative rounded-xl border border-gray-200 p-8 shadow-xl">
+    <div className="relative overflow-hidden rounded-xl border border-gray-200 p-4 shadow-xl">
+      <style>
+        {`
+               @-webkit-keyframes borderpulse {
+                0% {
+                }
+                70% {
+                  box-shadow: 0 0 0 3px #5a99d47a;
+                }
+                100% {
+                  box-shadow: 0 0 0 0 #5a99d473;
+                }
+              }
+          `}
+      </style>
       <div className="mb-4 flex gap-2">
         <div className="h-3.5 w-3.5 rounded-full bg-slate-300"></div>
         <div className="h-3.5 w-3.5 rounded-full bg-slate-300"></div>
         <div className="h-3.5 w-3.5 rounded-full bg-slate-300"></div>
       </div>
+
       <div
-        className="flex max-w-full cursor-text rounded-full bg-slate-100 py-2 px-4 text-lg text-gray-800 transition-colors hover:bg-slate-200"
+        className={clsx(
+          "z-10 flex max-w-full cursor-text rounded-full border-4 bg-slate-100 py-2 px-4 text-lg text-gray-800 transition-colors hover:bg-slate-200",
+          focused && "border-blue-400"
+        )}
+        style={{ animation: focused ? "" : "borderpulse 2s infinite" }}
         onClick={focusInput}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="h-6 w-6"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          className="mt-[2px] h-5 w-5 text-green-500"
         >
           <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"
+            fillRule="evenodd"
+            d="M10 1a4.5 4.5 0 00-4.5 4.5V9H5a2 2 0 00-2 2v6a2 2 0 002 2h10a2 2 0 002-2v-6a2 2 0 00-2-2h-.5V5.5A4.5 4.5 0 0010 1zm3 8V5.5a3 3 0 10-6 0V9h6z"
+            clipRule="evenodd"
           />
         </svg>
 
-        <div className="ml-2">boringordinary.com?name=</div>
+        <div className="ml-2 font-system text-xl">
+          <span className="text-gray-500">boringordinary.com</span>?name=
+        </div>
         <input
           ref={input}
           type="text"
-          className="bg-transparent placeholder-gray-900 focus:outline-none"
+          className="bg-transparent font-system text-xl placeholder-gray-900 focus:outline-none"
           onChange={handleChange}
+          onBlur={onBlur}
         />
       </div>
 
-      {content}
+      <div>
+        {hovered && (
+          <div
+            className="align-center absolute top-0 left-0 flex h-full w-full justify-center bg-black bg-opacity-80"
+            onClick={clickEdit}
+          >
+            <Text display size="lg" color="white">
+              Click to Edit
+            </Text>
+          </div>
+        )}
+        {content}
+      </div>
     </div>
   );
 };

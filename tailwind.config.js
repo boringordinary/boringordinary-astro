@@ -11,6 +11,7 @@ module.exports = {
 			script: [
 				"Nanum Pen Script, --apple-system, BlinkMacSystemFont, sans-serif",
 			],
+			system: ["Arial", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
 		},
 		extend: {
 			colors: {
