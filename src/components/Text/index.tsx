@@ -30,7 +30,7 @@ const Text = ({
     "text-xl": size === "md" && !display,
     "text-2xl": size === "lg" && !display,
     "text-3xl": size === "xl" && !display,
-    "text-xl font-semibold": size === "xs" && display,
+    "text-2xl font-semibold": size === "xs" && display,
     "text-3xl font-semibold leading-normal": size === "sm" && display,
     "text-4xl font-bold": size === "md" && display,
     "text-5xl font-bold leading-snug": size === "lg" && display,

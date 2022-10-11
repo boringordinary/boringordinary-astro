@@ -4967,11 +4967,6 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-icons@^4.4.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.4.0.tgz#a13a8a20c254854e1ec9aecef28a95cdf24ef703"
-  integrity sha512-fSbvHeVYo/B5/L4VhB7sBA1i2tS8MkT0Hb9t2H1AVPkwGfVHLJCqyr2Py9dKMxsyM63Eng1GkdZfbWj+Fmv8Rg==
-
 react-ideal-image@^0.0.5:
   version "0.0.5"
   resolved "https://registry.yarnpkg.com/react-ideal-image/-/react-ideal-image-0.0.5.tgz#92a1d6e7e6d5a32b2a6a41e82ffb7f122ed9bddf"

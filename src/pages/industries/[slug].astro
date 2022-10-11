@@ -58,7 +58,7 @@ const query = `
 
 const data = await client.fetch(query, { slug });
 
-const bgGradient = `${data.header.backgroundImage.url}?h=400`;
+const bgGradient = `${data.header.backgroundImage?.url}?h=400`;
 ---
 
 <Layout title="Real Estate">

@@ -1,12 +1,6 @@
 import { useState } from "react";
-import {
-  TbRocket,
-  TbShoppingCart,
-  TbPizza,
-  TbScale,
-} from "react-icons/tb/index";
+
 import clsx from "clsx";
-import type { IconType } from "react-icons/lib";
 import { Button } from "@/components/Button";
 import { MegaMenu } from "./MegaMenu";
 import { Divider } from "../Divider";
@@ -16,7 +10,6 @@ export interface Item {
   href: string;
   items?: Item[];
   callout?: boolean;
-  icon?: IconType;
 }
 
 const items: Item[] = [
@@ -36,56 +29,21 @@ const items: Item[] = [
       {
         label: "Startups",
         href: "/startups",
-        icon: TbRocket,
       },
       {
         label: "E-Commerce",
-        icon: TbShoppingCart,
         href: "/",
       },
       {
         label: "Food Business",
-        icon: TbPizza,
         href: "/industries/food-and-service",
       },
       {
         label: "Legal Services",
-        icon: TbScale,
         href: "/industries/legal-services",
       },
     ],
   },
-  // {
-  //   label: "Services",
-  //   href: "#",
-  //   items: [
-  //     {
-  //       label: "Logo & Illustrations",
-  //       href: "/services/logo-illustrations",
-  //       icon: TbPaint,
-  //     },
-  //     {
-  //       label: "Shopify Builds",
-  //       href: "/services/shopify-dev",
-  //       icon: TbBrowser,
-  //     },
-  //     {
-  //       label: "Webflow Builds",
-  //       href: "/services/webflow-dev",
-  //       icon: TbBrowser,
-  //     },
-  //     {
-  //       label: "Web Design",
-  //       href: "/services/web-design",
-  //       icon: TbBrowser,
-  //     },
-  //     {
-  //       label: "Product Photos",
-  //       href: "/services/product-photos",
-  //       icon: TbPhoto,
-  //     },
-  //   ],
-  // },
 ];
 
 interface Props {
