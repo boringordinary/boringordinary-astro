@@ -24,8 +24,8 @@ interface Props {
 const PricingCard = ({ tiers }: Props) => {
   return (
     <>
-      <div className={`grid grid-cols-${tiers.length} w-full gap-6`}>
-        {tiers.map(
+      <div className={`grid grid-cols-${tiers?.length} w-full gap-6`}>
+        {tiers?.map(
           ({ title, tagline, prominent, price, features, interval }) => {
             const priceText = `${price}`;
             const intervalText = interval === 30 ? "mo" : "yr";

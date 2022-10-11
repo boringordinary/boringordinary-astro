@@ -80,7 +80,7 @@ const bgGradient = `${data.header.backgroundImage?.url}?h=400`;
               </Button>
             </div>
           </div>
-          <ImageClip src={data.header.image.url} className="max-h-80 " />
+          <ImageClip src={data.header.image?.url} className="max-h-80 " />
         </div>
       </Section>
     </DiffusedGradientBg>
@@ -98,7 +98,7 @@ const bgGradient = `${data.header.backgroundImage?.url}?h=400`;
   </div>
 
   {
-    data.features.map((feature: any) => {
+    data.features?.map((feature: any) => {
       if (!feature) return null;
 
       const video = feature?.video?.asset;
