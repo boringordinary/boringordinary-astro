@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Text } from "@/components";
 import { profile } from "@/state/profile";
 import { useStore } from "@nanostores/react";
@@ -14,15 +14,17 @@ const LinkMagic = () => {
 
   const visitorText = $profile.name
     ? `${titlecase($profile.name)}'s`
-    : "you visitor's";
+    : "your visitor's";
 
   return (
     <div className="mx-auto my-8 grid max-w-screen-md">
       <div className="flex flex-col gap-2">
-        <img src="/images/wand.png" className="h-36 w-36" />
-        <Text display size="lg" lineHeight="snug">
-          Link Magic
-        </Text>
+        <div className="flex items-center gap-2">
+          <img src="/images/wand.png" className="h-24 w-24" />
+          <Text display size="lg" lineHeight="snug" gradient="primary">
+            Link Magic
+          </Text>
+        </div>
         <div className="mt-4">
           <AddressBar
             content={
@@ -53,8 +55,8 @@ const LinkMagic = () => {
   );
 };
 
-const AddressBar = ({ content }) => {
-  const input = useRef<HTMLInputElement>(null);
+const AddressBar = ({ content }: any) => {
+  const nameInput = useRef<any>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocus] = useState(false);
 
@@ -65,18 +67,9 @@ const AddressBar = ({ content }) => {
   };
 
   const focusInput = () => {
-    input?.current.focus();
+    nameInput.current.focus();
     setFocus(true);
   };
-
-  const onMouseEnter = () => {
-    setHovered(true);
-  };
-
-  const onMouseLeave = () => {
-    setHovered(false);
-  };
-
   const onBlur = () => {
     setFocus(false);
   };
@@ -94,7 +87,7 @@ const AddressBar = ({ content }) => {
                 0% {
                 }
                 70% {
-                  box-shadow: 0 0 0 3px #5a99d47a;
+                  box-shadow: 0 0 0 5px #5a99d47a;
                 }
                 100% {
                   box-shadow: 0 0 0 0 #5a99d473;
@@ -133,7 +126,8 @@ const AddressBar = ({ content }) => {
           <span className="text-gray-500">boringordinary.com</span>?name=
         </div>
         <input
-          ref={input}
+          autoFocus
+          ref={nameInput}
           type="text"
           className="bg-transparent font-system text-xl placeholder-gray-900 focus:outline-none"
           onChange={handleChange}

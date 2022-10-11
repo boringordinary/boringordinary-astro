@@ -1,9 +1,9 @@
-import { map } from "nanostores";
+import { persistentMap } from "@nanostores/persistent";
 
 interface Profile {
   name?: string;
 }
 
-const profile = map<Profile>({});
+const profile = persistentMap<Profile>("profile:", {});
 
 export { profile };

@@ -1,9 +1,10 @@
 ---
-import { Section, Text, Divider, Button } from "@components/index";
+import { Section, Text, Divider } from "@components/index";
 import { Hero } from "./index/Hero";
 import { LogoReel } from "./index/LogoReel";
 import { LinkMagic } from "./index/LinkMagic";
 import { EvolvingSection } from "./index/EvolvingSection";
+import { VideoPortalSection } from "./index/VideoPortalSection";
 import Layout from "../layouts/Layout.astro";
 import { client } from "@content/index";
 import groq from "groq";
@@ -78,30 +79,14 @@ const orderSteps = [
       </Text>
     </div>
 
-    <Text display gradient="primary" size="lg" align="center"
+    <Text display size="lg" align="center"
       >B+O websites are without compromise.</Text
     >
 
     <LinkMagic client:visible />
   </Section>
 
-  <Section>
-    <div class="mx-auto my-8 grid max-w-screen-md">
-      <img src="/images/portal.png" class="h-36 w-36" />
-      <Text display size="lg" lineHeight="snug">Video Portal</Text>
-
-      <Text display size="sm"
-        >Greet your visitors with a pre-recorded video that shows your face and
-        makes it easy for them to chat with you. Conveniently reply to visitors
-        with the app or SMS.
-        <br />
-
-        <br />
-        Combined with Link Magic, you can personalize your video to different types
-        of visitors.
-      </Text>
-    </div>
-  </Section>
+  <VideoPortalSection />
 
   <Section>
     <div class="mx-auto my-8 grid max-w-screen-md">

@@ -41,7 +41,7 @@ const Text = ({
     [`leading-${lineHeight}`]: lineHeight,
     [`font-${weight}`]: weight,
     [`text-${color}`]: color,
-    "bg-gradient-to-b to-orange-500 from-purple-600 text-transparent bg-clip-text":
+    "bg-gradient-to-b from-orange-500 to-purple-600 text-transparent bg-clip-text":
       gradient === "primary",
     "bg-gradient-to-b from-purple-200 to-purple-800 text-transparent bg-clip-text":
       gradient === "secondary",

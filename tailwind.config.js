@@ -6,8 +6,8 @@ module.exports = {
 	theme: {
 
 		fontFamily: {
-			sans: ["Fira Sans", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
-			serif: ["PT Serif, Fira Sans, Georgia, serif"],
+			sans: ["'B+O'", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			serif: ["PT Serif, Proxima Nova, Georgia, serif"],
 			script: [
 				"Nanum Pen Script, --apple-system, BlinkMacSystemFont, sans-serif",
 			],
