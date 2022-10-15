@@ -1,4 +1,4 @@
-import { Section, Text } from "@/components";
+import { Section, Text } from "@components/index";
 
 const VideoPortalSection = () => {
   return (
