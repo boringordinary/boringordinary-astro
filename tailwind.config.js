@@ -4,14 +4,19 @@ module.exports = {
 	darkMode: 'class',
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
-
 		fontFamily: {
-			sans: ["'B+O'", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
-			serif: ["PT Serif, Proxima Nova, Georgia, serif"],
+			sans: ["HelveticaNowTextRegular", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			extrabold: ["HelveticaNowDisplayExtraBold", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			bold: ["HelveticaNowDisplayBold", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			semibold: ["HelveticaNowTextSemibold", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			medium: ["HelveticaNowTextMedium", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			normal: ["HelveticaNowTextRegular", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+
+			serif: ["HelveticaNowTextRegular, Georgia, serif"],
 			script: [
 				"Nanum Pen Script, --apple-system, BlinkMacSystemFont, sans-serif",
 			],
-			system: ["Arial", "--apple-system", "BlinkMacSystemFont", "sans-serif"],
+			system: ["--apple-system", "BlinkMacSystemFont", "sans-serif"],
 		},
 		extend: {
 			colors: {

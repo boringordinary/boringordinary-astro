@@ -1,4 +1,10 @@
-import { useRef, useState, useEffect } from "react";
+import {
+  useRef,
+  useState,
+  useEffect,
+  forwardRef,
+  useImperativeHandle,
+} from "react";
 import { Text } from "@/components";
 import { profile } from "@/state/profile";
 import { useStore } from "@nanostores/react";
@@ -9,6 +15,7 @@ function titlecase(string: string) {
 }
 
 const LinkMagic = () => {
+  const addressBarRef = useRef<any>(null);
   const $profile = useStore(profile);
   console.log("profile: ", $profile);
 
@@ -21,18 +28,24 @@ const LinkMagic = () => {
       <div className="flex flex-col gap-2">
         <div className="flex items-center gap-2">
           <img src="/images/wand.png" className="h-24 w-24" />
-          <Text display size="lg" lineHeight="snug" gradient="primary">
+          <Text display size="lg" lineHeight="snug" gradient="radialPrimary">
             Link Magic
           </Text>
         </div>
         <div className="mt-4">
           <AddressBar
+            ref={addressBarRef}
             content={
               <div className="p-6">
-                <Text display size="sm" color="gray-800">
+                <Text display size="sm" color="gray-800" weight="medium">
                   A website with{" "}
-                  <span className="text-purple-900">{visitorText}</span> name on
-                  it. Introducing Link Magic, a B+O innovation that’s
+                  <span
+                    className="cursor-pointer rounded-md bg-yellow-300 px-1 text-gray-900 hover:bg-yellow-500"
+                    onClick={addressBarRef.current?.focusInput()}
+                  >
+                    {visitorText}
+                  </span>{" "}
+                  name on it. Introducing Link Magic, a B+O innovation that’s
                   personalization done to the extreme, enabling your site to
                   adapt its text, images, videos, reviews, theme – basically
                   every detail, to leave a lasting impression on visitors.
@@ -55,13 +68,18 @@ const LinkMagic = () => {
   );
 };
 
-const AddressBar = ({ content }: any) => {
+const AddressBar = forwardRef(({ content }: any, ref: any) => {
   const nameInput = useRef<any>(null);
   const [hovered, setHovered] = useState(false);
   const [focused, setFocus] = useState(false);
 
+  useImperativeHandle(ref, () => ({
+    focusInput: () => {
+      focusInput();
+    },
+  }));
+
   const handleChange = (event: any) => {
-    console.log(event.target.value);
     const name = event.target.value;
     profile.setKey("name", name);
   };
@@ -70,6 +88,7 @@ const AddressBar = ({ content }: any) => {
     nameInput.current.focus();
     setFocus(true);
   };
+
   const onBlur = () => {
     setFocus(false);
   };
@@ -150,6 +169,6 @@ const AddressBar = ({ content }: any) => {
       </div>
     </div>
   );
-};
+});
 
 export { LinkMagic };

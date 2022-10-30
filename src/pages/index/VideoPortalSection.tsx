@@ -7,12 +7,12 @@ const VideoPortalSection = () => {
         <div className="flex flex-col">
           <div className="flex items-center">
             <img src="/images/portal.png" className="h-24 w-24" />
-            <Text display size="lg" lineHeight="snug" gradient="primary">
+            <Text display size="lg" lineHeight="snug" gradient="radialPrimary">
               Video Portal
             </Text>
           </div>
 
-          <Text size="xl">
+          <Text size="lg" lineHeight="relaxed">
             Greet your visitors with a pre-recorded video that shows your face
             and makes it easy for them to chat with you. Conveniently reply to
             visitors with the app or SMS.

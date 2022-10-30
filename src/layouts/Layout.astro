@@ -18,37 +18,10 @@ const { title } = Astro.props as Props;
     <link rel="shortcut icon" href="/branding/favicon.png" />
     <link rel="icon" href="/branding/favicon.png" />
 
+    <link rel="preconnect" href="https://cdn.fonts.net">
+    <link href="https://cdn.fonts.net/kit/e453f800-c467-4958-b733-4c729237bc06/e453f800-c467-4958-b733-4c729237bc06.css" rel="stylesheet" />
+
     <style>
-      @font-face {
-        font-family: "B+O";
-        src: url("/fonts/B+O/400/font.woff2") format("woff2"),
-          url("/fonts/B+O/400/font.woff");
-        font-weight: 400;
-      }
-      @font-face {
-        font-family: "B+O";
-        src: url("/fonts/B+O/500/font.woff2") format("woff2"),
-          url("/fonts/B+O/500/font.woff");
-        font-weight: 500;
-      }
-      @font-face {
-        font-family: "B+O";
-        src: url("/fonts/B+O/600/font.woff2") format("woff2"),
-          url("/fonts/B+O/600/font.woff");
-        font-weight: 600;
-      }
-      @font-face {
-        font-family: "B+O";
-        src: url("/fonts/B+O/700/font.woff2") format("woff2"),
-          url("/fonts/B+O/700/font.woff");
-        font-weight: 700;
-      }
-      @font-face {
-        font-family: "B+O";
-        src: url("/fonts/B+O/800/font.woff2") format("woff2"),
-          url("/fonts/B+O/800/font.woff");
-        font-weight: 800;
-      }
       /* Fluid responsiveness */
       html {
         font-size: calc(0.625rem + 0.41666666666666663vw);

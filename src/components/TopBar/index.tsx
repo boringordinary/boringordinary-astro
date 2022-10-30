@@ -21,29 +21,29 @@ const items: Item[] = [
     label: "Pricing Plans",
     href: "/pricing",
   },
-  {
-    label: "Industries",
-    href: "#",
-    callout: true,
-    items: [
-      {
-        label: "Startups",
-        href: "/startups",
-      },
-      {
-        label: "E-Commerce",
-        href: "/",
-      },
-      {
-        label: "Food Business",
-        href: "/industries/food-and-service",
-      },
-      {
-        label: "Legal Services",
-        href: "/industries/legal-services",
-      },
-    ],
-  },
+  // {
+  //   label: "Industries",
+  //   href: "#",
+  //   callout: true,
+  //   items: [
+  //     {
+  //       label: "Startups",
+  //       href: "/startups",
+  //     },
+  //     {
+  //       label: "E-Commerce",
+  //       href: "/",
+  //     },
+  //     {
+  //       label: "Food Business",
+  //       href: "/industries/food-and-service",
+  //     },
+  //     {
+  //       label: "Legal Services",
+  //       href: "/industries/legal-services",
+  //     },
+  //   ],
+  // },
 ];
 
 interface Props {
